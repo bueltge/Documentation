@@ -69,14 +69,25 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 	
 }
 
-function documentation_get_options( $value = '' ) {
-	
-	$documentation_options = new Documentation_Options();
-	
-	$options = $documentation_options->get_theme_options();
-	if ( ! empty( $value ) )
-		$options = $options[$value];
-	return $options;
+
+if ( ! function_exists( 'documentation_get_options' ) ) {
+
+	/**
+	 * Return options value or array of all values
+	 * Small wrapper for the class
+	 * 
+	 * @since  08/09/2012
+	 */
+	function documentation_get_options( $value = '' ) {
+		
+		$documentation_options = new Documentation_Options();
+		
+		$options = $documentation_options->get_theme_options();
+		if ( ! empty( $value ) )
+			$options = $options[$value];
+		return $options;
+	}
+
 }
 
 
