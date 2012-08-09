@@ -1,0 +1,305 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Documentation v2.2.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-12-14 13:32+0100\n"
+"PO-Revision-Date: 2012-08-09 15:07:51+0000\n"
+"Last-Translator: Frank Bueltge <frank@bueltge.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: \n"
+"X-Poedit-Country: \n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: d:/xampp/htdocs/wpbeta/wp-content/themes/dokumentation/\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: archive.php:12
+#: index.php:12
+#@ documentation
+msgid "Archive for categorie"
+msgstr "Archiv für Kategorie"
+
+#: archive.php:24
+#: index.php:24
+#@ documentation
+msgid "Archive"
+msgstr "Archiv"
+
+#: archive.php:38
+#: archive.php:40
+#: archive.php:54
+#: archive.php:55
+#: archive.php:68
+#: index.php:38
+#: index.php:40
+#: index.php:54
+#: index.php:55
+#: index.php:68
+#@ documentation
+msgid "... more &raquo;"
+msgstr "... weiterlesen &raquo;"
+
+#: archive.php:50
+#: archive.php:64
+#: functions.php:176
+#: functions.php:204
+#: index.php:50
+#: index.php:64
+#: page.php:29
+#: single.php:34
+#@ documentation
+msgid "Edit"
+msgstr "Editieren"
+
+#: parts/no-results.php:8
+#@ documentation
+msgid "Nothing found, corresponding to the search criteria."
+msgstr "Nichts gefunden, was den Suchkriterien entspricht."
+
+#: archive.php:91
+#: home.php:37
+#: index.php:91
+#@ documentation
+msgid "next page"
+msgstr "Nächste Seite"
+
+#: archive.php:91
+#: home.php:37
+#: index.php:91
+#@ documentation
+msgid "previous page"
+msgstr "Vorherige Seite"
+
+#: functions.php:208
+#@ documentation
+msgid "Your comment is awaiting moderation."
+msgstr "Ihr Kommentar wartet auf die Moderation."
+
+#: footer.php:19
+#: header.php:32
+#@ documentation
+msgid "Login"
+msgstr "Anmelden"
+
+#: footer.php:21
+#@ documentation
+msgid "Logout"
+msgstr "Abmelden"
+
+#: header.php:34
+#@ documentation
+msgid "Administration"
+msgstr "Verwaltung"
+
+#: sidebar.php:25
+#@ documentation
+msgid "Search"
+msgstr "Suche"
+
+#: sidebar.php:31
+#@ documentation
+msgid "Pages"
+msgstr "Seiten"
+
+#: sidebar.php:38
+#@ documentation
+msgid "Categories"
+msgstr "Kategorien"
+
+#: sidebar.php:41
+#@ documentation
+msgid "Last entries"
+msgstr "Letzte Einträge"
+
+#: comments.php:17
+#@ documentation
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "Dieser Beitrag ist passwortgeschützt. Gebe das Passwort ein und lese die Kommentare."
+
+#: comments.php:61
+#@ documentation
+msgid "Comments are closed."
+msgstr "Kommentare sind geschlossen."
+
+#. translators: 1: date, 2: time
+#: functions.php:199
+#, php-format
+#@ documentation
+msgid "%1$s at %2$s"
+msgstr "%1$s bei %2$s"
+
+#: functions.php:176
+#@ documentation
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: functions.php:133
+#@ documentation
+msgid "Primary Widget Area"
+msgstr "Primärer Widget Bereich"
+
+#: functions.php:144
+#@ documentation
+msgid "Secondary Widget Area"
+msgstr "Sekundärer Widget Bereich"
+
+#: archive.php:14
+#: index.php:14
+#@ documentation
+msgid "Daily archive"
+msgstr "Tagesarchiv"
+
+#: archive.php:16
+#: index.php:16
+#@ documentation
+msgid "Monthly archive"
+msgstr "Monatsarchiv"
+
+#: archive.php:18
+#: index.php:18
+#@ documentation
+msgid "Years of archive"
+msgstr "Jahresarchiv"
+
+#: archive.php:20
+#: index.php:20
+#@ documentation
+msgid "Search results"
+msgstr "Suchresultate"
+
+#: archive.php:22
+#: index.php:22
+#@ documentation
+msgid "Author archive"
+msgstr "Autorenarchiv"
+
+#: comments.php:33
+#, php-format
+#@ documentation
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "Kommentare zu &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s kommentieren zu &ldquo;%2$s&rdquo;"
+
+#: comments.php:40
+#: comments.php:52
+#@ documentation
+msgid "Comment navigation"
+msgstr "Kommentarnavigation"
+
+#: comments.php:41
+#: comments.php:53
+#@ documentation
+msgid "&larr; Older Comments"
+msgstr "&larr; Ältere Kommentare"
+
+#: comments.php:42
+#: comments.php:54
+#@ documentation
+msgid "Newer Comments &rarr;"
+msgstr "neuere Kommentare &rarr;"
+
+#: functions.php:39
+#@ documentation
+msgid "Primary Menu"
+msgstr "Primäres Menu"
+
+#: functions.php:135
+#@ documentation
+msgid "The primary widget area is visible on all pages and posts."
+msgstr "Der primäre Widget Bereich ist in allen Seiten und Artikeln sichtbar."
+
+#: functions.php:146
+#@ documentation
+msgid "The secondary widget area down below Primary Widget Area only on pages and posts."
+msgstr "Der sekundäre Widget Bereich unterhalb des primären Widget Bereiches ist nur bei Seiten und Artikeln sichbar."
+
+#. translators: 1: comment author, 2: date and time
+#: functions.php:193
+#, php-format
+#@ documentation
+msgid "%1$s on %2$s <span class=\"says\">said:</span>"
+msgstr "%1$s zu %2$s <span class=\\\"says\\\">sagt:</span>"
+
+#: functions.php:216
+#@ documentation
+msgid "Reply <span>&darr;</span>"
+msgstr "Antwort <span>&darr;</span>"
+
+#: functions.php:250
+#@ documentation
+msgid "&laquo; Previous"
+msgstr "&laquo; vorherige"
+
+#: functions.php:251
+#@ documentation
+msgid "Next &raquo;"
+msgstr "nächste &raquo;"
+
+#: archive.php:45
+#: archive.php:59
+#: index.php:45
+#: index.php:59
+#, php-format
+#@ documentation
+msgid "Category: %s, write at %s by %s"
+msgstr "Kategorie: %s, geschrieben am %s von %s"
+
+#: page.php:23
+#, php-format
+#@ documentation
+msgid "Updated at %s by %s, write at %s by %s"
+msgstr "Aktualisiert am %s von %s, erstellt am %s von %s"
+
+#: single.php:26
+#, php-format
+#@ documentation
+msgid "Category: %s<br />%s updated at %s by %s, write at %s by %s"
+msgstr "Kategorie: %s<br />%s aktualisiert an %s von %s, erstellt am %s von %s"
+
+#: single.php:28
+#@ documentation
+msgid "Tags:"
+msgstr "Schlagworte:"
+
+#: functions.php:272
+#, php-format
+#@ documentation
+msgid "&emsp;(%d)"
+msgstr "&emsp;(%d)"
+
+#: inc/theme-options.php:63
+#: inc/theme-options.php:184
+#@ documentation
+msgid "Rewrite URL"
+msgstr "Weiterleitung URL"
+
+#: inc/theme-options.php:78
+#: inc/theme-options.php:79
+#@ documentation
+msgid "Theme Options"
+msgstr "Theme Einstellungen"
+
+#: inc/theme-options.php:114
+#, php-format
+#@ documentation
+msgid "Edit an URL in Backend for the Administration Link in Frontend. Example: %s"
+msgstr "Hinterlege eine URL im Backend von WordPress für den Administrationslink im Frontend. Beispiel: %s"
+
+#: inc/theme-options.php:128
+#, php-format
+#@ documentation
+msgid "%s Theme Options"
+msgstr "%s Theme Einstellungen"
+
+#: inc/theme-options.php:173
+#@ documentation
+msgid "Rewrite"
+msgstr "Weiterleitung"
+
