@@ -24,7 +24,7 @@ if ( have_posts() ) :
 				<?php
 				printf(
 					__( 'Category: %s<br />%s updated at %s by %s, write at %s by %s', 'documentation' ),
-					get_the_category_list( ',' ),
+					get_the_category_list( ', ' ),
 					get_the_tag_list( __( 'Tags:', 'documentation' ) . ' ', ', ', '<br />' ),
 					get_the_modified_date(),
 					get_the_modified_author(),

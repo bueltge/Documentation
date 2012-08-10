@@ -15,7 +15,9 @@ if ( have_posts() ) :
 	?>
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<h2><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-			<p><small><?php the_category( ',' ) ?></small></p>
+			<p class="info">
+				<?php _e( 'Category:', 'documentation' ); ?> <?php the_category( ', ' ) ?>
+			</p>
 		</div>
 	
 	<?php
@@ -30,11 +32,5 @@ else:
 	get_template_part( 'parts/no-results', 'home' );
 
 endif;
-
-if ( function_exists( 'documentation_get_paginate_bar' ) ) {
-	documentation_get_paginate_bar();
-} else {
-	posts_nav_link('<span class="none"> | </span>', '<span class="right">' . __('next page', 'documentation' ) . ' &raquo;</span>', '<span class="left">&laquo; ' . __('previous page', 'documentation' ) . '</span>');
-}
 
 get_footer();

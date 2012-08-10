@@ -2,7 +2,7 @@
 /**
  * Documentation layout
  * 
- * @version     08/09/2012
+ * @version     08/10/2012
  * @author      Frank Bültge
  */
  
@@ -137,7 +137,7 @@ padding: 5px;
 font-size: .8em;
 }
 
-.post .info {
+.story .info, #content .info {
 clear:both;
 margin: 10px 0;
 padding: 0;
@@ -145,11 +145,16 @@ border-top: 1px solid #eee;
 text-align: right;
 }
 
+.home .story .info {
+margin: 0;
+border: none;
+}
+
 .sticky { }
 
 .gallery-caption{ }
 
-..bypostauthor{ }
+.bypostauthor{ }
 
 #commentbox {
 clear: both;

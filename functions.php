@@ -283,7 +283,8 @@ if ( ! function_exists( 'documentation_get_paginate_bar' ) ) {
 				'add_args'     => FALSE, // array of query args to add
 				'add_fragment' => '',
 				'show_total'   => FALSE,
-				'display'      => TRUE
+				'display'      => TRUE,
+				'markup'       => 'div'
 			);
 		}
 		
@@ -300,6 +301,12 @@ if ( ! function_exists( 'documentation_get_paginate_bar' ) ) {
 		
 		if ( $args['show_total'] )
 			$pagination .= sprintf( __( '&emsp;(%d)', 'documentation' ), $wp_query->max_num_pages );
+		
+		if ( ! empty( $args['markup'] ) )
+			$pagination = apply_filters( 
+				'documentation_paginate_bar',
+				'<' . $args['markup'] . ' class="paginate_bar">' . $pagination . '</' . $args['markup'] . '>'
+			);
 		
 		if ( $args['display'] && 1 < $wp_query->max_num_pages )
 			echo $pagination;

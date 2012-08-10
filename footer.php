@@ -3,6 +3,9 @@
  * @package WordPress
  * @subpackage Documentation
  */
+ 
+if ( ! is_singular() )
+	documentation_get_paginate_bar();
 ?>
 	</div>
 	
