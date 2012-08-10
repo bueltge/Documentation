@@ -145,7 +145,7 @@ border-top: 1px solid #eee;
 text-align: right;
 }
 
-.home .story .info {
+.home .info, .home #content .info {
 margin: 0;
 border: none;
 }
@@ -459,4 +459,11 @@ width: 50%;
 #sidebar p, #foot ul {
 margin: 2px;
 padding: 0;
+}
+
+.paginate_bar {
+margin: 50px 0;
+padding: 2px 0;
+border-top: 1px solid #eee;
+border-bottom: 1px solid #eee;
 }

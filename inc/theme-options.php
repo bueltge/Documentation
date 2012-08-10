@@ -13,12 +13,12 @@ class Documentation_Options {
 	 * so child themes don't share the parent theme's option value.
 	 */
 	var $option_key = 'documentation_theme_options';
-
+	
 	/**
 	 * Initialize our options.
 	 */
 	var $options = array();
-
+	
 	function documentation_Options() {
 		// Set option key based on get_stylesheet()
 		if ( 'documentation' != get_stylesheet() )
@@ -28,7 +28,7 @@ class Documentation_Options {
 		add_action( 'admin_menu',         array( $this, 'add_page'           ) );
 		add_action( 'customize_register', array( $this, 'customize_register' ) );
 	}
-
+	
 	/**
 	 * Register the form setting for our options array.
 	 *
@@ -44,7 +44,7 @@ class Documentation_Options {
 
 		// Register our option group.
 		register_setting(
-			'documentation_options',    // Options group, see settings_fields() call in render_page()
+			'documentation_options',   // Options group, see settings_fields() call in render_page()
 			$this->option_key,         // Database option, see get_theme_options()
 			array( $this, 'validate' ) // The sanitization callback, see validate()
 		);
@@ -61,7 +61,7 @@ class Documentation_Options {
 		add_settings_field(
 			'rewrite_url',                                // Unique identifier for the field for this section
 			__( 'Rewrite URL', 'documentation' ),          // Setting field label
-			array( $this, 'settings_field_enable_fonts' ), // Function that renders the settings field
+			array( $this, 'settings_field_rewrite_url' ), // Function that renders the settings field
 			'theme_options',                               // Menu slug, used to uniquely identify the page; see add_page()
 			'general'                                      // Settings section. Same as the first argument in the add_settings_section() above
 		);
@@ -77,26 +77,30 @@ class Documentation_Options {
 		$theme_page = add_theme_page(
 			__( 'Theme Options', 'documentation' ), // Name of page
 			__( 'Theme Options', 'documentation' ), // Label in menu
-			'edit_theme_options',                  // Capability required
-			'theme_options',                       // Menu slug, used to uniquely identify the page
-			array( $this, 'render_page' )          // Function that renders the options page
+			'edit_theme_options',                   // Capability required
+			'theme_options',                        // Menu slug, used to uniquely identify the page
+			array( $this, 'render_page' )           // Function that renders the options page
 		);
 	}
-
+	
 	/**
 	 * Returns the default options.
+	 * 
+	 * @return  Array
 	 */
 	function get_default_theme_options() {
 		
 		$default_theme_options = array(
 			'rewrite_url' => 'wp-admin/edit.php',
 		);
-
+		
 		return apply_filters( 'documentation_default_theme_options', $default_theme_options );
 	}
-
+	
 	/**
 	 * Returns the options array.
+	 * 
+	 * @return  String
 	 */
 	function get_theme_options() {
 		
@@ -104,9 +108,11 @@ class Documentation_Options {
 	}
 
 	/**
-	 * Renders the enable fonts checkbox setting field.
+	 * Renders the input field
+	 * 
+	 * @return  void
 	 */
-	function settings_field_enable_fonts() {
+	function settings_field_rewrite_url() {
 		
 		$options = $this->options; ?>
 		<label for="enable-fonts"> 
@@ -160,8 +166,8 @@ class Documentation_Options {
 	/**
 	 * Implement theme options into Theme Customizer
 	 *
-	 * @param $wp_customize Theme Customizer object
-	 * @return void
+	 * @param   $wp_customize Theme Customizer object
+	 * @return  void
 	 *
 	 * @since 08/09/2012
 	 */

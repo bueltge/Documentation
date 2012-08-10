@@ -21,7 +21,7 @@ if ( ! is_singular() )
 		if ( ! is_user_logged_in() ) {
 			$link = ' | <a href="' . get_option('siteurl') . '/wp-login.php?redirect_to=' . $redirect . '">' . __('Login', 'documentation') . '</a>';
 		} else {
-			$link = ' | <a href="' . get_option('siteurl') . '/wp-login.php?action=logout&amp;redirect_to=' . $redirect . '">' . __( 'Logout', 'documentation' ) . '</a>';
+			$link = ' | <a href="' . home_url( '/' ) . '/wp-login.php?action=logout&amp;redirect_to=' . home_url( '/' ) . '">' . __( 'Logout', 'documentation' ) . '</a>';
 		}
 		echo apply_filters( 'loginout', $link );
 		?>
