@@ -5,6 +5,12 @@
  * @version    08/09/2012
  */
 
+/**
+ * Post content often has specified width. 
+ * Thus, images which has bigger size than content width can break up the layout of theme.
+ * To prevent this situation, WordPress provides one way to specify the maximum image size for themes.
+ * Define the maximum image size
+ */
 if ( ! isset( $content_width ) )
 	$content_width = 900;
 
@@ -48,7 +54,7 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menu( 'primary', __( 'Primary Menu', 'documentation' ) );
-	
+		
 		// Add support for custom background.
 		$args = array( 
 			'default-image'          => '',
@@ -65,32 +71,35 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		add_editor_style( 'css/editor-style' . $suffix . '.css' );
 	}
 	
-}
+} // end if func exists
 
 
 if ( ! function_exists( 'documentation_get_options' ) ) {
-
+	
 	/**
 	 * Return options value or array of all values
 	 * Small wrapper for the class
 	 * 
-	 * @since  08/09/2012
+	 * @since   08/09/2012
+	 * @return  String, Array  Value of the options item
 	 */
 	function documentation_get_options( $value = '' ) {
 		
 		$documentation_options = new Documentation_Options();
 		
 		$options = $documentation_options->get_theme_options();
+		
 		if ( ! empty( $value ) )
 			$options = $options[$value];
+		
 		return $options;
 	}
-
-}
+	
+} // end if func exists
 
 
 if ( ! function_exists( 'documentation_scripts_styles' ) ) {
-
+	
 	add_action( 'wp_enqueue_scripts', 'documentation_scripts_styles' );
 	/**
 	 * Enqueue scripts and styles for front-end.
@@ -109,9 +118,7 @@ if ( ! function_exists( 'documentation_scripts_styles' ) ) {
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
 			wp_enqueue_script( 'comment-reply' );
 		
-		/**
-		 * Load our main CSS file.
-		 */
+		// Register main and print CSS file
 		wp_register_style( 'documentation-style', get_stylesheet_directory_uri() . '/css/style' . $suffix . '.css' );
 		wp_register_style(
 			'documentation-print-style',
@@ -137,6 +144,7 @@ if ( ! function_exists( 'documentation_widgets_init' ) ) {
 	 * @return  void
 	 */
 	function documentation_widgets_init() {
+		
 		// Area 1
 		register_sidebar( array (
 			'name'          => __( 'Primary Widget Area', 'documentation' ),
@@ -160,7 +168,7 @@ if ( ! function_exists( 'documentation_widgets_init' ) ) {
 		) );
 	} // end theme_widgets_init
 	
-}
+} // end if func exists
 
 
 if ( ! function_exists( 'documentation_comment' ) ) {
@@ -173,9 +181,14 @@ if ( ! function_exists( 'documentation_comment' ) ) {
 	 *
 	 * Used as a callback by wp_list_comments() for displaying the comments.
 	 *
-	 * @since Documentation 2.0
+	 * @since   2.0.0
+	 * @param   $comment  
+	 * @param   $args  
+	 * @param   $depth  
+	 * @return  void
 	 */
 	function documentation_comment( $comment, $args, $depth ) {
+		
 		$GLOBALS['comment'] = $comment;
 		switch ( $comment->comment_type ) :
 			case 'pingback' :
@@ -184,8 +197,8 @@ if ( ! function_exists( 'documentation_comment' ) ) {
 		<li class="post pingback">
 			<p><?php _e( 'Pingback:', 'documentation' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'documentation' ), '<span class="edit-link">', '</span>' ); ?></p>
 		<?php
-				break;
-			default :
+			break;
+		default :
 		?>
 		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 			<article id="comment-<?php comment_ID(); ?>" class="comment">
@@ -209,23 +222,23 @@ if ( ! function_exists( 'documentation_comment' ) ) {
 								)
 							);
 						?>
-	
+						
 						<?php edit_comment_link( __( 'Edit', 'documentation' ), '<span class="edit-link">', '</span>' ); ?>
 					</div><!-- .comment-author .vcard -->
-	
+					
 					<?php if ( $comment->comment_approved == '0' ) : ?>
 						<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'documentation' ); ?></em>
 						<br />
 					<?php endif; ?>
 				</footer>
-	
+				
 				<div class="comment-content"><?php comment_text(); ?></div>
-	
+				
 				<div class="reply">
 					<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply <span>&darr;</span>', 'documentation' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 				</div><!-- .reply -->
 			</article><!-- #comment-## -->
-	
+			
 		<?php
 				break;
 		endswitch;
@@ -235,8 +248,13 @@ if ( ! function_exists( 'documentation_comment' ) ) {
 
 
 if ( ! function_exists( 'documentation_get_paginate_bar' ) ) {
+	
 	/**
+	 * Create a pagination bar
 	 * 
+	 * @since   08/09/2012
+	 * @param   $args  Array  see default array inside fct.
+	 * @return  $pagination String
 	 */
 	function documentation_get_paginate_bar( $args = FALSE ) {
 		global $wp_rewrite, $wp_query;
@@ -249,6 +267,7 @@ if ( ! function_exists( 'documentation_get_paginate_bar' ) ) {
 			$rulestouse = @add_query_arg( 'page','%#%' );
 		
 		if ( ! $args ) {
+			// default arguments
 			$args = array(
 				'base'         => $rulestouse,
 				'format'       => '',
@@ -270,9 +289,11 @@ if ( ! function_exists( 'documentation_get_paginate_bar' ) ) {
 		
 		if ( $wp_rewrite->using_permalinks() ) {
 			$args['base'] = user_trailingslashit( 
-				trailingslashit( remove_query_arg( 's', get_pagenum_link(1) ) ) . 'page/%#%/', 'paged' );
+				trailingslashit( remove_query_arg( 's', get_pagenum_link(1) ) ) . 'page/%#%/', 'paged'
+			);
 		}
-		if ( ! empty( $wp_query -> query_vars['s'] ) )
+		
+		if ( ! empty( $wp_query->query_vars['s'] ) )
 			$args['add_args'] = array( 's' => get_query_var('s') );
 		
 		$pagination = paginate_links( $args );
