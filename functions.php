@@ -13,7 +13,14 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 	
 	add_action( 'after_setup_theme', 'documentation_setup' );
 	/**
+	 * Sets up theme defaults and registers support for various WordPress features.
+	 *
+	 * Note that this function is hooked into the after_setup_theme hook, which runs
+	 * before the init hook. The init hook is too late for some features, such as indicating
+	 * support post thumbnails.
 	 * 
+	 * @since   1.0.0
+	 * @return  void
 	 */
 	function documentation_setup() {
 		/**
@@ -24,9 +31,13 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		 */
 		load_theme_textdomain( 'documentation', get_template_directory() . '/languages' );
 		
-		// Login + Admin Bar Branding
+		/**
+		 * Login + Admin Bar Branding
+		 * 
+		 * @see  https://github.com/bueltge/WordPress-Basis-Theme/tree/namespace/inc/admin
+		 */
 		require_once( 'inc/class-branding.php' );
-		new Documentation_Admin_Branding;
+		new Documentation_Admin_Branding( array() );
 		
 		// Load up our theme options page and related code.
 		require( get_template_directory() . '/inc/theme-options.php' );
@@ -34,7 +45,7 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		
 		// Add default posts and comments RSS feed links to <head>.
 		add_theme_support( 'automatic-feed-links' );
-	
+		
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menu( 'primary', __( 'Primary Menu', 'documentation' ) );
 	
@@ -48,23 +59,10 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		);
 		add_theme_support( 'custom-background', $args );
 		
-		/*
-		 * CURRENT, dont supported this
-		 * The default header text color
-		 *
-		$args = array(
-			'default-text-color'     => '111',
-			'default-image'          => ''
-		);
-		if ( function_exists( 'wp_get_theme' ) )
-			add_theme_support( 'custom-header', $args );
-		else
-			define( 'HEADER_TEXTCOLOR', $args['default-text-color'] );
-		*/
-		
+		// define suffix for development on scripts and styles
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
 		// This theme styles the visual editor with editor-style.css to match the theme style.
-		add_editor_style( 'editor-style' . $suffix . '.css' );
+		add_editor_style( 'css/editor-style' . $suffix . '.css' );
 	}
 	
 }
@@ -114,10 +112,10 @@ if ( ! function_exists( 'documentation_scripts_styles' ) ) {
 		/**
 		 * Load our main CSS file.
 		 */
-		wp_register_style( 'documentation-style', get_stylesheet_directory_uri() . '/style' . $suffix . '.css' );
+		wp_register_style( 'documentation-style', get_stylesheet_directory_uri() . '/css/style' . $suffix . '.css' );
 		wp_register_style(
 			'documentation-print-style',
-			get_stylesheet_directory_uri() . '/print' . $suffix . '.css',
+			get_stylesheet_directory_uri() . '/css/print' . $suffix . '.css',
 			array(),
 			FALSE,
 			'print'
