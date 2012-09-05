@@ -25,7 +25,7 @@ class Documentation_Options {
 	 */	
 	var $options = array();
 	
-	function __construct() {
+	public function __construct() {
 		
 		// Set option key based on get_stylesheet()
 		$this->theme_key  = get_stylesheet();
@@ -45,7 +45,7 @@ class Documentation_Options {
 	 * which is used when the option is saved, to ensure that our option values are properly
 	 * formatted, and safe.
 	 */
-	function options_init() {
+	public function options_init() {
 		
 		// Load our options for use in any method.
 		$this->options = $this->get_theme_options();
@@ -89,7 +89,7 @@ class Documentation_Options {
 	 *
 	 * This function is attached to the admin_menu action hook.
 	 */
-	function add_page() {
+	public function add_page() {
 		
 		$theme_page = add_theme_page(
 			__( 'Theme Options', 'documentation' ), // Name of page
@@ -106,7 +106,7 @@ class Documentation_Options {
 	 * 
 	 * @return   Array
 	 */
-	function get_default_theme_options() {
+	public function get_default_theme_options() {
 		
 		$default_theme_options = array(
 			'rewrite_url' => 'wp-admin/edit.php',
@@ -121,7 +121,7 @@ class Documentation_Options {
 	 * 
 	 * @return   Array
 	 */
-	function get_theme_options() {
+	public function get_theme_options() {
 		
 		$saved = (array) get_option( $this->option_key );
 		$defaults = $this->get_default_theme_options();
@@ -135,7 +135,7 @@ class Documentation_Options {
 	/**
 	 * Renders the enable fonts checkbox setting field.
 	 */
-	function settings_field_enable_fonts() {
+	public function settings_field_enable_fonts() {
 		
 		$options = $this->options; ?>
 		<label for="enable-fonts"> 
@@ -166,7 +166,7 @@ class Documentation_Options {
 	 *
 	 * @uses get_current_theme() for back compat, fallback for < 3.4
 	 */
-	function render_page() {
+	public function render_page() {
 		?>
 		<div class="wrap">
 			<?php screen_icon(); ?>
@@ -190,11 +190,11 @@ class Documentation_Options {
 	 *
 	 * @see options_init()
 	 */
-	function validate( $input ) {
+	public function validate( $input ) {
 		
 		$output = $defaults = $this->get_default_theme_options();
 
-		// The enable fonts checkbox should boolean TRUE or FALSE
+		// filter html for the field
 		if ( isset( $input['rewrite_url'] ) && ! empty( $input['rewrite_url'] ) )
 			$output['rewrite_url'] = wp_filter_nohtml_kses( $input['rewrite_url'] );
 		
@@ -206,14 +206,13 @@ class Documentation_Options {
 	
 	/**
 	 * Implement theme options into Theme Customizer
-	 *
-	 * @param $wp_customize Theme Customizer object
-	 * @return void
-	 *
-	 * @since 08/09/2012
+	 * 
+	 * @since   08/09/2012
+	 * @param   $wp_customize  Theme Customizer object
+	 * @return  void
 	 */
-	function customize_register( $wp_customize ) {
-		
+	public function customize_register( $wp_customize ) {
+		var_dump($wp_customize);
 		$defaults = $this->get_default_theme_options();
 		
 		$wp_customize->add_section( $this->option_key . '_rewrite_url', array(
