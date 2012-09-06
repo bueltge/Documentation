@@ -88,6 +88,8 @@ class Documentation_Options {
 	 * Add our theme options page to the admin menu.
 	 *
 	 * This function is attached to the admin_menu action hook.
+	 * 
+	 * @return   void
 	 */
 	public function add_page() {
 		
@@ -102,9 +104,43 @@ class Documentation_Options {
 		if ( ! $theme_page )
 			return;
 		
+		add_action( 'admin_print_scripts-' . $theme_page, array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'load-' . $theme_page, array( $this, 'theme_options_help' ) );
 	}
 	
+	/**
+	 * Properly enqueue styles and scripts for our theme options page.
+	 * 
+	 * @return   void
+	 */
+	public function admin_enqueue_scripts( $hook_suffix ) {
+		
+		// enqueue styles
+		wp_register_style(
+			$this->theme_key . '-theme-options',
+			get_template_directory_uri() . '/inc/theme-options.css',
+			FALSE,
+			FALSE
+		);
+		wp_enqueue_style( $this->theme_key . '-theme-options' );
+		wp_enqueue_style( 'farbtastic' );
+		
+		// enqueue scripts
+		wp_register_script(
+			$this->theme_key . '-theme-options',
+			get_template_directory_uri() . '/inc/theme-options.js',
+			array( 'farbtastic' ),
+			FALSE
+		);
+		wp_enqueue_script( $this->theme_key . '-theme-options' );
+	}
+	
+	/**
+	 * Return the content for help area
+	 * 
+	 * @since    09/06/2012
+	 * @return   void
+	 */
 	public function theme_options_help() {
 		
 		$help = '<p>' . __( 'Some themes provide customization options that are grouped together on a Theme Options screen. If you change themes, options may change or disappear, as they are theme-specific. Your current theme provides the following Theme Options:', 'documentation' ) . '</p>' .
@@ -141,12 +177,15 @@ class Documentation_Options {
 	 * 
 	 * @return   Array
 	 */
-	public function get_default_theme_options() {
+	public function get_default_theme_options( $value = NULL ) {
 		
 		$default_theme_options = array(
 			'rewrite_url' => 'wp-admin/edit.php',
 			'text_color'  => '#333'
 		);
+		
+		if ( NULL !== $value )
+			return $default_theme_options[$value];
 		
 		return apply_filters( $this->theme_key . '_default_theme_options', $default_theme_options );
 	}
@@ -191,12 +230,12 @@ class Documentation_Options {
 		$options = $this->options;
 		?>
 		<label for="text-color">
-			<input type="text" name="<?php echo $options; ?>[text_color]" id="text-color" value="<?php echo $options['text_color']; ?>" class="regular-text code" />
-			<a href="#" class="pickcolor hide-if-no-js" id="link-color-example"></a>
+			<input type="text" name="<?php echo $options; ?>[text_color]" id="text-color" value="<?php echo $options['text_color']; ?>" />
+			<a href="#" class="pickcolor hide-if-no-js" id="text-color-example"></a>
 			<input type="button" class="pickcolor button hide-if-no-js" value="<?php esc_attr_e( 'Select a Color', 'documentation' ); ?>" />
 			<div id="colorPickerDiv" style="z-index: 100; background:#eee; border:1px solid #ccc; position:absolute; display:none;"></div>
 			<br />
-			<span class="description"><?php printf( __( 'Fill with an hex code for the text color. Example: %s', 'documentation' ), '<code>#f0f0f0</code>' ); ?> </span>
+			<span class="description"><?php printf( __( 'Fill with an hex code for the text color. Default color: %s', 'documentation' ), '<code id="default-color">' . $this->get_default_theme_options( 'text_color' ) . '</code>' ); ?> </span>
 		</label>
 	<?php
 	}
