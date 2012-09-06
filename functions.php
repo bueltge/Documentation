@@ -42,11 +42,11 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		 * 
 		 * @see  https://github.com/bueltge/WordPress-Basis-Theme/tree/namespace/inc/admin
 		 */
-		require_once( 'inc/class-branding.php' );
+		require_once( get_template_directory() . '/inc/class-branding.php' );
 		new Documentation_Admin_Branding( array() );
 		
 		// Load up our theme options page and related code.
-		require( get_template_directory() . '/inc/theme-options.php' );
+		require_once( get_template_directory() . '/inc/theme-options.php' );
 		$documentation_options = new Documentation_Options();
 		
 		// Add default posts and comments RSS feed links to <head>.

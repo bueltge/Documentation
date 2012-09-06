@@ -98,6 +98,41 @@ class Documentation_Options {
 			'theme_options',                       // Menu slug, used to uniquely identify the page
 			array( $this, 'render_page' )          // Function that renders the options page
 		);
+		
+		if ( ! $theme_page )
+			return;
+		
+		add_action( 'load-' . $theme_page, array( $this, 'theme_options_help' ) );
+	}
+	
+	public function theme_options_help() {
+		
+		$help = '<p>' . __( 'Some themes provide customization options that are grouped together on a Theme Options screen. If you change themes, options may change or disappear, as they are theme-specific. Your current theme provides the following Theme Options:', 'documentation' ) . '</p>' .
+			'<ol>' . 
+				'<li>' . __( '<strong>Rewrite URL</strong>: ', 'documentation' ) . '</li>' .
+				'<li>' . __( '<strong>Text Color</strong>: ', 'documentation' ) . '</li>' .
+				'<li>' . __( '<strong>Link Color</strong>: You can choose the color used for text links on your site. You can enter the HTML color or hex code, or you can choose visually by clicking the "Select a Color" button to pick from a color wheel.', 'documentation' ) . '</li>' .
+			'</ol>' .
+			'<p>' . __( 'Remember to click "Save Changes" to save any changes you have made to the theme options.', 'twentyeleven' ) . '</p>';
+		
+		$sidebar = '<p><strong>' . __( 'For more information:', 'documentation' ) . '</strong></p>';
+		
+		$screen = get_current_screen();
+		
+		if ( method_exists( $screen, 'add_help_tab' ) ) {
+			// WordPress 3.3
+			$screen->add_help_tab( array(
+				'title'   => __( 'Overview', 'documentation' ),
+				'id'      => 'theme-options-help',
+				'content' => $help,
+				)
+			);
+	
+			$screen->set_help_sidebar( $sidebar );
+		} else {
+			// WordPress 3.2
+			add_contextual_help( $screen, $help . $sidebar );
+		}
 	}
 	
 	/**
@@ -153,10 +188,15 @@ class Documentation_Options {
 	 */
 	public function settings_field_text_color() {
 		
-		$options = $this->options; ?>
-		<label for="text-color"> 
+		$options = $this->options;
+		?>
+		<label for="text-color">
 			<input type="text" name="<?php echo $options; ?>[text_color]" id="text-color" value="<?php echo $options['text_color']; ?>" class="regular-text code" />
-			<br /><span class="description"><?php printf( __( 'Fill with an hex code for the text color. Example: %s', 'documentation' ), '<code>#f0f0f0</code>' ); ?> </span>
+			<a href="#" class="pickcolor hide-if-no-js" id="link-color-example"></a>
+			<input type="button" class="pickcolor button hide-if-no-js" value="<?php esc_attr_e( 'Select a Color', 'documentation' ); ?>" />
+			<div id="colorPickerDiv" style="z-index: 100; background:#eee; border:1px solid #ccc; position:absolute; display:none;"></div>
+			<br />
+			<span class="description"><?php printf( __( 'Fill with an hex code for the text color. Example: %s', 'documentation' ), '<code>#f0f0f0</code>' ); ?> </span>
 		</label>
 	<?php
 	}
@@ -205,7 +245,7 @@ class Documentation_Options {
 	}
 	
 	/**
-	 * Implement theme options into Theme Customizer
+	 * Implement theme options into Theme Customizer on Frontend
 	 * 
 	 * @since   08/09/2012
 	 * @param   $wp_customize  Theme Customizer object
@@ -215,11 +255,13 @@ class Documentation_Options {
 		
 		$defaults = $this->get_default_theme_options();
 		
+		// create custom section for rewrite url
 		$wp_customize->add_section( $this->option_key . '_rewrite_url', array(
 			'title'    => __( 'Rewrite', 'documentation' ),
 			'priority' => 35,
 		) );
 		
+		// add field for rewrite url in custom section
 		$wp_customize->add_setting( $this->option_key . '[rewrite_url]', array(
 			'default'    => $defaults['rewrite_url'],
 			'type'       => 'option',
@@ -227,11 +269,24 @@ class Documentation_Options {
 		) );
 		
 		$wp_customize->add_control( $this->option_key . '_rewrite_url', array(
-			'label'    => __( 'Rewrite URL', 'documentation' ),
-			'section'  => $this->option_key . '_rewrite_url',
-			'settings' => $this->option_key . '[rewrite_url]',
-			'type'     => 'text',
+			'label'      => __( 'Rewrite URL', 'documentation' ),
+			'section'    => $this->option_key . '_rewrite_url',
+			'settings'   => $this->option_key . '[rewrite_url]',
+			'type'       => 'text',
 		) );
+		
+		// add field for text color in default section for 'colors'
+		$wp_customize->add_setting( $this->option_key . '[text_color]', array(
+			'default'    => $defaults['text_color'],
+			'type'       => 'option',
+			'capability' => 'edit_theme_options',
+		) );
+		// add color field include 
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $this->option_key . '_text_color', array(
+			'label'    => __( 'Text Color', 'documentation' ),
+			'section'  => 'colors',
+			'settings' => $this->option_key . '[text_color]',
+		) ) );
 	}
 	
 } // end class
