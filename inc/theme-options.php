@@ -212,7 +212,7 @@ class Documentation_Options {
 	 * @return  void
 	 */
 	public function customize_register( $wp_customize ) {
-		var_dump($wp_customize);
+		
 		$defaults = $this->get_default_theme_options();
 		
 		$wp_customize->add_section( $this->option_key . '_rewrite_url', array(
