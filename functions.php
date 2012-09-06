@@ -45,9 +45,16 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		require_once( get_template_directory() . '/inc/class-branding.php' );
 		new Documentation_Admin_Branding( array() );
 		
+		// params for options class
+		$args = array(
+			'theme_key' => strtolower( get_stylesheet() )
+		);
 		// Load up our theme options page and related code.
 		require_once( get_template_directory() . '/inc/theme-options.php' );
-		$documentation_options = new Documentation_Options();
+		$documentation_options = new Documentation_Options( $args );
+		
+		require_once( get_template_directory() . '/inc/theme-customize.php' );
+		$documentation_customize = new Documentation_Customize( $args );
 		
 		// Add default posts and comments RSS feed links to <head>.
 		add_theme_support( 'automatic-feed-links' );

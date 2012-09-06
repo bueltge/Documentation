@@ -12,28 +12,34 @@ class Documentation_Options {
 	/**
 	 * Identifier, namespace
 	 */
-	var $theme_key = '';
+	public static $theme_key = '';
 	
 	/**
 	 * The option value in the database will be based on get_stylesheet()
 	 * so child themes don't share the parent theme's option value.
 	 */
-	var $option_key = '';
+	public static $option_key = '';
 	
 	/**
 	 * Initialize our options.
 	 */	
 	var $options = array();
 	
-	public function __construct() {
+	/**
+	 * Init
+	 */
+	public function __construct( $args = NULL ) {
 		
 		// Set option key based on get_stylesheet()
-		$this->theme_key  = get_stylesheet();
+		if ( NULL === $args )
+			$args['theme_key'] = strtolower( get_stylesheet() );
+		
+		// Set option key based on get_stylesheet()
+		$this->theme_key  = $args['theme_key'];
 		$this->option_key = $this->theme_key . '_theme_options';
 		
-		add_action( 'admin_init',         array( $this, 'options_init'       ) );
-		add_action( 'admin_menu',         array( $this, 'add_page'           ) );
-		add_action( 'customize_register', array( $this, 'customize_register' ) );
+		add_action( 'admin_init', array( $this, 'options_init' ) );
+		add_action( 'admin_menu', array( $this, 'add_page'     ) );
 	}
 
 	/**
@@ -213,7 +219,7 @@ class Documentation_Options {
 		
 		$options = $this->options; ?>
 		<label for="enable-fonts"> 
-			<input type="text" name="<?php echo $options; ?>[rewrite_url]" id="rewrite-url" value="<?php echo $options['rewrite_url']; ?>" class="regular-text code" />
+			<input type="text" name="<?php echo $this->option_key; ?>[rewrite_url]" id="rewrite-url" value="<?php echo $options['rewrite_url']; ?>" class="regular-text code" />
 			<br /><span class="description"><?php printf( __( 'Edit an URL in Backend for the Administration Link in Frontend. Example: %s', 'documentation' ), '<code>wp-admin/edit.php</code>' ); ?> </span>
 		</label>
 	<?php
@@ -230,12 +236,15 @@ class Documentation_Options {
 		$options = $this->options;
 		?>
 		<label for="text-color">
-			<input type="text" name="<?php echo $options; ?>[text_color]" id="text-color" value="<?php echo $options['text_color']; ?>" />
+			<input type="text" name="<?php echo $this->option_key; ?>[text_color]" id="text-color" value="<?php echo $options['text_color']; ?>" />
 			<a href="#" class="pickcolor hide-if-no-js" id="text-color-example"></a>
 			<input type="button" class="pickcolor button hide-if-no-js" value="<?php esc_attr_e( 'Select a Color', 'documentation' ); ?>" />
 			<div id="colorPickerDiv" style="z-index: 100; background:#eee; border:1px solid #ccc; position:absolute; display:none;"></div>
 			<br />
-			<span class="description"><?php printf( __( 'Fill with an hex code for the text color. Default color: %s', 'documentation' ), '<code id="default-color">' . $this->get_default_theme_options( 'text_color' ) . '</code>' ); ?> </span>
+			<span class="description"><?php printf( 
+				__( 'Fill with an hex code for the text color. Default color: %s', 'documentation' ),
+				'<code id="default-color">' . $this->get_default_theme_options( 'text_color' ) . '</code>'
+			); ?> </span>
 		</label>
 	<?php
 	}
@@ -281,51 +290,6 @@ class Documentation_Options {
 			$output['text_color'] = wp_filter_nohtml_kses( $input['text_color'] );
 		
 		return apply_filters( $this->theme_key . '_options_validate', $output, $input, $defaults );
-	}
-	
-	/**
-	 * Implement theme options into Theme Customizer on Frontend
-	 * 
-	 * @since   08/09/2012
-	 * @param   $wp_customize  Theme Customizer object
-	 * @return  void
-	 */
-	public function customize_register( $wp_customize ) {
-		
-		$defaults = $this->get_default_theme_options();
-		
-		// create custom section for rewrite url
-		$wp_customize->add_section( $this->option_key . '_rewrite_url', array(
-			'title'    => __( 'Rewrite', 'documentation' ),
-			'priority' => 35,
-		) );
-		
-		// add field for rewrite url in custom section
-		$wp_customize->add_setting( $this->option_key . '[rewrite_url]', array(
-			'default'    => $defaults['rewrite_url'],
-			'type'       => 'option',
-			'capability' => 'edit_theme_options',
-		) );
-		
-		$wp_customize->add_control( $this->option_key . '_rewrite_url', array(
-			'label'      => __( 'Rewrite URL', 'documentation' ),
-			'section'    => $this->option_key . '_rewrite_url',
-			'settings'   => $this->option_key . '[rewrite_url]',
-			'type'       => 'text',
-		) );
-		
-		// add field for text color in default section for 'colors'
-		$wp_customize->add_setting( $this->option_key . '[text_color]', array(
-			'default'    => $defaults['text_color'],
-			'type'       => 'option',
-			'capability' => 'edit_theme_options',
-		) );
-		// add color field include 
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $this->option_key . '_text_color', array(
-			'label'    => __( 'Text Color', 'documentation' ),
-			'section'  => 'colors',
-			'settings' => $this->option_key . '[text_color]',
-		) ) );
 	}
 	
 } // end class
