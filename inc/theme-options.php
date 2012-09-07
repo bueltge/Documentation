@@ -258,7 +258,7 @@ class Documentation_Options {
 		$options = $this->options;
 		?>
 		<input type="text" name="<?php echo $this->option_key; ?>[text_color]" id="text-color" value="<?php echo $options['text_color']; ?>" />
-		<a href="#" class="pickcolor hide-if-no-js" id="text-color-example"></a>
+		<a href="#" class="text-pickcolor hide-if-no-js" id="text-color-example"></a>
 		<input type="button" class="text-pickcolor button hide-if-no-js" value="<?php esc_attr_e( 'Select a Color', 'documentation' ); ?>" />
 		<div id="text-colorPickerDiv" class="colorPickerDiv"></div>
 		<br />
@@ -280,7 +280,7 @@ class Documentation_Options {
 		$options = $this->options;
 		?>
 		<input type="text" name="<?php echo $this->option_key; ?>[link_color]" id="link-color" value="<?php echo $options['link_color']; ?>" />
-		<a href="#" class="pickcolor hide-if-no-js" id="link-color-example"></a>
+		<a href="#" class="link-pickcolor hide-if-no-js" id="link-color-example"></a>
 		<input type="button" class="link-pickcolor button hide-if-no-js" value="<?php esc_attr_e( 'Select a Color', 'documentation' ); ?>" />
 		<div id="link-colorPickerDiv" class="colorPickerDiv"></div>
 		<br />

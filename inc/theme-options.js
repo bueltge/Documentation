@@ -20,7 +20,7 @@ var farbtastic;
 		
 		pickColor( $(colorpicker).val() );
 		
-		$('#text-color-example').click( function(e) {
+		$('.text-pickcolor').click( function(e) {
 			$(colorpickerdiv).show();
 			e.preventDefault();
 		});
