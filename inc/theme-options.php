@@ -90,9 +90,18 @@ class Documentation_Options {
 		add_settings_field(
 			'text_color',                                 // Unique identifier for the field for this section
 			__( 'Text color', 'documentation' ),          // Setting field label
-			array( $this, 'settings_field_text_color' ), // Function that renders the settings field
-			'theme_options',                               // Menu slug, used to uniquely identify the page; see add_page()
-			'general'                                      // Settings section. Same as the first argument in the add_settings_section() above
+			array( $this, 'settings_field_text_color' ),  // Function that renders the settings field
+			'theme_options',                              // Menu slug, used to uniquely identify the page; see add_page()
+			'general'                                     // Settings section. Same as the first argument in the add_settings_section() above
+		);
+		
+		// Register our custom link color
+		add_settings_field(
+			'link_color',                                 // Unique identifier for the field for this section
+			__( 'Link color', 'documentation' ),          // Setting field label
+			array( $this, 'settings_field_link_color' ),  // Function that renders the settings field
+			'theme_options',                              // Menu slug, used to uniquely identify the page; see add_page()
+			'general'                                     // Settings section. Same as the first argument in the add_settings_section() above
 		);
 	}
 	
@@ -196,7 +205,8 @@ class Documentation_Options {
 		
 		$default_theme_options = array(
 			'rewrite_url' => 'wp-admin/edit.php',
-			'text_color'  => '#333'
+			'text_color'  => '#111',
+			'link_color'  => '#0100BE'
 		);
 		
 		if ( NULL !== $value )
@@ -249,12 +259,34 @@ class Documentation_Options {
 		?>
 		<input type="text" name="<?php echo $this->option_key; ?>[text_color]" id="text-color" value="<?php echo $options['text_color']; ?>" />
 		<a href="#" class="pickcolor hide-if-no-js" id="text-color-example"></a>
-		<input type="button" class="pickcolor button hide-if-no-js" value="<?php esc_attr_e( 'Select a Color', 'documentation' ); ?>" />
-		<div id="colorPickerDiv"></div>
+		<input type="button" class="text-pickcolor button hide-if-no-js" value="<?php esc_attr_e( 'Select a Color', 'documentation' ); ?>" />
+		<div id="text-colorPickerDiv" class="colorPickerDiv"></div>
 		<br />
 		<label class="description" for="text-color"><?php printf( 
 				__( 'Fill with an hex code for the text color. Default color: %s', 'documentation' ),
-				'<code id="default-color">' . $this->get_default_theme_options( 'text_color' ) . '</code>'
+				'<code id="text-default-color">' . $this->get_default_theme_options( 'text_color' ) . '</code>'
+			); ?></label>
+	<?php
+	}
+	
+	/**
+	 * Render text field for link color
+	 * 
+	 * @since    09/07/2012
+	 * @return   void
+	 */
+	public function settings_field_link_color() {
+		
+		$options = $this->options;
+		?>
+		<input type="text" name="<?php echo $this->option_key; ?>[link_color]" id="link-color" value="<?php echo $options['link_color']; ?>" />
+		<a href="#" class="pickcolor hide-if-no-js" id="link-color-example"></a>
+		<input type="button" class="link-pickcolor button hide-if-no-js" value="<?php esc_attr_e( 'Select a Color', 'documentation' ); ?>" />
+		<div id="link-colorPickerDiv" class="colorPickerDiv"></div>
+		<br />
+		<label class="description" for="link-color"><?php printf( 
+				__( 'Fill with an hex code for the link color. Default color: %s', 'documentation' ),
+				'<code id="link-default-color">' . $this->get_default_theme_options( 'link_color' ) . '</code>'
 			); ?></label>
 	<?php
 	}

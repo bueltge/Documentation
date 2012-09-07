@@ -52,9 +52,12 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		// Load up our theme options page and related code.
 		require_once( get_template_directory() . '/inc/theme-options.php' );
 		$documentation_options = new Documentation_Options( $args );
-		
+		// Include the theme customizer for options of theme options
 		require_once( get_template_directory() . '/inc/theme-customize.php' );
 		$documentation_customize = new Documentation_Customize( $args );
+		// include to write the custom theme options in theme head
+		require_once( get_template_directory() . '/inc/head-style.php' );
+		$documentation_head_style = new Documentation_Head_Style( $args );
 		
 		// Add default posts and comments RSS feed links to <head>.
 		add_theme_support( 'automatic-feed-links' );
@@ -65,7 +68,7 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		// Add support for custom background.
 		$args = array( 
 			'default-image'          => '',
-			'default-color'          => '',
+			'default-color'          => 'fff',
 			'wp-head-callback'       => '_custom_background_cb',
 			'admin-head-callback'    => '',
 			'admin-preview-callback' => ''

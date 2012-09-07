@@ -73,12 +73,21 @@ class Documentation_Customize extends Documentation_Options {
 			'type'       => 'option',
 			'capability' => 'edit_theme_options',
 		) );
-		// add color field include 
+		
+		// add color field include color picker for text color
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $this->option_key . '_text_color', array(
 			'label'      => __( 'Text Color', 'documentation' ),
 			'section'    => 'colors',
 			'settings'   => $this->option_key . '[text_color]',
 		) ) );
+		
+		// add color field include color picker for link color
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $this->option_key . '_link_color', array(
+			'label'      => __( 'Link Color', 'documentation' ),
+			'section'    => 'colors',
+			'settings'   => $this->option_key . '[link_color]',
+		) ) );
+		
 	}
 
 } // end class

@@ -8,7 +8,6 @@
  
 body {
 background: #fff;
-color: #111;
 font-family: 'Lucida Sans Unicode','Lucida Sans', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Sans Vera', Verdana, Arial, Tahoma, Helvetica, Sans-Serif;
 font-style: normal;
 line-height: 1.5em;
@@ -113,7 +112,6 @@ line-height: 1.7em;
 }
 
 #content h2 a:link, #content h2 a:visited, #header h1 a:link, #header h1 a:visited {
-color: #0100be;
 font-weight: 400;
 text-decoration: none;
 border: none;
@@ -344,7 +342,6 @@ margin: 0;
 
 a:link, a:visited {
 font-weight: 400;
-color: #0100be;
 text-decoration: none;
 }
 

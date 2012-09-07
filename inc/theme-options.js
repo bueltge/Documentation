@@ -3,24 +3,25 @@ var farbtastic;
 ( function($) {
 	
 	// set ID or class for the textarea
-	var colorpicker = '#text-color',
-			example     = '#text-color-example';
+	var colorpicker    = '#text-color',
+	    example        = '#text-color-example',
+	    colorpickerdiv = '#text-colorPickerDiv';
 	
 	var pickColor = function(a) {
-		farbtastic.setColor(a);
-		$(colorpicker).val(a);
-		$(example).css('background-color', a);
+	    farbtastic.setColor(a);
+	    $(colorpicker).val(a);
+	    $(example).css('background-color', a);
 	};
 	
 	$(document).ready( function() {
-		$('#default-color').wrapInner('<a href="#" />');
+		$('#text-default-color').wrapInner('<a href="#" />');
 		
-		farbtastic = $.farbtastic('#colorPickerDiv', pickColor);
+		farbtastic = $.farbtastic(colorpickerdiv, pickColor);
 		
 		pickColor( $(colorpicker).val() );
 		
-		$('.pickcolor').click( function(e) {
-			$('#colorPickerDiv').show();
+		$('#text-color-example').click( function(e) {
+			$(colorpickerdiv).show();
 			e.preventDefault();
 		});
 		
@@ -36,16 +37,16 @@ var farbtastic;
 		});
 		
 		$(document).mousedown( function() {
-			$('#colorPickerDiv').hide();
+			$(colorpickerdiv).hide();
 		});
 		
-		$('#default-color a').click( function(e) {
+		$('#text-default-color a').click( function(e) {
 			pickColor( '#' + this.innerHTML.replace(/[^a-fA-F0-9]/, '') );
 			e.preventDefault();
 		});
 		
 		$('.image-radio-option.color-scheme input:radio').change( function() {
-			var currentDefault = $('#default-color a'),
+			var currentDefault = $('#text-default-color a'),
 				newDefault = $(this).next().val();
 			
 			if ( $(colorpicker).val() == currentDefault.text() )
