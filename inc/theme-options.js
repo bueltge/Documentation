@@ -2,10 +2,14 @@ var farbtastic;
 
 ( function($) {
 	
+	// set ID or class for the textarea
+	var colorpicker = '#text-color',
+			example     = '#text-color-example';
+	
 	var pickColor = function(a) {
 		farbtastic.setColor(a);
-		$('#text-color').val(a);
-		$('#text-color-example').css('background-color', a);
+		$(colorpicker).val(a);
+		$(example).css('background-color', a);
 	};
 	
 	$(document).ready( function() {
@@ -13,20 +17,20 @@ var farbtastic;
 		
 		farbtastic = $.farbtastic('#colorPickerDiv', pickColor);
 		
-		pickColor( $('#text-color').val() );
+		pickColor( $(colorpicker).val() );
 		
 		$('.pickcolor').click( function(e) {
 			$('#colorPickerDiv').show();
 			e.preventDefault();
 		});
 		
-		$('#text-color').keyup( function() {
-			var a = $('#text-color').val(),
+		$(colorpicker).keyup( function() {
+			var a = $(colorpicker).val(),
 				b = a;
 			
 			a = a.replace(/[^a-fA-F0-9]/, '');
 			if ( '#' + a !== b )
-				$('#text-color').val(a);
+				$(colorpicker).val(a);
 			if ( a.length === 3 || a.length === 6 )
 				pickColor( '#' + a );
 		});
@@ -44,7 +48,7 @@ var farbtastic;
 			var currentDefault = $('#default-color a'),
 				newDefault = $(this).next().val();
 			
-			if ( $('#text-color').val() == currentDefault.text() )
+			if ( $(colorpicker).val() == currentDefault.text() )
 				pickColor( newDefault );
 			
 			currentDefault.text( newDefault );

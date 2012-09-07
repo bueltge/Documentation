@@ -27,6 +27,9 @@ class Documentation_Options {
 	
 	/**
 	 * Init
+	 * 
+	 * @since    08/09/2012
+	 * @return   void
 	 */
 	public function __construct( $args = NULL ) {
 		
@@ -50,6 +53,9 @@ class Documentation_Options {
 	 * This call to register_setting() registers a validation callback, validate(),
 	 * which is used when the option is saved, to ensure that our option values are properly
 	 * formatted, and safe.
+	 * 
+	 * @since    08/09/2012
+	 * @return   void
 	 */
 	public function options_init() {
 		
@@ -95,6 +101,7 @@ class Documentation_Options {
 	 *
 	 * This function is attached to the admin_menu action hook.
 	 * 
+	 * @since    08/09/2012
 	 * @return   void
 	 */
 	public function add_page() {
@@ -117,6 +124,7 @@ class Documentation_Options {
 	/**
 	 * Properly enqueue styles and scripts for our theme options page.
 	 * 
+	 * @since    08/09/2012
 	 * @return   void
 	 */
 	public function admin_enqueue_scripts( $hook_suffix ) {
@@ -181,6 +189,7 @@ class Documentation_Options {
 	 * Returns the default options.
 	 * Use the hook 'documentation_default_theme_options' for change via plugin
 	 * 
+	 * @since    08/09/2012
 	 * @return   Array
 	 */
 	public function get_default_theme_options( $value = NULL ) {
@@ -199,6 +208,7 @@ class Documentation_Options {
 	/**
 	 * Returns the options array.
 	 * 
+	 * @since    08/09/2012
 	 * @return   Array
 	 */
 	public function get_theme_options() {
@@ -214,14 +224,16 @@ class Documentation_Options {
 	
 	/**
 	 * Renders the enable fonts checkbox setting field.
+	 * 
+	 * @since    08/09/2012
+	 * @return   void
 	 */
 	public function settings_field_enable_fonts() {
 		
 		$options = $this->options; ?>
-		<label for="enable-fonts"> 
-			<input type="text" name="<?php echo $this->option_key; ?>[rewrite_url]" id="rewrite-url" value="<?php echo $options['rewrite_url']; ?>" class="regular-text code" />
-			<br /><span class="description"><?php printf( __( 'Edit an URL in Backend for the Administration Link in Frontend. Example: %s', 'documentation' ), '<code>wp-admin/edit.php</code>' ); ?> </span>
-		</label>
+		<input type="text" name="<?php echo $this->option_key; ?>[rewrite_url]" id="rewrite-url" value="<?php echo $options['rewrite_url']; ?>" class="regular-text code" />
+		<br />
+		<label class="description" for="rewrite-url"><?php printf( __( 'Edit an URL in Backend for the Administration Link in Frontend. Example: %s', 'documentation' ), '<code>wp-admin/edit.php</code>' ); ?></label>
 	<?php
 	}
 	
@@ -235,17 +247,15 @@ class Documentation_Options {
 		
 		$options = $this->options;
 		?>
-		<label for="text-color">
-			<input type="text" name="<?php echo $this->option_key; ?>[text_color]" id="text-color" value="<?php echo $options['text_color']; ?>" />
-			<a href="#" class="pickcolor hide-if-no-js" id="text-color-example"></a>
-			<input type="button" class="pickcolor button hide-if-no-js" value="<?php esc_attr_e( 'Select a Color', 'documentation' ); ?>" />
-			<div id="colorPickerDiv" style="z-index: 100; background:#eee; border:1px solid #ccc; position:absolute; display:none;"></div>
-			<br />
-			<span class="description"><?php printf( 
+		<input type="text" name="<?php echo $this->option_key; ?>[text_color]" id="text-color" value="<?php echo $options['text_color']; ?>" />
+		<a href="#" class="pickcolor hide-if-no-js" id="text-color-example"></a>
+		<input type="button" class="pickcolor button hide-if-no-js" value="<?php esc_attr_e( 'Select a Color', 'documentation' ); ?>" />
+		<div id="colorPickerDiv"></div>
+		<br />
+		<label class="description" for="text-color"><?php printf( 
 				__( 'Fill with an hex code for the text color. Default color: %s', 'documentation' ),
 				'<code id="default-color">' . $this->get_default_theme_options( 'text_color' ) . '</code>'
-			); ?> </span>
-		</label>
+			); ?></label>
 	<?php
 	}
 	
