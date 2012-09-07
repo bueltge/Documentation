@@ -39,6 +39,7 @@ class Documentation_Customize extends Documentation_Options {
 	/**
 	 * Implement theme options into Theme Customizer on Frontend
 	 * 
+	 * @see     examples for different input fields https://gist.github.com/2968549
 	 * @since   08/09/2012
 	 * @param   $wp_customize  Theme Customizer object
 	 * @return  void
