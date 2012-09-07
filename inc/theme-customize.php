@@ -81,6 +81,13 @@ class Documentation_Customize extends Documentation_Options {
 			'settings'   => $this->option_key . '[text_color]',
 		) ) );
 		
+		// add field for text color in default section for 'colors'
+		$wp_customize->add_setting( $this->option_key . '[link_color]', array(
+			'default'    => $defaults['link_color'],
+			'type'       => 'option',
+			'capability' => 'edit_theme_options',
+		) );
+		
 		// add color field include color picker for link color
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $this->option_key . '_link_color', array(
 			'label'      => __( 'Link Color', 'documentation' ),
