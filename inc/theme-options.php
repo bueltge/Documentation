@@ -219,7 +219,7 @@ class Documentation_Options {
 		$options = wp_parse_args( $saved, $defaults );
 		$options = array_intersect_key( $options, $defaults );
 		
-		return $options;
+		return apply_filters( $this->theme_key . '_theme_options', $options );
 	}
 	
 	/**
