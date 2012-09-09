@@ -331,6 +331,9 @@ class Documentation_Options {
 		if ( isset( $input['text_color'] ) && ! empty( $input['text_color'] ) )
 			$output['text_color'] = wp_filter_nohtml_kses( $input['text_color'] );
 		
+		if ( isset( $input['link_color'] ) && ! empty( $input['link_color'] ) )
+			$output['link_color'] = wp_filter_nohtml_kses( $input['link_color'] );
+		
 		return apply_filters( $this->theme_key . '_options_validate', $output, $input, $defaults );
 	}
 	
