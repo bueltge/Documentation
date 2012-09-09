@@ -46,10 +46,8 @@ class Documentation_Head_Style extends Documentation_Options {
 			$args['theme_key'] = strtolower( get_stylesheet() );
 		
 		// Set option key based on get_stylesheet()
-		$this->theme_key  = $args['theme_key'];
-		$this->option_key = $this->theme_key . '_theme_options';
-		
-		//add_action( 'wp_head', array( $this, 'get_custom_style' ) );
+		self::$theme_key  = $args['theme_key'];
+		self::$option_key = self::$theme_key . '_theme_options';
 	}
 	
 	/**
