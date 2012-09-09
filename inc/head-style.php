@@ -92,7 +92,7 @@ class Documentation_Head_Style extends Documentation_Options {
 			$style .= $image . $repeat . $position . $attachment;
 		}
 		
-		// custom theme settings
+		// get custom theme settings
 		$options = parent::get_theme_options();
 		foreach ($options as $key => $value) {
 			trim( $value );
