@@ -7,6 +7,9 @@
  * @since      09/06/2012
  */
 
+if ( ! class_exists( 'Documentation_Options' ) )
+	return NULL;
+
 class Documentation_Customize extends Documentation_Options {
 	
 	/**
