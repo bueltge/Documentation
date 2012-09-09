@@ -42,7 +42,7 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		 * 
 		 * @see  https://github.com/bueltge/WordPress-Basis-Theme/tree/namespace/inc/admin
 		 */
-		require_once( get_template_directory() . '/inc/class-branding.php' );
+		locate_template( 'inc/class-branding.php', TRUE, TRUE );
 		new Documentation_Admin_Branding( array() );
 		
 		// params for options class
@@ -50,13 +50,13 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 			'theme_key' => strtolower( get_stylesheet() )
 		);
 		// Load up our theme options page and related code.
-		require_once( get_template_directory() . '/inc/theme-options.php' );
+		locate_template( 'inc/theme-options.php', TRUE, TRUE );
 		$documentation_options = new Documentation_Options( $args );
 		// Include the theme customizer for options of theme options
-		require_once( get_template_directory() . '/inc/theme-customize.php' );
+		locate_template( 'inc/theme-customize.php', TRUE, TRUE );
 		$documentation_customize = new Documentation_Customize( $args );
 		// include to write the custom theme options in theme head
-		require_once( get_template_directory() . '/inc/head-style.php' );
+		locate_template( 'inc/head-style.php', TRUE, TRUE );
 		$documentation_head_style = new Documentation_Head_Style( $args );
 		
 		// Add default posts and comments RSS feed links to <head>.
