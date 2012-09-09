@@ -69,7 +69,7 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		$args = array( 
 			'default-image'          => '',
 			'default-color'          => 'fff',
-			'wp-head-callback'       => '_custom_background_cb',
+			'wp-head-callback'       => array( 'Documentation_Head_Style', '_custom_background_cb' ),
 			'admin-head-callback'    => '',
 			'admin-preview-callback' => ''
 		);

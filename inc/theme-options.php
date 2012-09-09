@@ -12,13 +12,13 @@ class Documentation_Options {
 	/**
 	 * Identifier, namespace
 	 */
-	public static $theme_key = '';
+	private static $theme_key = '';
 	
 	/**
 	 * The option value in the database will be based on get_stylesheet()
 	 * so child themes don't share the parent theme's option value.
 	 */
-	public static $option_key = '';
+	private static $option_key = '';
 	
 	/**
 	 * Initialize our options.
@@ -38,8 +38,8 @@ class Documentation_Options {
 			$args['theme_key'] = strtolower( get_stylesheet() );
 		
 		// Set option key based on get_stylesheet()
-		$this->theme_key  = $args['theme_key'];
-		$this->option_key = $this->theme_key . '_theme_options';
+		self::$theme_key  = $args['theme_key'];
+		self::$option_key = self::$theme_key . '_theme_options';
 		
 		add_action( 'admin_init', array( $this, 'options_init' ) );
 		add_action( 'admin_menu', array( $this, 'add_page'     ) );
@@ -64,8 +64,8 @@ class Documentation_Options {
 		
 		// Register our option group.
 		register_setting(
-			$this->theme_key . '_options',    // Options group, see settings_fields() call in render_page()
-			$this->option_key,          // Database option, see get_theme_options()
+			self::$theme_key . '_options',    // Options group, see settings_fields() call in render_page()
+			self::$option_key,          // Database option, see get_theme_options()
 			array( $this, 'validate' )  // The sanitization callback, see validate()
 		);
 		
@@ -140,22 +140,22 @@ class Documentation_Options {
 		
 		// enqueue styles
 		wp_register_style(
-			$this->theme_key . '-theme-options',
+			self::$theme_key . '-theme-options',
 			get_template_directory_uri() . '/inc/theme-options.css',
 			FALSE,
 			FALSE
 		);
-		wp_enqueue_style( $this->theme_key . '-theme-options' );
+		wp_enqueue_style( self::$theme_key . '-theme-options' );
 		wp_enqueue_style( 'farbtastic' );
 		
 		// enqueue scripts
 		wp_register_script(
-			$this->theme_key . '-theme-options',
+			self::$theme_key . '-theme-options',
 			get_template_directory_uri() . '/inc/theme-options.js',
 			array( 'farbtastic' ),
 			FALSE
 		);
-		wp_enqueue_script( $this->theme_key . '-theme-options' );
+		wp_enqueue_script( self::$theme_key . '-theme-options' );
 	}
 	
 	/**
@@ -212,7 +212,7 @@ class Documentation_Options {
 		if ( NULL !== $value )
 			return $default_theme_options[$value];
 		
-		return apply_filters( $this->theme_key . '_default_theme_options', $default_theme_options );
+		return apply_filters( self::$theme_key . '_default_theme_options', $default_theme_options );
 	}
 	
 	/**
@@ -223,13 +223,13 @@ class Documentation_Options {
 	 */
 	public function get_theme_options() {
 		
-		$saved = (array) get_option( $this->option_key );
-		$defaults = $this->get_default_theme_options();
+		$saved = (array) get_option( self::$option_key );
+		$defaults = self::get_default_theme_options();
 		
 		$options = wp_parse_args( $saved, $defaults );
 		$options = array_intersect_key( $options, $defaults );
 		
-		return apply_filters( $this->theme_key . '_theme_options', $options );
+		return apply_filters( self::$theme_key . '_theme_options', $options );
 	}
 	
 	/**
@@ -241,7 +241,7 @@ class Documentation_Options {
 	public function settings_field_enable_fonts() {
 		
 		$options = $this->options; ?>
-		<input type="text" name="<?php echo $this->option_key; ?>[rewrite_url]" id="rewrite-url" value="<?php echo $options['rewrite_url']; ?>" class="regular-text code" />
+		<input type="text" name="<?php echo self::$option_key; ?>[rewrite_url]" id="rewrite-url" value="<?php echo $options['rewrite_url']; ?>" class="regular-text code" />
 		<br />
 		<label class="description" for="rewrite-url"><?php printf( __( 'Edit an URL in Backend for the Administration Link in Frontend. Example: %s', 'documentation' ), '<code>wp-admin/edit.php</code>' ); ?></label>
 	<?php
@@ -257,7 +257,7 @@ class Documentation_Options {
 		
 		$options = $this->options;
 		?>
-		<input type="text" name="<?php echo $this->option_key; ?>[text_color]" id="text-color" value="<?php echo $options['text_color']; ?>" />
+		<input type="text" name="<?php echo self::$option_key; ?>[text_color]" id="text-color" value="<?php echo $options['text_color']; ?>" />
 		<a href="#" class="text-pickcolor hide-if-no-js" id="text-color-example"></a>
 		<input type="button" class="text-pickcolor button hide-if-no-js" value="<?php esc_attr_e( 'Select a Color', 'documentation' ); ?>" />
 		<div id="text-colorPickerDiv" class="colorPickerDiv"></div>
@@ -279,7 +279,7 @@ class Documentation_Options {
 		
 		$options = $this->options;
 		?>
-		<input type="text" name="<?php echo $this->option_key; ?>[link_color]" id="link-color" value="<?php echo $options['link_color']; ?>" />
+		<input type="text" name="<?php echo self::$option_key; ?>[link_color]" id="link-color" value="<?php echo $options['link_color']; ?>" />
 		<a href="#" class="link-pickcolor hide-if-no-js" id="link-color-example"></a>
 		<input type="button" class="link-pickcolor button hide-if-no-js" value="<?php esc_attr_e( 'Select a Color', 'documentation' ); ?>" />
 		<div id="link-colorPickerDiv" class="colorPickerDiv"></div>
@@ -306,7 +306,7 @@ class Documentation_Options {
 
 			<form method="post" action="options.php">
 				<?php
-					settings_fields( $this->theme_key . '_options' );
+					settings_fields( self::$theme_key . '_options' );
 					do_settings_sections( 'theme_options' );
 					submit_button();
 				?>
@@ -334,7 +334,7 @@ class Documentation_Options {
 		if ( isset( $input['link_color'] ) && ! empty( $input['link_color'] ) )
 			$output['link_color'] = wp_filter_nohtml_kses( $input['link_color'] );
 		
-		return apply_filters( $this->theme_key . '_options_validate', $output, $input, $defaults );
+		return apply_filters( self::$theme_key . '_options_validate', $output, $input, $defaults );
 	}
 	
 } // end class
