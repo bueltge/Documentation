@@ -49,6 +49,7 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		$args = array(
 			'theme_key' => strtolower( get_stylesheet() )
 		);
+		// ToDo: Loader for include files
 		// Load up our theme options page and related code.
 		locate_template( 'inc/theme-options.php', TRUE, TRUE );
 		$documentation_options = new Documentation_Options( $args );
