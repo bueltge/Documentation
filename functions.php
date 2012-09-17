@@ -42,22 +42,21 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		 * 
 		 * @see  https://github.com/bueltge/WordPress-Basis-Theme/tree/namespace/inc/admin
 		 */
-		locate_template( 'inc/class-branding.php', TRUE, TRUE );
+		require_once( get_template_directory() . '/inc/class-branding.php' );
 		new Documentation_Admin_Branding( array() );
 		
 		// params for options class
 		$args = array(
 			'theme_key' => strtolower( get_stylesheet() )
 		);
-		// ToDo: Loader for include files
 		// Load up our theme options page and related code.
-		locate_template( 'inc/theme-options.php', TRUE, TRUE );
-		$documentation_options = new Documentation_Options( $args );
+		//require_once( get_template_directory() . '/inc/theme-options.php' );
+		//$documentation_options = new Documentation_Options( $args );
 		// Include the theme customizer for options of theme options
-		locate_template( 'inc/theme-customize.php', TRUE, TRUE );
+		require_once( get_template_directory() . '/inc/theme-customize.php' );
 		$documentation_customize = new Documentation_Customize( $args );
 		// include to write the custom theme options in theme head
-		locate_template( 'inc/head-style.php', TRUE, TRUE );
+		require_once( get_template_directory() . '/inc/head-style.php' );
 		$documentation_head_style = new Documentation_Head_Style( $args );
 		
 		// Add default posts and comments RSS feed links to <head>.
@@ -70,7 +69,7 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		$args = array( 
 			'default-image'          => '',
 			'default-color'          => 'fff',
-			'wp-head-callback'       => array( 'Documentation_Head_Style', '_custom_background_cb' ),
+			'wp-head-callback'       => '_custom_background_cb',
 			'admin-head-callback'    => '',
 			'admin-preview-callback' => ''
 		);
@@ -96,7 +95,7 @@ if ( ! function_exists( 'documentation_get_options' ) ) {
 	 */
 	function documentation_get_options( $value = '' ) {
 		
-		$documentation_options = new Documentation_Options();
+		$documentation_options = new Documentation_Customize();
 		
 		$options = $documentation_options->get_theme_options();
 		

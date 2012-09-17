@@ -8,21 +8,18 @@
  * @since      09/05/2012
  */
 
-if ( ! class_exists( 'Documentation_Options' ) )
-	return NULL;
-
-class Documentation_Head_Style extends Documentation_Options {
+class Documentation_Head_Style {
 	
 	/**
 	 * Identifier, namespace
 	 */
-	private static $theme_key = '';
+	public static $theme_key = '';
 	
 	/**
 	 * The option value in the database will be based on get_stylesheet()
 	 * so child themes don't share the parent theme's option value.
 	 */
-	private static $option_key = '';
+	public static $option_key = '';
 	
 	/**
 	 * Initialize our options.
@@ -46,68 +43,68 @@ class Documentation_Head_Style extends Documentation_Options {
 			$args['theme_key'] = strtolower( get_stylesheet() );
 		
 		// Set option key based on get_stylesheet()
-		self::$theme_key  = $args['theme_key'];
-		self::$option_key = self::$theme_key . '_theme_options';
+		$this->theme_key  = $args['theme_key'];
+		$this->option_key = $this->theme_key . '_theme_options';
+		
+		add_action( 'wp_head', array( $this, 'get_custom_style' ) );
 	}
 	
 	/**
-	 * The custom background callback.
-	 * Write style in head of frontend.
+	 * Returns the default options.
+	 * Use the hook 'documentation_default_theme_options' for change via plugin
 	 * 
-	 * @since   09/09/2012
-	 * @return  void
+	 * @since    08/09/2012
+	 * @return   Array
 	 */
-	public function _custom_background_cb() {
+	public function get_default_theme_options( $value = NULL ) {
 		
-		// $background is the saved custom image, or the default image.
-		$background = set_url_scheme( get_background_image() );
+		$default_theme_options = array(
+			'rewrite_url' => 'wp-admin/edit.php',
+			'text_color'  => '#333',
+			'link_color'  => '#0100BE'
+		);
 		
-		// $color is the saved custom color.
-		// A default has to be specified in style.css. It will not be printed here.
-		$color = get_theme_mod( 'background_color' );
+		if ( NULL !== $value )
+			return $default_theme_options[$value];
 		
-		if ( ! $color )
-			$color = esc_attr( get_theme_support( 'custom-background', 'default-color' ) );
-		
-		$style = $color ? "background-color: #$color;" : '';
-		
-		if ( $background ) {
-			$image = " background-image: url('$background');";
-			
-			$repeat = get_theme_mod( 'background_repeat', 'repeat' );
-			if ( ! in_array( $repeat, array( 'no-repeat', 'repeat-x', 'repeat-y', 'repeat' ) ) )
-				$repeat = 'repeat';
-			$repeat = " background-repeat: $repeat;";
+		return apply_filters( $this->theme_key . '_default_theme_options', $default_theme_options );
+	}
 	
-			$position = get_theme_mod( 'background_position_x', 'left' );
-			if ( ! in_array( $position, array( 'center', 'right', 'left' ) ) )
-				$position = 'left';
-			$position = " background-position: top $position;";
-	
-			$attachment = get_theme_mod( 'background_attachment', 'scroll' );
-			if ( ! in_array( $attachment, array( 'fixed', 'scroll' ) ) )
-				$attachment = 'scroll';
-			$attachment = " background-attachment: $attachment;";
-			
-			$style .= $image . $repeat . $position . $attachment;
-		}
+	/**
+	 * Returns the options array.
+	 * 
+	 * @since    09/07/2012
+	 * @return   Array
+	 */
+	public function get_theme_options() {
 		
-		// get custom theme settings
-		$options = parent::get_theme_options();
-		foreach ($options as $key => $value) {
-			trim( $value );
-		}
-	?>
-	<style type="text/css" id="custom-theme-options">
-		body { 
-			<?php echo trim( $style ) . "\n"; ?>
-			color: <?php echo $options['text_color']; ?>;
-		}
-		a:link, a:visited, 
-		#content h2 a:link, #content h2 a:visited, 
-		#header h1 a:link, #header h1 a:visited { color: <?php echo $options['link_color']; ?>; }
-	</style>
-	<?php
+		$saved    = (array) get_option( $this->option_key );
+		$defaults = $this->get_default_theme_options();
+		
+		$options  = wp_parse_args( $saved, $defaults );
+		$options  = array_intersect_key( $options, $defaults );
+		
+		return apply_filters( $this->theme_key . '_theme_options', $options );
+	}
+	
+	/**
+	 * Styles from theme options
+	 * Write in head of frontend
+	 * 
+	 * @since    09/07/2012
+	 * @return   void
+	 */
+	public function get_custom_style() {
+		
+		$options = $this->get_theme_options();
+		?>
+		<style type="text/css">
+			body { color: <?php echo $options['text_color']; ?>; }
+			a:link, a:visited, 
+			#content h2 a:link, #content h2 a:visited, 
+			#header h1 a:link, #header h1 a:visited { color: <?php echo $options['link_color']; ?>; }
+		</style>
+		<?php
 	}
 	
 } // end class
