@@ -33,6 +33,7 @@ class Documentation_Customize {
 		$this->theme_key  = $args['theme_key'];
 		$this->option_key = $this->theme_key . '_theme_options';
 		
+		// register our custom settings
 		add_action( 'customize_register', array( $this, 'customize_register' ) );
 	}
 	
@@ -46,9 +47,11 @@ class Documentation_Customize {
 	public function get_default_theme_options( $value = NULL ) {
 		
 		$default_theme_options = array(
-			'rewrite_url' => 'wp-admin/edit.php',
-			'text_color'  => '#111',
-			'link_color'  => '#0100BE'
+			'echo_desc'    => '1',
+			'rewrite_url'  => 'wp-admin/edit.php',
+			'color_scheme' => 'light',
+			'text_color'   => '#111',
+			'link_color'   => '#0100BE'
 		);
 		
 		if ( NULL !== $value )
@@ -63,7 +66,7 @@ class Documentation_Customize {
 	 * @since    08/09/2012
 	 * @return   Array
 	 */
-	public function get_theme_options() {
+	public function get_theme_options( $value = NULL ) {
 		
 		$saved = (array) get_option( $this->option_key );
 		$defaults = $this->get_default_theme_options();
@@ -71,7 +74,12 @@ class Documentation_Customize {
 		$options = wp_parse_args( $saved, $defaults );
 		$options = array_intersect_key( $options, $defaults );
 		
-		return apply_filters( $this->theme_key . '_theme_options', $options );
+		$options = apply_filters( $this->theme_key . '_theme_options', $options );
+		
+		if ( NULL !== $value )
+			return $options[$value];
+		
+		return $options;
 	}
 	
 	/**
@@ -86,12 +94,32 @@ class Documentation_Customize {
 		
 		$defaults = $this->get_default_theme_options();
 		
+		$wp_customize->add_setting( $this->option_key . '[echo_desc]', array(
+			'default'    => $defaults['echo_desc'],
+			'type'       => 'option',
+			'capability' => 'edit_theme_options'
+		) );
+		
+		// Add control and output for select field
+		$wp_customize->add_control( $this->option_key . '_echo_desc', array(
+			'label'      => __( 'Display Description', 'documentation' ),
+			'section'    => 'title_tagline',
+			'settings'   => $this->option_key . '[echo_desc]',
+			'type'       => 'select',
+			'choices'    => array(
+				'0' => __( 'False', 'documentation' ),
+				'1' => __( 'True', 'documentation' )
+			),
+		) );
+		
+		// ===== Custom Section =====
 		// create custom section for rewrite url
 		$wp_customize->add_section( $this->option_key . '_rewrite_url', array(
 			'title'    => __( 'Rewrite', 'documentation' ),
 			'priority' => 35,
 		) );
 		
+		// ===== Text Input Field =====
 		// add field for rewrite url in custom section
 		$wp_customize->add_setting( $this->option_key . '[rewrite_url]', array(
 			'default'    => $defaults['rewrite_url'],
@@ -106,6 +134,27 @@ class Documentation_Customize {
 			'type'       => 'text',
 		) );
 		
+		// ===== Sample Radio Buttons Fields =====
+		// Add field for radio buttons to dark or light scheme
+		$wp_customize->add_setting( $this->option_key . '[color_scheme]', array(
+			'default'    => $defaults['color_scheme'],
+			'type'       => 'option',
+			'capability' => 'edit_theme_options',
+		) );
+		
+		// Add control and output for select field
+		$wp_customize->add_control( $this->option_key . '_color_scheme', array(
+			'label'      => __( 'Color Scheme', 'documentation' ),
+			'section'    => 'colors',
+			'settings'   => $this->option_key . '[color_scheme]',
+			'type'       => 'radio',
+			'choices'    => array(
+				'dark'  => __( 'Dark', 'documentation' ),
+				'light' => __( 'Light', 'documentation' )
+			),
+		) );
+		
+		// ===== Color picker Fields =====
 		// add field for text color in default section for 'colors'
 		$wp_customize->add_setting( $this->option_key . '[text_color]', array(
 			'default'    => $defaults['text_color'],
