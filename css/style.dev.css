@@ -2,12 +2,11 @@
 /**
  * Documentation layout
  * 
- * @version     08/10/2012
+ * @version     09/18/2012
  * @author      Frank Bültge
  */
  
 body {
-background: #fff;
 font-family: 'Lucida Sans Unicode','Lucida Sans', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Sans Vera', Verdana, Arial, Tahoma, Helvetica, Sans-Serif;
 font-style: normal;
 line-height: 1.5em;
@@ -110,6 +109,10 @@ margin: 2px .1em 5px;
 padding: 5px 1em;
 line-height: 1.7em;
 }
+/* Sidebar on left */
+.sidebar-left #content {
+	float: right;
+}
 
 #content h2 a:link, #content h2 a:visited, #header h1 a:link, #header h1 a:visited {
 font-weight: 400;
@@ -192,12 +195,16 @@ padding: 5px;
 }
 
 #sidebar {
-background: #fff;
 color: #111;
 width: 25%;
 float: right;
 margin: 5px 0;
 padding: 5px 0;
+}
+
+/* Sidebar on left */
+.sidebar-left #sidebar {
+	float: left;
 }
 
 #sidebar ul {

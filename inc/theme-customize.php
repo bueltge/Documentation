@@ -48,6 +48,7 @@ class Documentation_Customize {
 		
 		$default_theme_options = array(
 			'echo_desc'    => '1',
+			'layout'       => 'sidebar-right',
 			'rewrite_url'  => 'wp-admin/edit.php',
 			'color_scheme' => 'light',
 			'text_color'   => '#111',
@@ -109,6 +110,32 @@ class Documentation_Customize {
 			'choices'    => array(
 				'0' => __( 'False', 'documentation' ),
 				'1' => __( 'True', 'documentation' )
+			),
+		) );
+		
+		// ===== Layout Section =====
+		// Option for leave sidebar left or right
+		$wp_customize->add_section( $this->option_key . '_layout', array(
+			'title'    => __( 'Layout', 'documentation' ),
+			'priority' => 30
+		) );
+		
+		// Add field for radio buttons to set layout
+		$wp_customize->add_setting( $this->option_key . '[layout]', array(
+			'default'    => $defaults['layout'],
+			'type'       => 'option',
+			'capability' => 'edit_theme_options',
+		) );
+		
+		// Add control and output for select field
+		$wp_customize->add_control( $this->option_key . '_layout', array(
+			'label'      => __( 'Color Scheme', 'documentation' ),
+			'section'    => $this->option_key . '_layout',
+			'settings'   => $this->option_key . '[layout]',
+			'type'       => 'radio',
+			'choices'    => array(
+				'sidebar-left'  => __( 'Sidebar on left', 'documentation' ),
+				'sidebar-right' => __( 'Sidebar on right', 'documentation' )
 			),
 		) );
 		

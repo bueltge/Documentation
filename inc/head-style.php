@@ -51,6 +51,8 @@ class Documentation_Head_Style extends Documentation_Customize {
 		add_action( 'wp_head', array( $this, 'get_custom_style' ) );
 		// enqueue the the different color scheme
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_color_scheme' ) );
+		// add class to body tag for layout changes
+		add_filter( 'body_class', array( $this, 'layout_classes' ) );
 	}
 		
 	/**
@@ -71,6 +73,23 @@ class Documentation_Head_Style extends Documentation_Customize {
 			#header h1 a:link, #header h1 a:visited { color: <?php echo $options['link_color']; ?>; }
 		</style>
 		<?php
+	}
+	
+	/**
+	 * Add layout class to the array of body classes.
+	 * 
+	 * @since   09/18/2012
+	 * @param   array $existing_classes
+	 * @return  array
+	 */
+	public function layout_classes( $existing_classes ) {
+		
+		$layout = parent::get_theme_options( 'layout' );
+		
+		if ( 'sidebar-left' === $layout )
+			$existing_classes[] = 'sidebar-left';
+		
+		return $existing_classes;
 	}
 	
 	/**
