@@ -49,9 +49,14 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		$args = array(
 			'theme_key' => strtolower( get_stylesheet() )
 		);
+		
+		/**
+		 * CURRENT DON'T LOAD WITHOUT CUSTOMIZER; BUT WITH MORE WORK FOR CODERS
 		// Load up our theme options page and related code.
-		//require_once( get_template_directory() . '/inc/theme-options.php' );
-		//$documentation_options = new Documentation_Options( $args );
+		require_once( get_template_directory() . '/inc/theme-options.php' );
+		$documentation_options = new Documentation_Options( $args );
+		*/
+		
 		// Include the theme customizer for options of theme options
 		require_once( get_template_directory() . '/inc/theme-customize.php' );
 		$documentation_customize = new Documentation_Customize( $args );
@@ -94,6 +99,10 @@ if ( ! function_exists( 'documentation_get_options' ) ) {
 	 * @return  String, Array  Value of the options item
 	 */
 	function documentation_get_options( $value = '' ) {
+		
+		// failed to load file for options, then return NULL
+		if ( ! class_exists( 'Documentation_Customize' ) )
+			return NULL;
 		
 		$documentation_options = new Documentation_Customize();
 		

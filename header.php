@@ -1,7 +1,9 @@
 <?php
 /**
- * @package WordPress
+ * @package    WordPress
  * @subpackage Documentation
+ * @since      2.0.0
+ * @version    09/18/2012
  */
 ?>
 <!DOCTYPE html>

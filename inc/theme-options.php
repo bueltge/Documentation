@@ -172,7 +172,7 @@ class Documentation_Options {
 				'<li>' . __( '<strong>Text Color</strong>: ', 'documentation' ) . '</li>' .
 				'<li>' . __( '<strong>Link Color</strong>: You can choose the color used for text links on your site. You can enter the HTML color or hex code, or you can choose visually by clicking the "Select a Color" button to pick from a color wheel.', 'documentation' ) . '</li>' .
 			'</ol>' .
-			'<p>' . __( 'Remember to click "Save Changes" to save any changes you have made to the theme options.', 'twentyeleven' ) . '</p>';
+			'<p>' . __( 'Remember to click "Save Changes" to save any changes you have made to the theme options.', 'documentation' ) . '</p>';
 		
 		$sidebar = '<p><strong>' . __( 'For more information:', 'documentation' ) . '</strong></p>';
 		
