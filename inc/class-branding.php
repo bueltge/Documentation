@@ -45,7 +45,7 @@ class Documentation_Admin_Branding {
 				'login_height'    => '67px',
 				'login_width'     => '326px',
 				'designer_url'    => 'http://bueltge.de',
-				'designer_anchor' => 'Frank Bültge',
+				'designer_anchor' => 'Frank Bueltge',
 				'favicon_url'     => TRUE,
 				'remove_wp'       => TRUE,
 				'remove_gravatar' => TRUE
