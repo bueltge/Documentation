@@ -227,9 +227,11 @@ class Documentation_Customize {
 	 */
 	public function customize_preview_js() {
 		
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
+		
 		wp_register_script(
 			$this->theme_key . '-customizer',
-			get_template_directory_uri() . '/js/theme-customizer.js',
+			get_template_directory_uri() . '/js/theme-customizer' . $suffix . '.js',
 			array( 'customize-preview' ),
 			FALSE,
 			TRUE
@@ -239,3 +241,4 @@ class Documentation_Customize {
 	}
 	
 } // end class
+$documentation_customize = new Documentation_Customize();

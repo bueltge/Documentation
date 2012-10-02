@@ -7,6 +7,9 @@
 get_header();
 
 if ( have_posts() ) :
+	
+	tha_content_top();
+	
 	while ( have_posts() ) :
 		the_post(); ?>
 		
@@ -43,7 +46,9 @@ else:
 	 * called no-results-single.php and that will be used instead.
 	 */
 	get_template_part( 'parts/no-results', 'home' );
-
+	
+	tha_content_bottom();
+	
 endif;
 
 get_footer();

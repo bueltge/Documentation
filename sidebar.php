@@ -3,9 +3,13 @@
  * @package WordPress
  * @subpackage Documentation
  */
+
+tha_sidebars_before();
 ?>
 	<div id="sidebar">
-	
+		
+		<?php tha_sidebar_top(); ?>
+		
 		<ul class="primary-widget-area">
 			
 			<?php if ( class_exists('SitePress') ) { ?>
@@ -51,7 +55,10 @@
 		<ul class="secondary-widget-area">
 			<?php dynamic_sidebar( 'secondary-widget-area' ); ?>
 		</ul>
-		<?php endif; ?>
-
+		<?php endif;
+		
+		tha_sidebar_bottom(); 
+		?>
 	</div>
 	
+<?php tha_sidebars_after(); ?>

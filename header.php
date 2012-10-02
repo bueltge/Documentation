@@ -10,6 +10,7 @@
 <html <?php language_attributes(); ?>>
 
 <head>
+	<?php tha_head_top(); ?> 
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width" />
 
@@ -18,6 +19,7 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="Shortcut Icon" type="image/x-icon" href="favicon.ico" />
 	<?php
+	tha_head_bottom();
 	wp_head();
 	
 	if ( is_singular() )
@@ -27,7 +29,9 @@
 
 <body <?php body_class(); ?>>
 <div id="wrap" class="hfeed">
+	<?php tha_header_before(); ?>
 	<div id="header">
+		<?php tha_header_top(); ?>
 		<p id="login"><?php
 		$redirect = documentation_get_options( 'rewrite_url' );
 		if ( ! is_user_logged_in() ) {
@@ -52,7 +56,11 @@
 		$header_image = get_header_image();
 		if ( ! empty( $header_image ) ) : ?>
 			<img src="<?php echo esc_url( $header_image ); ?>" class="header-image" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" />
-		<?php endif; ?>
+		<?php endif;
+		tha_header_bottom();
+		?>
 	</div>
-
+	<?php tha_header_after(); ?>
 	<div id="content">
+
+<?php tha_content_before(); ?>

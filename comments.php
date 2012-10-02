@@ -11,10 +11,13 @@
  * @subpackage Documentation
  * @since      2.0.0
  */
-?>
-	<div id="comments">
+
+tha_comments_before(); ?>
+	
+<div id="comments">
 	<?php if ( post_password_required() ) : ?>
 		<p class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'documentation' ); ?></p>
+		<?php tha_comments_after(); ?>
 	</div><!-- #comments -->
 	<?php
 			/* Stop the rest of comments.php from being processed,
@@ -54,13 +57,15 @@
 			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'documentation' ) ); ?></div>
 		</nav>
 		<?php endif; // check for comment navigation ?>
-
+	
 	<?php // If there are no comments and comments are closed, let's leave a note.
 		elseif ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
 		<p class="nocomments"><?php _e( 'Comments are closed.', 'documentation' ); ?></p>
 	<?php endif; ?>
-
-	<?php comment_form(); ?>
-
+	
+	<?php
+	comment_form();
+	
+	tha_comments_after(); ?>
 </div><!-- #comments -->

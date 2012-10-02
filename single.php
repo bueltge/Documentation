@@ -7,6 +7,9 @@
 get_header();
 
 if ( have_posts() ) :
+	
+	tha_content_top();
+	
 	while ( have_posts() ) :
 		the_post(); ?>
 	
@@ -34,11 +37,11 @@ if ( have_posts() ) :
 				edit_post_link( __( 'Edit', 'documentation' ), ' | ', ' | ' );
 				wp_loginout(); ?>
 			</p>
-		
+			
+			<?php tha_content_after(); ?>
+			
 		</div>
 		<?php
-		comments_template();
-		
 	endwhile;
 else:
 	
@@ -48,7 +51,9 @@ else:
 	 * called no-results-single.php and that will be used instead.
 	 */
 	get_template_part( 'parts/no-results', 'home' );
-
+	
+	tha_content_bottom();
+	
 endif;
 
 get_footer();

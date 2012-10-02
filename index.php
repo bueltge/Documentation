@@ -7,7 +7,9 @@
 get_header();
 
 if ( have_posts() ) :
-
+	
+	tha_content_top(); 
+	
 	/* If this is a category archive */ if ( is_category() ) { ?>				
 		<h2><?php _e('Archive for categorie', 'documentation'); ?> &bdquo;<?php echo single_cat_title(); ?>&ldquo;</h2>
 	<?php /* If this is a daily archive */ } elseif ( is_day() ) { ?>
@@ -73,6 +75,7 @@ if ( have_posts() ) :
 	
 	<?php
 	endwhile;
+	
 else:
 	
 	/**
@@ -81,7 +84,8 @@ else:
 	 * called no-results-single.php and that will be used instead.
 	 */
 	get_template_part( 'parts/no-results', 'home' );
-
+	
+	tha_content_bottom();
 endif;
 
 get_footer();

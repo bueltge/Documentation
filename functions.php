@@ -5,16 +5,6 @@
  * @version    08/09/2012
  */
 
-/**
- * Post content often has specified width. 
- * Thus, images which has bigger size than content width can break up the layout of theme.
- * To prevent this situation, WordPress provides one way to specify the maximum image size for themes.
- * Define the maximum image size
- */
-if ( ! isset( $content_width ) )
-	$content_width = 900;
-
-
 if ( ! function_exists( 'documentation_setup' ) ) {
 	
 	add_action( 'after_setup_theme', 'documentation_setup' );
@@ -29,6 +19,16 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 	 * @return  void
 	 */
 	function documentation_setup() {
+		
+		/**
+		 * Post content often has specified width. 
+		 * Thus, images which has bigger size than content width can break up the layout of theme.
+		 * To prevent this situation, WordPress provides one way to specify the maximum image size for themes.
+		 * Define the maximum image size
+		 */
+		if ( ! isset( $GLOBALS['content_width'] ) )
+			$GLOBALS['content_width'] = 900;
+
 		/**
 		 * Make Documentation available for translation.
 		 * Translations can be added to the /languages/ directory.
@@ -45,24 +45,33 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		require_once( get_template_directory() . '/inc/class-branding.php' );
 		new Documentation_Admin_Branding( array() );
 		
-		// params for options class
-		$args = array(
-			'theme_key' => strtolower( get_stylesheet() )
-		);
+		/**
+		 * Add support for Theme Customizer
+		 * 
+		 * @since  09/06/2012
+		 */
+		add_theme_support( 'documentation_customizer', array( 'all' ) );
+		// Include the theme customizer for options of theme options, if theme supported
+		require_if_theme_supports( 'documentation_customizer', get_template_directory() . '/inc/theme-customize.php' );
 		
 		/**
-		 * CURRENT DON'T LOAD WITHOUT CUSTOMIZER; BUT WITH MORE WORK FOR CODERS
-		// Load up our theme options page and related code.
-		require_once( get_template_directory() . '/inc/theme-options.php' );
-		$documentation_options = new Documentation_Options( $args );
-		*/
-		
-		// Include the theme customizer for options of theme options
-		require_once( get_template_directory() . '/inc/theme-customize.php' );
-		$documentation_customize = new Documentation_Customize( $args );
+		 * Add support for custom style to write in head
+		 * 
+		 * @since  09/06/2012
+		 */
+		add_theme_support( 'documentation_head_style', array( 'all' ) );
 		// include to write the custom theme options in theme head
-		require_once( get_template_directory() . '/inc/head-style.php' );
-		$documentation_head_style = new Documentation_Head_Style( $args );
+		require_if_theme_supports( 'documentation_head_style', get_template_directory() . '/inc/head-style.php' );
+		
+		/**
+		 * Add support for the hook alliance
+		 * 
+		 * @see    https://github.com/zamoose/themehookalliance
+		 * @since  10/02/2012
+		 */
+		add_theme_support( 'tha_hooks', array( 'all' ) );
+		// include the file from this project, if theme supported
+		require_if_theme_supports( 'tha_hooks', get_template_directory() . '/inc/tha/tha-theme-hooks.php' );
 		
 		// Add default posts and comments RSS feed links to <head>.
 		add_theme_support( 'automatic-feed-links' );

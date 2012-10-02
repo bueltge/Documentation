@@ -127,3 +127,4 @@ class Documentation_Head_Style extends Documentation_Customize {
 	}
 	
 } // end class
+$documentation_head_style = new Documentation_Head_Style();

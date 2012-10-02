@@ -3,15 +3,22 @@
  * @package WordPress
  * @subpackage Documentation
  */
- 
+
+tha_content_after();
+
 if ( ! is_singular() )
 	documentation_get_paginate_bar();
 ?>
 	</div>
 	
-	<?php get_sidebar(); ?>
+	<?php
+	get_sidebar();
+	
+	tha_footer_before();
+	?>
 	
 	<div id="footer">
+		<?php tha_footer_top(); ?>
 		<p>&copy; 2007 - <?php echo date( 'Y' ); ?> | <a href="<?php home_url( '/' ); ?>" class="site-name"><?php bloginfo( 'name' ); ?></a>
 		<?php
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG )
@@ -26,9 +33,14 @@ if ( ! is_singular() )
 		echo apply_filters( 'loginout', $link );
 		?>
 		</p>
+		<?php tha_footer_bottom(); ?>
 	</div>
 
-	<?php wp_footer(); ?>
+	<?php
+	wp_footer();
+	
+	tha_footer_after();
+	?>
 </div>
 </body>
 </html>

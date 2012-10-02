@@ -335,3 +335,4 @@ class Documentation_Options {
 	}
 	
 } // end class
+$documentation_options = new Documentation_Options();

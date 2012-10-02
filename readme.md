@@ -1,8 +1,10 @@
 # Documentation
 A small theme for WordPress as a documentation-tool.
 
+*old theme, but on maintenance*
+
 ## Descripton
-A theme with simple structure, different settings and possibilities with the forus to documentize a topic with WordPress.
+A theme with simple structure, different settings and possibilities with the focus to documentize a topic with WordPress.
 The supports custom settings for background, header, text- and link color and different more. It is possible to set the settings on frontend with the possibilities of the theme Customizer in WordPress.
 
 ## Installation
@@ -11,6 +13,9 @@ The supports custom settings for background, header, text- and link color and di
 * PHP 5.2*
 
 ## Other Notes
+### Supported Theme Hook Alliance
+**What? Why?**
+Please see the description to this project on [github.com/zamoose/themehookalliance](https://github.com/zamoose/themehookalliance)
 ### Licence
 Good news, this theme is free for everyone! Since it's released under the GPL, you can use it free of charge on your personal or commercial blog.
 
