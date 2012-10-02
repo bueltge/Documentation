@@ -3,6 +3,8 @@
  *
  * Contains handlers to make Theme Customizer preview reload changes asynchronously.
  * Things like site title, description, and background color changes.
+ * 
+ * @since   02/10/2012
  */
 
 ( function( $ ) {
