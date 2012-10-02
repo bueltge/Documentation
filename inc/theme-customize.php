@@ -35,6 +35,9 @@ class Documentation_Customize {
 		
 		// register our custom settings
 		add_action( 'customize_register', array( $this, 'customize_register' ) );
+		
+		// 
+		add_action( 'customize_preview_init', array( $this, 'customize_preview_js' ) );
 	}
 	
 	/**
@@ -211,5 +214,24 @@ class Documentation_Customize {
 		) ) );
 		
 	}
-
+	
+	/** 
+	 * Mp reload for changes
+	 * 
+	 * @since    10/02/2012
+	 * @return   void
+	 */
+	public function customize_preview_js() {
+		
+		wp_register_script(
+			$this->theme_key . '-customizer',
+			get_template_directory_uri() . '/js/theme-customizer.js',
+			array( 'customize-preview' ),
+			FALSE,
+			TRUE
+		);
+		
+		wp_enqueue_script( $this->theme_key . '-customizer' );
+	}
+	
 } // end class
