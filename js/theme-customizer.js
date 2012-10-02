@@ -9,12 +9,13 @@
 	var api = wp.customize;
 	
 	// Site title and description.
-	wp.customize( 'blogname', function( value ) {
+	api( 'blogname', function( value ) {
 		value.bind( function( to ) {
 			$( '#header h1 a, #footer a.site-name' ).html( to );
 		} );
 	} );
-	wp.customize( 'blogdescription', function( value ) {
+	
+	api( 'blogdescription', function( value ) {
 		value.bind( function( to ) {
 			$( '#header p.site-description' ).html( to );
 		} );
