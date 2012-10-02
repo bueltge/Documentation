@@ -98,6 +98,10 @@ class Documentation_Customize {
 		
 		$defaults = $this->get_default_theme_options();
 		
+		// defaults, import for live preview with js helper
+		$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
+		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+		
 		$wp_customize->add_setting( $this->option_key . '[echo_desc]', array(
 			'default'    => $defaults['echo_desc'],
 			'type'       => 'option',

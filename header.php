@@ -41,7 +41,7 @@
 		<?php
 		// check for custom options to echo the description
 		if ( '1' === documentation_get_options( 'echo_desc' ) )
-			echo '<p>' . get_bloginfo( 'description' ) . '</p>';
+			echo '<p class="site-description">' . get_bloginfo( 'description' ) . '</p>';
 		
 		$args = array(
 			'theme_location'  => 'primary',

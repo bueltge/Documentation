@@ -12,7 +12,7 @@ if ( ! is_singular() )
 	<?php get_sidebar(); ?>
 	
 	<div id="footer">
-		<p>&copy; 2007 - <?php echo date( 'Y' ); ?> | <a href="<?php home_url( '/' ); ?>"><?php bloginfo( 'name' ); ?></a>
+		<p>&copy; 2007 - <?php echo date( 'Y' ); ?> | <a href="<?php home_url( '/' ); ?>" class="site-name"><?php bloginfo( 'name' ); ?></a>
 		<?php
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG )
 			echo ' | <small>' . $wpdb->num_queries . 'q, ' . timer_stop() . 's</small>';
