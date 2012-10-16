@@ -16,6 +16,13 @@ or the see the [small video](https://vimeo.com/51533540) about the customizer on
 * WordPress (also Multisite) version 3.4 and later (tested at 3.4, 3.5-alpha)
 * PHP 5.2*
 
+### Update automatically
+The Theme support that you update automatically form Github in your WordPress install.
+Install the plugin [Theme Updater](http://wordpress.org/extend/plugins/theme-updater/) and the plugin check automaticly for new version and you can also install the new and older versions.
+
+![Screenshot from the theme updater](https://raw.github.com/bueltge/Documentation/master/screenshot-2.png)
+
+
 ## Other Notes
 ### Supports the Theme Hook Alliance
 **What? Why?**
