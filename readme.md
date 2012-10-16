@@ -9,6 +9,8 @@ The supports custom settings for background, header, text- and link color and di
 
 ![Screenshot from the customizer](https://raw.github.com/bueltge/Documentation/master/inc/screenshot-1.png)
 
+or the see the [small video](https://vimeo.com/51533540) about the customizer on this theme.
+
 ## Installation
 ### Requirements
 * WordPress (also Multisite) version 3.4 and later (tested at 3.4, 3.5-alpha)
