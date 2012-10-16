@@ -1,9 +1,9 @@
 # Documentation
 A small theme for WordPress as a documentation-tool.
 
-* * old theme, but on maintenance ;)*
+* *old theme, but on maintenance ;)*
 
-## Descripton
+## Description
 A theme with simple structure, different settings and possibilities with the focus to documentize a topic with WordPress.
 The supports custom settings for background, header, text- and link color and different more. It is possible to set the settings on frontend with the possibilities of the theme *Customizer* in WordPress.
 
