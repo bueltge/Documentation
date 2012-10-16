@@ -1,7 +1,7 @@
 # Documentation
 A small theme for WordPress as a documentation-tool.
 
-* *old theme, but on maintenance ;)*
+* *old theme, but maintained ;)*
 
 ## Description
 A theme with simple structure, different settings and possibilities with the focus to documentize a topic with WordPress.
