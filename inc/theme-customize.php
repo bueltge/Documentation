@@ -25,7 +25,9 @@ class Documentation_Customize {
 	 */
 	public function __construct( $args = NULL ) {
 		
-		require_once( 'class-documentation_customize_textarea_control.php' );
+		// Include the custom class for textarea
+		if ( ! class_exists( 'Documentation_Customize_Textarea_Control' ) )
+			require_once( 'class-documentation_customize_textarea_control.php' );
 		
 		// Set option key based on get_stylesheet()
 		if ( NULL === $args )
