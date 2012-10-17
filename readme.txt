@@ -1,5 +1,5 @@
 = DOCUMENTATION =
 
-* by Frank Bültge, http://bueltge.de/
+* by Frank BÃ¼ltge, http://bueltge.de/
 
 == ABOUT DOCUMENTATION ==
