@@ -7,7 +7,7 @@ A small theme for WordPress as a documentation-tool.
 A theme with simple structure, different settings and possibilities with the focus to documentize a topic with WordPress.
 The supports custom settings for background, header, text- and link color and different more. It is possible to set the settings on frontend with the possibilities of the theme *Customizer* in WordPress.
 
-![Screenshot from the customizer](https://raw.github.com/bueltge/Documentation/master/inc/screenshot-1.png)
+![Screenshot from the customizer](https://raw.github.com/bueltge/Documentation/master/assets/screenshot-1.png)
 
 or the see the [small video](https://vimeo.com/51533540) about the customizer on this theme.
 
@@ -20,7 +20,7 @@ or the see the [small video](https://vimeo.com/51533540) about the customizer on
 The Theme support that you update automatically from Github in your WordPress install.
 Install the plugin [Theme Updater](http://wordpress.org/extend/plugins/theme-updater/) ([Github Repo](https://github.com/UCF/Theme-Updater)) and the plugin check automatically for new version and you can also install the new and older versions. It is also usable on Multisite Install.
 
-![Screenshot from the theme updater in MU](https://raw.github.com/bueltge/Documentation/master/screenshot-2.png)
+![Screenshot from the theme updater in MU](https://raw.github.com/bueltge/Documentation/master/assets/screenshot-2.png)
 
 
 ## Other Notes
