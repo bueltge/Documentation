@@ -71,7 +71,10 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		 */
 		add_theme_support( 'tha_hooks', array( 'all' ) );
 		// include the file from this project, if theme supported
-		require_if_theme_supports( 'tha_hooks', get_template_directory() . '/inc/tha/tha-theme-hooks.php' );
+		if ( file_exists( get_template_directory() . '/inc/tha/tha-theme-hooks.php' ) ) // beta release from repo
+			require_if_theme_supports( 'tha_hooks', get_template_directory() . '/inc/tha/tha-theme-hooks.php' );
+		else
+			require_if_theme_supports( 'tha_hooks', get_template_directory() . '/inc/tha-1.0/tha-theme-hooks.php' );
 		
 		// Add default posts and comments RSS feed links to <head>.
 		add_theme_support( 'automatic-feed-links' );
