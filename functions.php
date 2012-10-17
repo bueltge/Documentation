@@ -1,8 +1,10 @@
 <?php
 /**
+ * Functions and definitions
+ * 
  * @package    WordPress
  * @subpackage Documentation
- * @version    08/09/2012
+ * @version    10/17/2012
  */
 
 if ( ! function_exists( 'documentation_setup' ) ) {
@@ -59,9 +61,8 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		 * 
 		 * @since  09/06/2012
 		 */
-		add_theme_support( 'documentation_head_style', array( 'all' ) );
 		// include to write the custom theme options in theme head
-		require_if_theme_supports( 'documentation_head_style', get_template_directory() . '/inc/head-style.php' );
+		require_if_theme_supports( 'documentation_customizer', get_template_directory() . '/inc/head-style.php' );
 		
 		/**
 		 * Add support for the hook alliance
