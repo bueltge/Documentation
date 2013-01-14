@@ -150,6 +150,25 @@ if ( ! function_exists( 'documentation_scripts_styles' ) ) {
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
 			wp_enqueue_script( 'comment-reply' );
 		
+		// Register responsive table script
+		// Kudos to Responsive Tables project
+		// @see  http://www.zurb.com/playground/responsive-tables
+		wp_register_script(
+			'documentation-responsive-tables',
+			get_template_directory_uri() . '/js/responsive-tables.js',
+			array( 'jquery' ),
+			'01/14/2013',
+			TRUE
+		);
+		// Register responsive table style
+		wp_register_style(
+			'documentation-responsive-tables',
+			get_template_directory_uri() . '/css/responsive-tables.css',
+			array(),
+			'01/14/2013',
+			'screen'
+		);
+		
 		// Register main and print CSS file
 		wp_register_style( 'documentation-style', get_stylesheet_directory_uri() . '/css/style' . $suffix . '.css' );
 		wp_register_style(
@@ -162,6 +181,9 @@ if ( ! function_exists( 'documentation_scripts_styles' ) ) {
 		
 		wp_enqueue_style( 'documentation-style' );
 		wp_enqueue_style( 'documentation-print-style' );
+		
+		wp_enqueue_script( 'documentation-responsive-tables' );
+		wp_enqueue_style( 'documentation-responsive-tables' );
 	}
 	
 } // end if func exists
