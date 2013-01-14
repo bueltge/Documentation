@@ -155,7 +155,7 @@ if ( ! function_exists( 'documentation_scripts_styles' ) ) {
 		// @see  http://www.zurb.com/playground/responsive-tables
 		wp_register_script(
 			'documentation-responsive-tables',
-			get_template_directory_uri() . '/js/responsive-tables.js',
+			get_template_directory_uri() . '/js/responsive-tables' . $suffix . '.js',
 			array( 'jquery' ),
 			'01/14/2013',
 			TRUE
@@ -163,7 +163,7 @@ if ( ! function_exists( 'documentation_scripts_styles' ) ) {
 		// Register responsive table style
 		wp_register_style(
 			'documentation-responsive-tables',
-			get_template_directory_uri() . '/css/responsive-tables.css',
+			get_template_directory_uri() . '/css/responsive-tables' . $suffix . '.css',
 			array(),
 			'01/14/2013',
 			'screen'
