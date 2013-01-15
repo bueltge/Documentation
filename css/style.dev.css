@@ -2,7 +2,7 @@
 /**
  * Documentation layout
  * 
- * @version     09/18/2012
+ * @version     01/15/2013
  * @author      Frank Bültge
  */
  
@@ -11,8 +11,8 @@ font-family: 'Lucida Sans Unicode','Lucida Sans', 'Trebuchet MS', 'Lucida Grande
 font-style: normal;
 line-height: 1.5em;
 font-size: 80%;
-margin: 0;
-padding: 2px 2em;
+margin: 2em;
+padding: 0;
 }
 
 code, pre {
@@ -196,7 +196,6 @@ padding: 5px;
 
 #sidebar {
 color: #111;
-width: 25%;
 float: right;
 margin: 5px 0;
 padding: 5px 0;
@@ -470,4 +469,22 @@ margin: 50px 0;
 padding: 2px 0;
 border-top: 1px solid #eee;
 border-bottom: 1px solid #eee;
+}
+
+@media all and (max-width: 930px) {
+	
+	#header h1 {
+		font-size: 240%;
+	}
+	
+	#content {
+		width: 98%;
+	}
+	
+	#sidebar {
+		float: none;
+		width: auto;
+		padding: 5px 1em;
+	}
+	
 }
