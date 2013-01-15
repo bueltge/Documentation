@@ -399,7 +399,7 @@ if ( ! function_exists( 'documentation_wp_title' ) ) {
 	
 		// Add a page number if necessary.
 		if ( $paged >= 2 || $page >= 2 )
-			$title = "$title $sep " . sprintf( __( 'Page %s', 'twentytwelve' ), max( $paged, $page ) );
+			$title = "$title $sep " . sprintf( __( 'Page %s', 'documentation' ), max( $paged, $page ) );
 	
 		return $title;
 	}

@@ -38,7 +38,7 @@ class Documentation_Customize_Textarea_Control extends WP_Customize_Control {
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		
-		$this->statuses = array( '' => __( 'Default' ) );
+		$this->statuses = array( '' => __( 'Default', 'documentation' ) );
 		parent::__construct( $manager, $id, $args );
 	}
 	

@@ -5,7 +5,12 @@
  * @version     01/15/2013
  * @author      Frank Bültge
  */
- 
+
+/* reset hack */
+* {
+	margin: 0;
+	padding: 0;
+}
 body {
 font-family: 'Lucida Sans Unicode','Lucida Sans', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Sans Vera', Verdana, Arial, Tahoma, Helvetica, Sans-Serif;
 font-style: normal;
