@@ -1,18 +1,4 @@
-/* Foundation v2.1.4 http://foundation.zurb.com */
-/* Artfully masterminded by ZURB  */
-
-/* -------------------------------------------------- 
-   Table of Contents
------------------------------------------------------
-:: Shared Styles
-:: Page Name 1
-:: Page Name 2
-*/
-
-
-/* -----------------------------------------
-   Shared Styles
------------------------------------------ */
+@charset utf-8;
 
 table th { font-weight: bold; }
 table td, table th { padding: 9px 10px; text-align: left; }
@@ -20,7 +6,7 @@ table td, table th { padding: 9px 10px; text-align: left; }
 /* Mobile */
 @media only screen and (max-width: 767px) {
 	
-	table.responsive { margin-bottom: 0; }
+	#content table { margin-bottom: 0; }
 	
 	.pinned { position: absolute; left: 0; top: 0; background: #fff; width: 35%; overflow: hidden; overflow-x: scroll; border-right: 1px solid #ccc; border-left: 1px solid #ccc; }
 	.pinned table { border-right: none; border-left: none; width: 100%; }
@@ -31,20 +17,7 @@ table td, table th { padding: 9px 10px; text-align: left; }
 	div.table-wrapper div.scrollable table { margin-left: 35%; }
 	div.table-wrapper div.scrollable { overflow: scroll; overflow-y: hidden; }	
 	
-	table.responsive td, table.responsive th { position: relative; white-space: nowrap; overflow: hidden; }
-	table.responsive th:first-child, table.responsive td:first-child, table.responsive td:first-child, table.responsive.pinned td { display: none; }
+	#content table td, #content table th { position: relative; white-space: nowrap; overflow: hidden; }
+	#content table th:first-child, #content table td:first-child, #content table td:first-child, #content table.pinned td { display: none; }
 	
 }
-
-/* -----------------------------------------
-   Page Name 1
------------------------------------------ */
-
-
-
-
-/* -----------------------------------------
-   Page Name 2
------------------------------------------ */
-
-
