@@ -38,30 +38,8 @@ class Documentation_Customize_Textarea_Control extends WP_Customize_Control {
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		
-		$this->statuses = array( '' => __( 'Default', 'documentation' ) );
+		$this->statuses = array( '' => __( 'Default' ) );
 		parent::__construct( $manager, $id, $args );
-	}
-	
-	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @since   10/16/2012
-	 * @return  void
-	 */
-	public function enqueue() {
-		
-	}
-	
-	/**
-	 * Refresh the parameters passed to the JavaScript via JSON.
-	 *
-	 * @since  10/16/2012
-	 * @uses   WP_Customize_Control::to_json()
-	 */
-	public function to_json() {
-		
-		parent::to_json();
-		$this->json['statuses'] = $this->statuses;
 	}
 	
 	/**
