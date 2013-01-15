@@ -37,4 +37,4 @@ The theme is developed current by me ([Frank Bültge](http://bueltge.de))
 Please let me know if you like the theme or you hate it or whatever ... Please fork it, add an issue for ideas and bugs.
 
 ### Disclaimer
-I'm German and my English might be gruesome here and there. So please be patient with me and let me know of typos or grammatical farts. Thanks
+I'm German and my English might be gruesome here and there. So please be patient with me and let me know of typos or grammatical faults. Thanks
