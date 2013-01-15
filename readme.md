@@ -1,7 +1,8 @@
 # Documentation
 A small theme for WordPress as a documentation-tool.
+The focus was on text, customization and responsive tables for view data in different screens.
 
-* *old theme, but maintained ;)*
+* *old theme, but maintained ;) Developed since 2007*
 
 ## Description
 A theme with simple structure, different settings and possibilities with the focus to documentize a topic with WordPress.
@@ -13,7 +14,7 @@ or the see the [small video](https://vimeo.com/51533540) about the customizer on
 
 ## Installation
 ### Requirements
-* WordPress (also Multisite) version 3.4 and later (tested at 3.4, 3.5-alpha)
+* WordPress (also Multisite) version 3.4 and later (tested at 3.5, 3.6-alpha)
 * PHP 5.2*
 
 ### Update automatically
@@ -27,7 +28,7 @@ Install the plugin [Theme Updater](http://wordpress.org/extend/plugins/theme-upd
 ### Supports the Theme Hook Alliance
 **What? Why?**
 Please see the description to this project on [github.com/zamoose/themehookalliance](https://github.com/zamoose/themehookalliance)
-### Licence
+### License
 Good news, this theme is free for everyone! Since it's released under the GPL, you can use it free of charge on your personal or commercial blog.
 
 ### Contact & Feedback
