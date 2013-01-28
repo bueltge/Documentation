@@ -4,14 +4,14 @@ jQuery(document).ready(function($) {
 	var updateTables = function() {
 		if (($(window).width() < 767) && !switched ){
 			switched = true;
-			$("#content table").each(function(i, element) {
+			$("table.responsive").each(function(i, element) {
 				splitTable($(element));
 			});
 			return true;
 		}
 		else if (switched && ($(window).width() > 767)) {
 			switched = false;
-			$("#content table").each(function(i, element) {
+			$("table.responsive").each(function(i, element) {
 				unsplitTable($(element));
 			});
 		}
