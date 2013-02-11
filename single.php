@@ -34,8 +34,8 @@ if ( have_posts() ) :
 					get_the_date(),
 					get_the_author()
 				);
-				edit_post_link( __( 'Edit', 'documentation' ), ' | ', ' | ' );
-				wp_loginout(); ?>
+				edit_post_link( __( 'Edit', 'documentation' ), ' | ', '' );
+				?>
 			</p>
 			
 			<?php tha_content_after(); ?>

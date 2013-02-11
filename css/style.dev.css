@@ -59,8 +59,8 @@ h1, h2, h3, h4 {
 font-family: Georgia,'Trebuchet MS', 'Lucida Sans', 'Lucida Grande', 'Bitstream Sans Vera', Verdana, Arial, Tahoma, Helvetica, Sans-Serif;
 color: #333;
 clear: both;
-margin: 20px 0 0;
-padding: 2px 0;
+margin: 2em 0 0;
+padding: .2em 0;
 }
 
 blockquote {
@@ -146,7 +146,7 @@ font-size: .8em;
 
 .story .info, #content .info {
 clear:both;
-margin: 10px 0;
+margin: 1em 0;
 padding: 0;
 border-top: 1px solid #eee;
 text-align: right;
