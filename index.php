@@ -39,23 +39,19 @@ if ( have_posts() ) :
 			
 			<div class="story">
 			<?php
-			if ( is_search() || is_archive() ) {
-				the_content( __( '... more &raquo;', 'documentation' ) . the_title( ' ', '', FALSE ) ); ?>
+				the_content( __( '... more &raquo;', 'documentation' ) . the_title( ' ', '', FALSE ) );
+				wp_link_pages();
+			?>
 				<p class="info">
-					<?php
+				<?php
 					printf(
 						__( 'Category: %s, write at %s by %s', 'documentation' ),
 						get_the_category_list( ', ' ),
 						get_the_date(),
 						get_the_author()
 					);
-					?>
+				?>
 				</p>
-			<?php
-			} else {
-				the_content( __( '... more &raquo;', 'documentation' ) . the_title( ' ', '', FALSE ) );
-				wp_link_pages();
-			} ?>
 			</div>
 		
 		</div>
