@@ -8,8 +8,6 @@ get_header();
 
 if ( have_posts() ) :
 	
-	$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-	query_posts( $query_string . "&paged=$paged" );
 	while ( have_posts() ) :
 		the_post();
 	?>
@@ -22,6 +20,7 @@ if ( have_posts() ) :
 	
 	<?php
 	endwhile;
+	
 else:
 	
 	/**

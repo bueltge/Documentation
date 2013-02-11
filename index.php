@@ -32,32 +32,12 @@ if ( have_posts() ) :
 		
 	while ( have_posts() ) :
 		the_post();
-	?>
-	
-		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<h2><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-			
-			<div class="story">
-			<?php
-				the_content( __( '... more &raquo;', 'documentation' ) . the_title( ' ', '', FALSE ) );
-				wp_link_pages();
-			?>
-				<p class="info">
-				<?php
-					printf(
-						__( 'Category: %s, write at %s by %s', 'documentation' ),
-						get_the_category_list( ', ' ),
-						get_the_date(),
-						get_the_author()
-					);
-				?>
-				</p>
-			</div>
 		
-		</div>
-	
-	<?php
+		get_template_part( 'parts/content', 'single' );
+		
 	endwhile;
+	
+	tha_content_bottom();
 	
 else:
 	
@@ -68,7 +48,6 @@ else:
 	 */
 	get_template_part( 'parts/no-results', 'home' );
 	
-	tha_content_bottom();
 endif;
 
 get_footer();

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Documentation v2.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-14 13:32+0100\n"
-"PO-Revision-Date: 2013-02-11 13:29:14+0000\n"
+"PO-Revision-Date: 2013-02-11 15:03:17+0000\n"
 "Last-Translator: Frank Bueltge <frank@bueltge.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -30,16 +30,14 @@ msgstr "Archiv für Kategorie"
 msgid "Archive"
 msgstr "Archiv"
 
-#: index.php:43
-#: index.php:56
+#: parts/content-single.php:16
 #@ documentation
 msgid "... more &raquo;"
 msgstr "... weiterlesen &raquo;"
 
 #: functions.php:252
 #: functions.php:280
-#: page.php:32
-#: single.php:37
+#: functions.php:435
 #@ documentation
 msgid "Edit"
 msgstr "Bearbeiten"
@@ -210,25 +208,7 @@ msgstr "&laquo; vorherige"
 msgid "Next &raquo;"
 msgstr "nächste &raquo;"
 
-#: index.php:47
-#, php-format
-#@ documentation
-msgid "Category: %s, write at %s by %s"
-msgstr "Kategorie: %s, geschrieben am %s von %s"
-
-#: page.php:26
-#, php-format
-#@ documentation
-msgid "Updated at %s by %s, write at %s by %s"
-msgstr "Aktualisiert am %s von %s, erstellt am %s von %s"
-
-#: single.php:29
-#, php-format
-#@ documentation
-msgid "Category: %s<br />%s updated at %s by %s, write at %s by %s"
-msgstr "Kategorie: %s<br />%s aktualisiert an %s von %s, erstellt am %s von %s"
-
-#: single.php:31
+#: functions.php:429
 #@ documentation
 msgid "Tags:"
 msgstr "Schlagworte:"
@@ -413,4 +393,16 @@ msgstr "<strong>Textfarbe</strong>:"
 #@ documentation
 msgid "Archive for tag"
 msgstr "Archiv für Schlagwort"
+
+#: functions.php:423
+#, php-format
+#@ documentation
+msgid "Category: %s<br />"
+msgstr "Kategorie: %s<br />"
+
+#: functions.php:427
+#, php-format
+#@ documentation
+msgid "%s updated at %s by %s, write at %s by %s"
+msgstr "aktualisiert am %s von %s, erstellt am %s von %s"
 

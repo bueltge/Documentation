@@ -404,4 +404,40 @@ if ( ! function_exists( 'documentation_wp_title' ) ) {
 		return $title;
 	}
 	
-}  // end if function exists
+} // end if function exists
+
+
+if ( ! function_exists( 'documentation_post_info' ) ) {
+	
+	/**
+	 * Prints HTML with meta information for the current post
+	 * 
+	 * @return  void
+	 * @since   02/11/2013
+	 */
+	function documentation_post_info() {
+		?>
+		<p class="info">
+		<?php
+		if ( get_the_category_list() ) 
+			$cat = __( 'Category: %s<br />', 'documentation' );
+		else
+			$cat = '';
+			
+		printf(
+			$cat . __( '%s updated at %s by %s, write at %s by %s', 'documentation' ),
+			get_the_category_list( ', ' ),
+			get_the_tag_list( __( 'Tags:', 'documentation' ) . ' ', ', ', '<br />' ),
+			get_the_modified_date(),
+			get_the_modified_author(),
+			get_the_date(),
+			get_the_author()
+		);
+		
+		edit_post_link( __( 'Edit', 'documentation' ), ' | ', '' );
+		?>
+		</p>
+		<?php
+	}
+	
+} // end if function exists
