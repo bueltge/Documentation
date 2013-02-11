@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Documentation v2.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-14 13:32+0100\n"
-"PO-Revision-Date: 2013-02-11 15:03:17+0000\n"
+"PO-Revision-Date: 2013-02-11 15:16:14+0000\n"
 "Last-Translator: Frank Bueltge <frank@bueltge.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgstr "... weiterlesen &raquo;"
 
 #: functions.php:252
 #: functions.php:280
-#: functions.php:435
+#: functions.php:437
 #@ documentation
 msgid "Edit"
 msgstr "Bearbeiten"
@@ -208,7 +208,7 @@ msgstr "&laquo; vorherige"
 msgid "Next &raquo;"
 msgstr "nächste &raquo;"
 
-#: functions.php:429
+#: functions.php:430
 #@ documentation
 msgid "Tags:"
 msgstr "Schlagworte:"
@@ -255,7 +255,7 @@ msgstr "Weiterleitung"
 msgid "Page %s"
 msgstr "Seite %s"
 
-#: home.php:19
+#: home.php:17
 #@ documentation
 msgid "Category:"
 msgstr "Kategorie:"
@@ -400,9 +400,9 @@ msgstr "Archiv für Schlagwort"
 msgid "Category: %s<br />"
 msgstr "Kategorie: %s<br />"
 
-#: functions.php:427
+#: functions.php:428
 #, php-format
 #@ documentation
 msgid "%s updated at %s by %s, write at %s by %s"
-msgstr "aktualisiert am %s von %s, erstellt am %s von %s"
+msgstr "%s aktualisiert am %s von %s, erstellt am %s von %s"
 
