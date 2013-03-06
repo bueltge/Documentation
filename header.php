@@ -44,7 +44,7 @@
 		<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo('name'); ?></a></h1>
 		<?php
 		// check for custom options to echo the description
-		if ( '1' === documentation_get_options( 'echo_desc' ) )
+		if ( TRUE === documentation_get_options( 'echo_desc' ) )
 			echo '<p class="site-description">' . get_bloginfo( 'description' ) . '</p>';
 		
 		$args = array(
