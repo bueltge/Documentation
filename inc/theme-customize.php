@@ -130,11 +130,9 @@ class Documentation_Customize {
 			'label'      => __( 'Display Description', 'documentation' ),
 			'section'    => 'title_tagline',
 			'settings'   => $this->option_key . '[echo_desc]',
-			'type'       => 'select',
-			'choices'    => array(
-				'0' => __( 'False', 'documentation' ),
-				'1' => __( 'True', 'documentation' )
-			),
+			'std'        => '1',
+			'type'       => 'checkbox',
+
 		) );
 		
 		// ===== Layout Section =====
