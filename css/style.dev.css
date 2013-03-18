@@ -398,10 +398,6 @@ margin: 5px 2em;
 padding: 2px;
 }
 
-ol li {
-clear: both;
-}
-
 .link li, .inline li {
 display: inline;
 margin: 5px 0;
