@@ -5,6 +5,7 @@
  * @package    WordPress
  * @subpackage Documentation
  * @since      09/06/2012
+ * @version    09/26/2013
  */
 
 class Documentation_Customize {
