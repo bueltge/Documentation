@@ -24,7 +24,7 @@ class Documentation_Head_Style extends Documentation_Customize {
 	
 	/**
 	 * Initialize our options.
-	 */	
+	 */
 	var $options = array();
 	
 	/**
@@ -44,8 +44,8 @@ class Documentation_Head_Style extends Documentation_Customize {
 			$args['theme_key'] = strtolower( get_stylesheet() );
 		
 		// Set option key based on get_stylesheet()
-		$this->theme_key  = $args['theme_key'];
-		$this->option_key = $this->theme_key . '_theme_options';
+		self::$theme_key  = $args['theme_key'];
+		self::$option_key = self::$theme_key . '_theme_options';
 		
 		// add the custom styles in head
 		add_action( 'wp_head', array( $this, 'get_custom_style' ) );
