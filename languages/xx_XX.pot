@@ -1,15 +1,16 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Documentation v2.3.0\n"
+"Project-Id-Version: Documentation v2.3.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-14 13:32+0100\n"
-"PO-Revision-Date: 2013-02-11 15:16:14+0000\n"
+"PO-Revision-Date: 2015-01-09 09:14:42+0000\n"
 "Last-Translator: Frank Bueltge <frank@bueltge.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
 "X-Poedit-Language: \n"
 "X-Poedit-Country: \n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -191,7 +192,7 @@ msgstr "Der sekundäre Widget Bereich unterhalb des primären Widget Bereiches i
 #, php-format
 #@ documentation
 msgid "%1$s on %2$s <span class=\"says\">said:</span>"
-msgstr "%1$s zu %2$s <span class=\\\"says\\\">sagt:</span>"
+msgstr "%1$s zu %2$s <span class=\"says\">sagt:</span>"
 
 #: functions.php:292
 #@ documentation
@@ -219,8 +220,8 @@ msgstr "Schlagworte:"
 msgid "&emsp;(%d)"
 msgstr "&emsp;(%d)"
 
-#: inc/theme-customize.php:114
-#: inc/theme-customize.php:198
+#: inc/theme-customize.php:115
+#: inc/theme-customize.php:197
 #: inc/theme-options.php:83
 #@ documentation
 msgid "Rewrite URL"
@@ -244,7 +245,7 @@ msgstr "Hinterlege eine URL im Backend von WordPress für den Administrationslin
 msgid "%s Theme Options"
 msgstr "%s Theme Einstellungen"
 
-#: inc/theme-customize.php:170
+#: inc/theme-customize.php:169
 #@ documentation
 msgid "Rewrite"
 msgstr "Weiterleitung"
@@ -261,67 +262,57 @@ msgid "Category:"
 msgstr "Kategorie:"
 
 #: inc/class-documentation_customize_textarea_control.php:41
-#@ documentation
+#@ default
 msgid "Default"
 msgstr "Standard"
 
-#: inc/theme-customize.php:130
+#: inc/theme-customize.php:131
 #@ documentation
 msgid "Display Description"
 msgstr "Beschreibung anzeigen"
 
-#: inc/theme-customize.php:135
-#@ documentation
-msgid "False"
-msgstr "Nein"
-
-#: inc/theme-customize.php:136
-#@ documentation
-msgid "True"
-msgstr "Ja"
-
-#: inc/theme-customize.php:143
+#: inc/theme-customize.php:142
 #@ documentation
 msgid "Layout"
 msgstr "Layout"
 
-#: inc/theme-customize.php:144
+#: inc/theme-customize.php:143
 #@ documentation
 msgid "Define main Layout"
 msgstr "Definiere Haupt-Layout"
 
-#: inc/theme-customize.php:157
-#: inc/theme-customize.php:215
+#: inc/theme-customize.php:156
+#: inc/theme-customize.php:214
 #@ documentation
 msgid "Color Scheme"
 msgstr "Farbschema"
 
-#: inc/theme-customize.php:162
+#: inc/theme-customize.php:161
 #@ documentation
 msgid "Sidebar on left"
 msgstr "Sidebar links"
 
-#: inc/theme-customize.php:163
+#: inc/theme-customize.php:162
 #@ documentation
 msgid "Sidebar on right"
 msgstr "Sidebar rechts"
 
-#: inc/theme-customize.php:220
+#: inc/theme-customize.php:219
 #@ documentation
 msgid "Dark"
 msgstr "Dunkel"
 
-#: inc/theme-customize.php:221
+#: inc/theme-customize.php:220
 #@ documentation
 msgid "Light"
 msgstr "Hell"
 
-#: inc/theme-customize.php:235
+#: inc/theme-customize.php:234
 #@ documentation
 msgid "Text Color"
 msgstr "Textfarbe"
 
-#: inc/theme-customize.php:249
+#: inc/theme-customize.php:248
 #@ documentation
 msgid "Link Color"
 msgstr "Linkfarbe"
@@ -405,4 +396,10 @@ msgstr "Kategorie: %s<br />"
 #@ documentation
 msgid "%s updated at %s by %s, write at %s by %s"
 msgstr "%s aktualisiert am %s von %s, erstellt am %s von %s"
+
+#: search.php:14
+#, php-format
+#@ documentation
+msgid "Search Results for: %s"
+msgstr "Suchresultat für: %s"
 
