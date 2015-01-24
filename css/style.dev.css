@@ -144,17 +144,16 @@ padding: 5px;
 font-size: .8em;
 }
 
+.single h2 {
+border-bottom: 1px solid #eee;
+}
+
 .story .info, #content .info {
 clear:both;
 margin: 1em 0;
 padding: 0;
 border-top: 1px solid #eee;
 text-align: right;
-}
-
-.home .info, .home #content .info {
-margin: 0;
-border: none;
 }
 
 .sticky { }
@@ -452,10 +451,6 @@ padding: 5px;
 
 hr, .border {
 border: 1px solid #ccc;
-}
-
-.post h2 {
-border-bottom: 1px solid #eee;
 }
 
 #commentform input, #searchform input#s {

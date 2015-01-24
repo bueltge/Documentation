@@ -42,7 +42,7 @@ class Documentation_Options {
 		$this->option_key = $this->theme_key . '_theme_options';
 		
 		add_action( 'admin_init', array( $this, 'options_init' ) );
-		add_action( 'admin_menu', array( $this, 'add_page'     ) );
+		add_action( 'admin_menu', array( $this, 'add_page' ) );
 	}
 
 	/**
@@ -178,20 +178,13 @@ class Documentation_Options {
 		
 		$screen = get_current_screen();
 		
-		if ( method_exists( $screen, 'add_help_tab' ) ) {
-			// WordPress 3.3
-			$screen->add_help_tab( array(
-				'title'   => __( 'Overview', 'documentation' ),
-				'id'      => 'theme-options-help',
-				'content' => $help,
-				)
-			);
-	
-			$screen->set_help_sidebar( $sidebar );
-		} else {
-			// WordPress 3.2
-			add_contextual_help( $screen, $help . $sidebar );
-		}
+		// Add my_help_tab if current screen is My Admin Page
+		$screen->add_help_tab( array(
+			'id'      => 'theme-options-help',
+			'title'   => __( 'Overview', 'documentation' ),
+			'content' => $help,
+	) );
+		
 	}
 	
 	/**

@@ -13,9 +13,7 @@ if ( have_posts() ) :
 	?>
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<h2><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-			<p class="info">
-				<?php _e( 'Category:', 'documentation' ); ?> <?php the_category( ', ' ) ?>
-			</p>
+			<?php documentation_post_info(); ?>
 		</div>
 	
 	<?php

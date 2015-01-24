@@ -33,8 +33,12 @@ if ( have_posts() ) :
 	while ( have_posts() ) :
 		the_post();
 		
-		get_template_part( 'parts/content', 'single' );
-		
+		if ( is_archive() ) {
+			get_template_part( 'parts/content', 'archive' );
+		} else {
+			get_template_part( 'parts/content', 'single' );
+		}
+	
 	endwhile;
 	
 	tha_content_bottom();
