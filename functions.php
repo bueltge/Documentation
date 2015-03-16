@@ -294,7 +294,7 @@ if ( ! function_exists( 'documentation_comment' ) ) {
 
 						<?php if ( $comment->comment_approved == '0' ) : ?>
 							<em class="comment-awaiting-moderation"><?php esc_attr_e( 'Your comment is awaiting moderation.', 'documentation' ); ?></em>
-							<br />
+							<br>
 						<?php endif; ?>
 					</footer>
 
@@ -451,7 +451,7 @@ if ( ! function_exists( 'documentation_post_info' ) ) {
 		<p class="info">
 			<?php
 			if ( get_the_category_list() ) {
-				$cat = esc_attr__( 'Category: %s<br />', 'documentation' );
+				$cat = esc_attr__( 'Category: %s', 'documentation' ) . '<br>';
 			} else {
 				$cat = '';
 			}
