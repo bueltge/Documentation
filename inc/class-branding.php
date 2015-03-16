@@ -1,6 +1,7 @@
 <?php
 /**
  * Custom admin and login branding for WordPress
+ * @see https://github.com/bueltge/wordpress-basis-theme/tree/namespace/inc/admin
  * 
  * @package  Documentation
  * @since    05/31/2012  0.0.1

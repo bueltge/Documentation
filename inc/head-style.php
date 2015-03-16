@@ -6,33 +6,34 @@
  * @package    WordPress
  * @subpackage Documentation
  * @since      09/05/2012
+ * @version    2015-03-16
  */
 
-// extends the class with the seetings via Customizer
+// extends the class with the settings via Customizer
 class Documentation_Head_Style extends Documentation_Customize {
 	
 	/**
 	 * Identifier, namespace
 	 */
-	public static $theme_key = '';
+	protected $theme_key = '';
 	
 	/**
 	 * The option value in the database will be based on get_stylesheet()
 	 * so child themes don't share the parent theme's option value.
 	 */
-	public static $option_key = '';
+	protected $option_key = '';
 	
 	/**
 	 * Initialize our options.
 	 */
 	var $options = array();
-	
+
 	/**
 	 * Constructor
-	 * 
+	 *
 	 * @since   09/07/2012
+	 *
 	 * @param   $args   Array
-	 * @return  void
 	 */
 	public function __construct( $args = NULL ) {
 		
@@ -44,8 +45,8 @@ class Documentation_Head_Style extends Documentation_Customize {
 			$args['theme_key'] = strtolower( get_stylesheet() );
 		
 		// Set option key based on get_stylesheet()
-		self::$theme_key  = $args['theme_key'];
-		self::$option_key = self::$theme_key . '_theme_options';
+		$this->theme_key  = $args['theme_key'];
+		$this->option_key = $this->theme_key . '_theme_options';
 		
 		// add the custom styles in head
 		add_action( 'wp_head', array( $this, 'get_custom_style' ) );

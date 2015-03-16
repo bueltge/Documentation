@@ -4,8 +4,8 @@
  *
  * @package    WordPress
  * @subpackage Documentation
- * @since      09/06/2012
- * @version    09/26/2013
+ * @since      2012-09-06
+ * @version    2015-03-16
  */
 
 class Documentation_Customize {
@@ -13,44 +13,45 @@ class Documentation_Customize {
 	/**
 	 * Identifier, namespace
 	 */
-	public static $theme_key = '';
+	protected $theme_key = '';
 	
 	/**
 	 * The option value in the database will be based on get_stylesheet()
 	 * so child themes don't share the parent theme's option value.
 	 */
-	public static $option_key = '';
-	
+	protected $option_key = '';
+
 	/**
 	 * Initialize
+	 *
+	 * @param null $args
 	 */
 	public function __construct( $args = NULL ) {
-		
-		// Include the custom class for textarea
-		if ( ! class_exists( 'Documentation_Customize_Textarea_Control' ) )
-			require_once( 'class-documentation_customize_textarea_control.php' );
 		
 		// Set option key based on get_stylesheet()
 		if ( NULL === $args )
 			$args['theme_key'] = strtolower( get_stylesheet() );
 		
 		// Set option key based on get_stylesheet()
-		self::$theme_key  = $args['theme_key'];
-		self::$option_key = self::$theme_key . '_theme_options';
+		$this->theme_key  = $args['theme_key'];
+		$this->option_key = $this->theme_key . '_theme_options';
 		
 		// register our custom settings
 		add_action( 'customize_register', array( $this, 'customize_register' ) );
 		
-		// 
+		// Scripts for Preview
 		add_action( 'customize_preview_init', array( $this, 'customize_preview_js' ) );
 	}
-	
+
 	/**
 	 * Returns the default options.
 	 * Use the hook 'documentation_default_theme_options' for change via plugin
-	 * 
+	 *
 	 * @since    08/09/2012
-	 * @return   Array
+	 *
+	 * @param null $value
+	 *
+	 * @return Array
 	 */
 	public function get_default_theme_options( $value = NULL ) {
 		
@@ -66,24 +67,27 @@ class Documentation_Customize {
 		if ( NULL !== $value )
 			return $default_theme_options[$value];
 		
-		return apply_filters( self::$theme_key . '_default_theme_options', $default_theme_options );
+		return apply_filters( $this->theme_key . '_default_theme_options', $default_theme_options );
 	}
-	
+
 	/**
 	 * Returns the options array.
-	 * 
+	 *
 	 * @since    08/09/2012
-	 * @return   Array
+	 *
+	 * @param null $value
+	 *
+	 * @return Array
 	 */
 	public function get_theme_options( $value = NULL ) {
 		
-		$saved = (array) get_option( self::$option_key );
+		$saved = (array) get_option( $this->option_key );
 		$defaults = $this->get_default_theme_options();
 		
 		$options = wp_parse_args( $saved, $defaults );
 		$options = array_intersect_key( $options, $defaults );
 		
-		$options = apply_filters( self::$theme_key . '_theme_options', $options );
+		$options = apply_filters( $this->theme_key . '_theme_options', $options );
 		
 		if ( NULL !== $value )
 			return $options[$value];
@@ -107,30 +111,18 @@ class Documentation_Customize {
 		$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 		
-		// USe custom class for textarea control on default field "blogdescription"
-		// add textarea field for change the rewrite url
-		$wp_customize->add_control(
-			new Documentation_Customize_Textarea_Control(
-				$wp_customize, 'blogdescription', array(
-					'label'    => __( 'Rewrite URL', 'documentation' ),
-					'section'  => 'title_tagline',
-					'settings' => 'blogdescription',
-				)
-			)
-		);
-		
 		// Add settings for output description
-		$wp_customize->add_setting( self::$option_key . '[echo_desc]', array(
+		$wp_customize->add_setting( $this->option_key . '[echo_desc]', array(
 			'default'    => $defaults['echo_desc'],
 			'type'       => 'option',
 			'capability' => 'edit_theme_options'
 		) );
-		
+
 		// Add control and output for select field
-		$wp_customize->add_control( self::$option_key . '_echo_desc', array(
+		$wp_customize->add_control( $this->option_key . '_echo_desc', array(
 			'label'      => __( 'Display Description', 'documentation' ),
 			'section'    => 'title_tagline',
-			'settings'   => self::$option_key . '[echo_desc]',
+			'settings'   => $this->option_key . '[echo_desc]',
 			'std'        => '1',
 			'type'       => 'checkbox',
 
@@ -138,24 +130,24 @@ class Documentation_Customize {
 		
 		// ===== Layout Section =====
 		// Option for leave sidebar left or right
-		$wp_customize->add_section( self::$option_key . '_layout', array(
+		$wp_customize->add_section( $this->option_key . '_layout', array(
 			'title'       => __( 'Layout', 'documentation' ),
 			'description' => __( 'Define main Layout', 'documentation' ),
 			'priority'    => 30
 		) );
 		
 		// Add field for radio buttons to set layout
-		$wp_customize->add_setting( self::$option_key . '[layout]', array(
+		$wp_customize->add_setting( $this->option_key . '[layout]', array(
 			'default'     => $defaults['layout'],
 			'type'        => 'option',
 			'capability'  => 'edit_theme_options',
 		) );
 		
 		// Add control and output for select field
-		$wp_customize->add_control( self::$option_key . '_layout', array(
+		$wp_customize->add_control( $this->option_key . '_layout', array(
 			'label'       => __( 'Color Scheme', 'documentation' ),
-			'section'     => self::$option_key . '_layout',
-			'settings'    => self::$option_key . '[layout]',
+			'section'     => $this->option_key . '_layout',
+			'settings'    => $this->option_key . '[layout]',
 			'type'        => 'radio',
 			'choices'     => array(
 				'sidebar-left'  => __( 'Sidebar on left', 'documentation' ),
@@ -165,14 +157,14 @@ class Documentation_Customize {
 		
 		// ===== Custom Section =====
 		// create custom section for rewrite url
-		$wp_customize->add_section( self::$option_key . '_rewrite_url', array(
+		$wp_customize->add_section( $this->option_key . '_rewrite_url', array(
 			'title'       => __( 'Rewrite', 'documentation' ),
 			'priority'    => 35,
 		) );
 		
 		// ===== Text Input Field =====
 		// add field for rewrite url in custom section
-		$wp_customize->add_setting( self::$option_key . '[rewrite_url]', array(
+		$wp_customize->add_setting( $this->option_key . '[rewrite_url]', array(
 			'default'     => $defaults['rewrite_url'],
 			'type'        => 'option',
 			'capability'  => 'edit_theme_options',
@@ -182,38 +174,35 @@ class Documentation_Customize {
 		// !!! Current NOT use, use the textarea field, see below.
 		// use the custom class for add textarea and use it on this example
 		/*
-		$wp_customize->add_control( self::$option_key . '_rewrite_url', array(
+		$wp_customize->add_control( $this->option_key . '_rewrite_url', array(
 			'label'      => __( 'Rewrite URL', 'documentation' ),
-			'section'    => self::$option_key . '_rewrite_url',
-			'settings'   => self::$option_key . '[rewrite_url]',
+			'section'    => $this->option_key . '_rewrite_url',
+			'settings'   => $this->option_key . '[rewrite_url]',
 			'type'       => 'text',
 		) );
 		*/
 		
 		// add textarea field for change the rewrite url
-		$wp_customize->add_control(
-			new Documentation_Customize_Textarea_Control(
-				$wp_customize, self::$option_key . '_rewrite_url', array(
-					'label'    => __( 'Rewrite URL', 'documentation' ),
-					'section'  => self::$option_key . '_rewrite_url',
-					'settings' => self::$option_key . '[rewrite_url]',
-				)
-			)
-		);
+		$wp_customize->add_control( $this->option_key . '_rewrite_url', array(
+			'label'       => __( 'Rewrite URL', 'documentation' ),
+			'section'     => $this->option_key . '_rewrite_url',
+			'settings'    => $this->option_key . '[rewrite_url]',
+			'type' => 'textarea',
+		) );
 		
 		// ===== Sample Radio Buttons Fields =====
 		// Add field for radio buttons to dark or light scheme
-		$wp_customize->add_setting( self::$option_key . '[color_scheme]', array(
+		$wp_customize->add_setting( $this->option_key . '[color_scheme]', array(
 			'default'     => $defaults['color_scheme'],
 			'type'        => 'option',
 			'capability'  => 'edit_theme_options',
 		) );
 		
 		// Add control and output for select field
-		$wp_customize->add_control( self::$option_key . '_color_scheme', array(
+		$wp_customize->add_control( $this->option_key . '_color_scheme', array(
 			'label'       => __( 'Color Scheme', 'documentation' ),
 			'section'     => 'colors',
-			'settings'    => self::$option_key . '[color_scheme]',
+			'settings'    => $this->option_key . '[color_scheme]',
 			'type'        => 'radio',
 			'choices'     => array(
 				'dark'  => __( 'Dark', 'documentation' ),
@@ -223,31 +212,31 @@ class Documentation_Customize {
 		
 		// ===== Color picker Fields =====
 		// add field for text color in default section for 'colors'
-		$wp_customize->add_setting( self::$option_key . '[text_color]', array(
+		$wp_customize->add_setting( $this->option_key . '[text_color]', array(
 			'default'     => $defaults['text_color'],
 			'type'        => 'option',
 			'capability'  => 'edit_theme_options',
 		) );
 		
 		// add color field include color picker for text color
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, self::$option_key . '_text_color', array(
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $this->option_key . '_text_color', array(
 			'label'       => __( 'Text Color', 'documentation' ),
 			'section'     => 'colors',
-			'settings'    => self::$option_key . '[text_color]',
+			'settings'    => $this->option_key . '[text_color]',
 		) ) );
 		
 		// add field for text color in default section for 'colors'
-		$wp_customize->add_setting( self::$option_key . '[link_color]', array(
+		$wp_customize->add_setting( $this->option_key . '[link_color]', array(
 			'default'     => $defaults['link_color'],
 			'type'        => 'option',
 			'capability'  => 'edit_theme_options',
 		) );
 		
 		// add color field include color picker for link color
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, self::$option_key . '_link_color', array(
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $this->option_key . '_link_color', array(
 			'label'       => __( 'Link Color', 'documentation' ),
 			'section'     => 'colors',
-			'settings'    => self::$option_key . '[link_color]',
+			'settings'    => $this->option_key . '[link_color]',
 		) ) );
 		
 	}
@@ -263,14 +252,14 @@ class Documentation_Customize {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
 		
 		wp_register_script(
-			self::$theme_key . '-customizer',
+			$this->theme_key . '-customizer',
 			get_template_directory_uri() . '/js/theme-customizer' . $suffix . '.js',
 			array( 'customize-preview' ),
 			FALSE,
 			TRUE
 		);
 		
-		wp_enqueue_script( self::$theme_key . '-customizer' );
+		wp_enqueue_script( $this->theme_key . '-customizer' );
 	}
 	
 } // end class
