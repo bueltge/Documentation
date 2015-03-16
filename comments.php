@@ -16,7 +16,7 @@ tha_comments_before(); ?>
 	
 <div id="comments">
 	<?php if ( post_password_required() ) : ?>
-		<p class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'documentation' ); ?></p>
+		<p class="nopassword"><?php esc_attr_e( 'This post is password protected. Enter the password to view any comments.', 'documentation' ); ?></p>
 		<?php tha_comments_after(); ?>
 	</div><!-- #comments -->
 	<?php
@@ -40,7 +40,7 @@ tha_comments_before(); ?>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 		<nav id="comment-nav-above" role="navigation">
-			<h1 class="assistive-text section-heading"><?php _e( 'Comment navigation', 'documentation' ); ?></h1>
+			<h1 class="assistive-text section-heading"><?php esc_attr_e( 'Comment navigation', 'documentation' ); ?></h1>
 			<div class="nav-previous"><?php previous_comments_link( esc_attr__( '&larr; Older Comments', 'documentation' ) ); ?></div>
 			<div class="nav-next"><?php next_comments_link( esc_attr__( 'Newer Comments &rarr;', 'documentation' ) ); ?></div>
 		</nav>
@@ -52,7 +52,7 @@ tha_comments_before(); ?>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 		<nav id="comment-nav-below" role="navigation">
-			<h1 class="assistive-text section-heading"><?php _e( 'Comment navigation', 'documentation' ); ?></h1>
+			<h1 class="assistive-text section-heading"><?php esc_attr_e( 'Comment navigation', 'documentation' ); ?></h1>
 			<div class="nav-previous"><?php previous_comments_link( esc_attr__( '&larr; Older Comments', 'documentation' ) ); ?></div>
 			<div class="nav-next"><?php next_comments_link( esc_attr__( 'Newer Comments &rarr;', 'documentation' ) ); ?></div>
 		</nav>
@@ -61,7 +61,7 @@ tha_comments_before(); ?>
 	<?php // If there are no comments and comments are closed, let's leave a note.
 		elseif ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-		<p class="nocomments"><?php _e( 'Comments are closed.', 'documentation' ); ?></p>
+		<p class="nocomments"><?php esc_attr_e( 'Comments are closed.', 'documentation' ); ?></p>
 	<?php endif; ?>
 	
 	<?php

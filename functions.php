@@ -259,7 +259,7 @@ if ( ! function_exists( 'documentation_comment' ) ) {
 			case 'trackback' :
 				?>
 				<li class="post pingback">
-				<p><?php _e( 'Pingback:', 'documentation' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( esc_attr__( 'Edit', 'documentation' ), '<span class="edit-link">', '</span>' ); ?></p>
+				<p><?php esc_attr_e( 'Pingback:', 'documentation' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( esc_attr__( 'Edit', 'documentation' ), '<span class="edit-link">', '</span>' ); ?></p>
 				<?php
 				break;
 			default :
@@ -293,7 +293,7 @@ if ( ! function_exists( 'documentation_comment' ) ) {
 						<!-- .comment-author .vcard -->
 
 						<?php if ( $comment->comment_approved == '0' ) : ?>
-							<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'documentation' ); ?></em>
+							<em class="comment-awaiting-moderation"><?php esc_attr_e( 'Your comment is awaiting moderation.', 'documentation' ); ?></em>
 							<br />
 						<?php endif; ?>
 					</footer>
