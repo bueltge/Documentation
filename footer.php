@@ -26,9 +26,9 @@ if ( ! is_singular() )
 		
 		$redirect = documentation_get_options( 'rewrite_url' );
 		if ( ! is_user_logged_in() ) {
-			$link = ' | <a href="' . get_option('siteurl') . '/wp-login.php?redirect_to=' . $redirect . '">' . __('Login', 'documentation') . '</a>';
+			$link = ' | <a href="' . get_option('siteurl') . '/wp-login.php?redirect_to=' . $redirect . '">' . esc_attr__('Login', 'documentation') . '</a>';
 		} else {
-			$link = ' | <a href="' . home_url( '/' ) . '/wp-login.php?action=logout&amp;redirect_to=' . home_url( '/' ) . '">' . __( 'Logout', 'documentation' ) . '</a>';
+			$link = ' | <a href="' . home_url( '/' ) . '/wp-login.php?action=logout&amp;redirect_to=' . home_url( '/' ) . '">' . esc_attr__( 'Logout', 'documentation' ) . '</a>';
 		}
 		echo apply_filters( 'loginout', $link );
 		?>

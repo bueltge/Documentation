@@ -11,7 +11,7 @@ if ( have_posts() ) :
 	
 	tha_content_top(); 
 	?>
-		<h2 class="page-title"><?php printf( __( 'Search Results for: %s', 'documentation' ), '<span>' . get_search_query() . '</span>' ); ?></h2>
+		<h2 class="page-title"><?php printf( esc_attr__( 'Search Results for: %s', 'documentation' ), '<span>' . get_search_query() . '</span>' ); ?></h2>
 	<?php
 	while ( have_posts() ) :
 		the_post();

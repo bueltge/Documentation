@@ -37,9 +37,9 @@ tha_sidebars_before();
 					<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 					</ul>
 				</li>
-				<?php //wp_list_pages('title_li=<h2>' . __('Pages', 'documentation') . '</h2>'); ?>
+				<?php //wp_list_pages('title_li=<h2>' . esc_attr__('Pages', 'documentation') . '</h2>'); ?>
 		
-				<?php wp_list_categories('sort_column=name&optioncount=1&hierarchical=1&hide_empty=0&title_li=<h2>' . __('Categories', 'documentation') . '</h2>&show_count=1'); ?>
+				<?php wp_list_categories('sort_column=name&optioncount=1&hierarchical=1&hide_empty=0&title_li=<h2>' . esc_attr__('Categories', 'documentation') . '</h2>&show_count=1'); ?>
 		
 				<?php if ( !is_home() ) { ?>
 				<li><h2><?php _e('Last entries', 'documentation' ); ?></h2>

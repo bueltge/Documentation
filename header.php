@@ -35,9 +35,9 @@
 		<p id="login"><?php
 		$redirect = documentation_get_options( 'rewrite_url' );
 		if ( ! is_user_logged_in() ) {
-			$link = '<a href="' . get_option( 'siteurl' ) . '/wp-login.php?redirect_to=' . home_url( '/' ) .'">' . __('Login', 'documentation') . '</a>';
+			$link = '<a href="' . get_option( 'siteurl' ) . '/wp-login.php?redirect_to=' . home_url( '/' ) .'">' . esc_attr__('Login', 'documentation') . '</a>';
 		} else {
-			$link = '<a href="' . get_option('siteurl') . '/' . $redirect . '">' . __('Administration', 'documentation') . '</a>';
+			$link = '<a href="' . get_option('siteurl') . '/' . $redirect . '">' . esc_attr__('Administration', 'documentation') . '</a>';
 		}
 		echo apply_filters('loginout', $link);
 		?></p>
