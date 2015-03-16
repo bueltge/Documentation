@@ -56,8 +56,16 @@ Working on it!
 
 ## THA-Compatible Themes ##
 * **In-Progress**
-	* [Oenology](http://www.chipbennett.net/themes/oenology/) by Chip Bennett ([github](https://github.com/chipbennett/oenology))
 	* [Elbee Elgee](http://literalbarrage.org/blog/code/elbee-elgee) by Doug Stewart ([bitbucket](https://bitbucket.org/zamoose/elbee-elgee))
+
 * **Full Support**
 	* [The Bootstrap](http://wordpress.org/extend/themes/the-bootstrap) by Konstantin Obenland ([github](https://github.com/obenland/the-bootstrap))
+	* [wolf](https://github.com/bradp/wolf) by Brad Parbs ([github](https://github.com/bradp/wolf))
+	* [hook_s](https://github.com/bradp/hook_s) by Brad Parbs ([github](https://github.com/bradp/hook_s))
 	* [Documentation](https://github.com/bueltge/Documentation) by Frank Bültge
+	* [Opus Primus](http://wordpress.org/extend/themes/opus-primus) (via a Stanza) by Cais ([github](https://github.com/Cais/opus-primus))
+	* [Oenology](http://www.chipbennett.net/themes/oenology/) by Chip Bennett ([github](https://github.com/chipbennett/oenology))
+	* [Museum Core](http://wordpress.org/extend/themes/museum-core/) by Chris Reynolds ([github](https://github.com/jazzsequence/museum-core))
+	* [Decode](http://scotthsmith.com/projects/decode/) by Scott Smith ([github](https://github.com/ScottSmith95/Decode))
+	* [Some Like It Neat](https://github.com/digisavvy/some-like-it-neat) by Alex Vasquez
+	* [Compass](https://github.com/FlagshipWP/compass) by Flagship
