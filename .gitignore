@@ -30,6 +30,11 @@ local.properties
 .buildpath
 
 ############
+## PhpStorm
+############
+.idea
+
+############
 ## Windows
 ############
 
