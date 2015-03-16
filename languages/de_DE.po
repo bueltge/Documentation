@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Documentation v2.3.1\n"
+"Project-Id-Version: Documentation v2.3.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-14 13:32+0100\n"
-"PO-Revision-Date: 2015-01-09 09:14:42+0000\n"
+"PO-Revision-Date: 2015-03-16 15:43:46+0000\n"
 "Last-Translator: Frank Bueltge <frank@bueltge.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,25 +20,14 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Textdomain-Support: yes"
 
-#: index.php:14
-#@ documentation
-msgid "Archive for categorie"
-msgstr "Archiv für Kategorie"
-
-#: index.php:28
-#: index.php:30
-#@ documentation
-msgid "Archive"
-msgstr "Archiv"
-
-#: parts/content-single.php:16
+#: parts/content-single.php:18
 #@ documentation
 msgid "... more &raquo;"
 msgstr "... weiterlesen &raquo;"
 
-#: functions.php:252
-#: functions.php:280
-#: functions.php:437
+#: functions.php:262
+#: functions.php:291
+#: functions.php:469
 #@ documentation
 msgid "Edit"
 msgstr "Bearbeiten"
@@ -48,7 +37,7 @@ msgstr "Bearbeiten"
 msgid "Nothing found, corresponding to the search criteria."
 msgstr "Nichts gefunden, was den Suchkriterien entspricht."
 
-#: functions.php:284
+#: functions.php:296
 #@ documentation
 msgid "Your comment is awaiting moderation."
 msgstr "Ihr Kommentar wartet auf die Moderation."
@@ -69,22 +58,22 @@ msgstr "Abmelden"
 msgid "Administration"
 msgstr "Verwaltung"
 
-#: sidebar.php:29
+#: sidebar.php:31
 #@ documentation
 msgid "Search"
 msgstr "Suche"
 
-#: sidebar.php:35
+#: sidebar.php:37
 #@ documentation
 msgid "Pages"
 msgstr "Seiten"
 
-#: sidebar.php:42
+#: sidebar.php:45
 #@ documentation
 msgid "Categories"
 msgstr "Kategorien"
 
-#: sidebar.php:45
+#: sidebar.php:48
 #@ documentation
 msgid "Last entries"
 msgstr "Letzte Einträge"
@@ -99,52 +88,27 @@ msgstr "Dieser Beitrag ist passwortgeschützt. Gebe das Passwort ein und lese di
 msgid "Comments are closed."
 msgstr "Kommentare sind geschlossen."
 
-#. translators: 1: date, 2: time
-#: functions.php:275
+#. translators: 1: date, 2: time 
+#: functions.php:286
 #, php-format
 #@ documentation
 msgid "%1$s at %2$s"
 msgstr "%1$s bei %2$s"
 
-#: functions.php:252
+#: functions.php:262
 #@ documentation
 msgid "Pingback:"
 msgstr "Pingback:"
 
-#: functions.php:204
+#: functions.php:212
 #@ documentation
 msgid "Primary Widget Area"
 msgstr "Primärer Widget Bereich"
 
-#: functions.php:215
+#: functions.php:223
 #@ documentation
 msgid "Secondary Widget Area"
 msgstr "Sekundärer Widget Bereich"
-
-#: index.php:18
-#@ documentation
-msgid "Daily archive"
-msgstr "Tagesarchiv"
-
-#: index.php:20
-#@ documentation
-msgid "Monthly archive"
-msgstr "Monatsarchiv"
-
-#: index.php:22
-#@ documentation
-msgid "Years of archive"
-msgstr "Jahresarchiv"
-
-#: index.php:24
-#@ documentation
-msgid "Search results"
-msgstr "Suchresultate"
-
-#: index.php:26
-#@ documentation
-msgid "Author archive"
-msgstr "Autorenarchiv"
 
 #: comments.php:36
 #, php-format
@@ -172,226 +136,128 @@ msgstr "&larr; Ältere Kommentare"
 msgid "Newer Comments &rarr;"
 msgstr "neuere Kommentare &rarr;"
 
-#: functions.php:84
+#: functions.php:86
 #@ documentation
 msgid "Primary Menu"
 msgstr "Primäres Menu"
 
-#: functions.php:206
+#: functions.php:214
 #@ documentation
 msgid "The primary widget area is visible on all pages and posts."
 msgstr "Der primäre Widget Bereich ist in allen Seiten und Artikeln sichtbar."
 
-#: functions.php:217
+#: functions.php:225
 #@ documentation
 msgid "The secondary widget area down below Primary Widget Area only on pages and posts."
 msgstr "Der sekundäre Widget Bereich unterhalb des primären Widget Bereiches ist nur bei Seiten und Artikeln sichbar."
 
-#. translators: 1: comment author, 2: date and time
-#: functions.php:269
+#. translators: 1: comment author, 2: date and time 
+#: functions.php:280
 #, php-format
 #@ documentation
 msgid "%1$s on %2$s <span class=\"says\">said:</span>"
 msgstr "%1$s zu %2$s <span class=\"says\">sagt:</span>"
 
-#: functions.php:292
+#: functions.php:305
 #@ documentation
 msgid "Reply <span>&darr;</span>"
 msgstr "Antwort <span>&darr;</span>"
 
-#: functions.php:332
+#: functions.php:353
 #@ documentation
 msgid "&laquo; Previous"
 msgstr "&laquo; vorherige"
 
-#: functions.php:333
+#: functions.php:354
 #@ documentation
 msgid "Next &raquo;"
 msgstr "nächste &raquo;"
 
-#: functions.php:430
+#: functions.php:462
 #@ documentation
 msgid "Tags:"
 msgstr "Schlagworte:"
 
-#: functions.php:357
+#: functions.php:379
 #, php-format
 #@ documentation
 msgid "&emsp;(%d)"
 msgstr "&emsp;(%d)"
 
-#: inc/theme-customize.php:115
-#: inc/theme-customize.php:197
-#: inc/theme-options.php:83
+#: inc/theme-customize.php:192
 #@ documentation
 msgid "Rewrite URL"
 msgstr "Weiterleitung URL"
 
-#: inc/theme-options.php:119
-#: inc/theme-options.php:120
-#@ documentation
-msgid "Theme Options"
-msgstr "Theme Einstellungen"
-
-#: inc/theme-options.php:246
-#, php-format
-#@ documentation
-msgid "Edit an URL in Backend for the Administration Link in Frontend. Example: %s"
-msgstr "Hinterlege eine URL im Backend von WordPress für den Administrationslink im Frontend. Beispiel: %s"
-
-#: inc/theme-options.php:304
-#, php-format
-#@ documentation
-msgid "%s Theme Options"
-msgstr "%s Theme Einstellungen"
-
-#: inc/theme-customize.php:169
+#: inc/theme-customize.php:166
 #@ documentation
 msgid "Rewrite"
 msgstr "Weiterleitung"
 
-#: functions.php:402
+#: functions.php:431
 #, php-format
 #@ documentation
 msgid "Page %s"
 msgstr "Seite %s"
 
-#: home.php:17
-#@ documentation
-msgid "Category:"
-msgstr "Kategorie:"
-
-#: inc/class-documentation_customize_textarea_control.php:41
-#@ default
-msgid "Default"
-msgstr "Standard"
-
-#: inc/theme-customize.php:131
+#: inc/theme-customize.php:128
 #@ documentation
 msgid "Display Description"
 msgstr "Beschreibung anzeigen"
 
-#: inc/theme-customize.php:142
+#: inc/theme-customize.php:139
 #@ documentation
 msgid "Layout"
 msgstr "Layout"
 
-#: inc/theme-customize.php:143
+#: inc/theme-customize.php:140
 #@ documentation
 msgid "Define main Layout"
 msgstr "Definiere Haupt-Layout"
 
-#: inc/theme-customize.php:156
-#: inc/theme-customize.php:214
+#: inc/theme-customize.php:153
+#: inc/theme-customize.php:208
 #@ documentation
 msgid "Color Scheme"
 msgstr "Farbschema"
 
-#: inc/theme-customize.php:161
+#: inc/theme-customize.php:158
 #@ documentation
 msgid "Sidebar on left"
 msgstr "Sidebar links"
 
-#: inc/theme-customize.php:162
+#: inc/theme-customize.php:159
 #@ documentation
 msgid "Sidebar on right"
 msgstr "Sidebar rechts"
 
-#: inc/theme-customize.php:219
+#: inc/theme-customize.php:213
 #@ documentation
 msgid "Dark"
 msgstr "Dunkel"
 
-#: inc/theme-customize.php:220
+#: inc/theme-customize.php:214
 #@ documentation
 msgid "Light"
 msgstr "Hell"
 
-#: inc/theme-customize.php:234
+#: inc/theme-customize.php:228
 #@ documentation
 msgid "Text Color"
 msgstr "Textfarbe"
 
-#: inc/theme-customize.php:248
+#: inc/theme-customize.php:242
 #@ documentation
 msgid "Link Color"
 msgstr "Linkfarbe"
 
-#: inc/theme-options.php:92
-#@ documentation
-msgid "Text color"
-msgstr "Textfarbe"
-
-#: inc/theme-options.php:101
-#@ documentation
-msgid "Link color"
-msgstr "Linkfarbe"
-
-#: inc/theme-options.php:169
-#@ documentation
-msgid "Some themes provide customization options that are grouped together on a Theme Options screen. If you change themes, options may change or disappear, as they are theme-specific. Your current theme provides the following Theme Options:"
-msgstr "Einige Themes bieten Anpassungsoptionen, die gemeinsam über Theme-Optionen gruppiert sind. Wenn Sie die Themes ändern, können die Optionen sich ändern oder verschwinden. Dein aktuelles Theme bietet die folgenden Theme-Optionen:"
-
-#: inc/theme-options.php:173
-#@ documentation
-msgid "<strong>Link Color</strong>: You can choose the color used for text links on your site. You can enter the HTML color or hex code, or you can choose visually by clicking the \"Select a Color\" button to pick from a color wheel."
-msgstr "<strong>Linkfarbe</strong>: Du kannst die Farbe für Textlinks wählen. Du kannst den Hex-Code hinterlegen oder du nutzt den visuellen Modus. Klicke dazu den \\\"Wähle ein Farbe\\\"-Button und wähle eine Farbe aus dem Farbrad."
-
-#: inc/theme-options.php:175
-#@ documentation
-msgid "Remember to click \"Save Changes\" to save any changes you have made to the theme options."
-msgstr "Denke daran, dass du \\\"Änderungen speicherst\\\" klicken musst um die Einstellungen zu nutzen."
-
-#: inc/theme-options.php:177
-#@ documentation
-msgid "For more information:"
-msgstr "Für mehr Informationen:"
-
-#: inc/theme-options.php:184
-#@ documentation
-msgid "Overview"
-msgstr "Übersicht"
-
-#: inc/theme-options.php:262
-#: inc/theme-options.php:284
-#@ documentation
-msgid "Select a Color"
-msgstr "Wähle eine Farbe"
-
-#: inc/theme-options.php:266
-#, php-format
-#@ documentation
-msgid "Fill with an hex code for the text color. Default color: %s"
-msgstr "Hinterlege einen hex-Code für die Textfarbe. Standardfarbe: %s"
-
-#: inc/theme-options.php:288
-#, php-format
-#@ documentation
-msgid "Fill with an hex code for the link color. Default color: %s"
-msgstr "Hinterlege einen Hex-Code für die Linkfarbe. Standardfarbe: %s"
-
-#: inc/theme-options.php:171
-#@ documentation
-msgid "<strong>Rewrite URL</strong>:"
-msgstr "<strong>Weiterleitungs-URL</strong>:"
-
-#: inc/theme-options.php:172
-#@ documentation
-msgid "<strong>Text Color</strong>:"
-msgstr "<strong>Textfarbe</strong>:"
-
-#: index.php:16
-#@ documentation
-msgid "Archive for tag"
-msgstr "Archiv für Schlagwort"
-
-#: functions.php:423
+#: functions.php:454
 #, php-format
 #@ documentation
 msgid "Category: %s<br />"
 msgstr "Kategorie: %s<br />"
 
-#: functions.php:428
+#: functions.php:460
 #, php-format
 #@ documentation
 msgid "%s updated at %s by %s, write at %s by %s"
