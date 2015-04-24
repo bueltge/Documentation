@@ -421,7 +421,7 @@ padding: 0;
 border: 1px solid #eee;
 }
 
-table .second, table th {
+table .second, table th, table tr:nth-child(odd) {
 background: #eee;
 }
 
