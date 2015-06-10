@@ -72,11 +72,9 @@ class Documentation_Admin_Branding {
 	/**
 	 * Change the `login_headerurl` to whatever was specified in $args
 	 *
-	 * @param $url
-	 *
 	 * @return string
 	 */
-	public function login_headerurl( $url ) {
+	public function login_headerurl() {
 
 		return esc_url( $this->args[ 'login_url' ] );
 	}
@@ -84,11 +82,9 @@ class Documentation_Admin_Branding {
 	/**
 	 * Change `login_headerurl` to what was specified in the $args
 	 *
-	 * @param $title
-	 *
 	 * @return string|void
 	 */
-	public function login_headertitle( $title ) {
+	public function login_headertitle() {
 
 		return esc_attr( $this->args[ 'login_title' ] );
 	}

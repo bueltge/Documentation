@@ -66,10 +66,38 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		require_if_theme_supports( 'documentation_customizer', get_template_directory() . '/inc/head-style.php' );
 
 		/**
+		 * Custom template tags for this theme.
+		 *
+		 * @since  2015-06-10
+		 */
+		require get_template_directory() . '/inc/template-tags.php';
+
+		/**
+		 * Custom functions, that hook in core for this theme.
+		 *
+		 * @since  2015-06-10
+		 */
+		require get_template_directory() . '/inc/extras.php';
+
+		/**
+		 * Widget areas in the sidebar and his markup.
+		 *
+		 * @since  2015-06-10
+		 */
+		require get_template_directory() . '/inc/widgets.php';
+
+		/**
+		 * Custom comment callback function.
+		 *
+		 * @since  2015-06-10
+		 */
+		require get_template_directory() . '/inc/comments.php';
+
+		/**
 		 * Add support for the hook alliance
 		 *
 		 * @see    https://github.com/zamoose/themehookalliance
-		 * @since  10/02/2012
+		 * @since  2012-02-10
 		 */
 		add_theme_support( 'tha_hooks', array( 'all' ) );
 		// include the file from this project, if theme supported
@@ -194,302 +222,3 @@ if ( ! function_exists( 'documentation_scripts_styles' ) ) {
 	}
 
 } // end if func exists
-
-if ( ! function_exists( 'documentation_widgets_init' ) ) {
-
-	add_action( 'widgets_init', 'documentation_widgets_init' );
-	/**
-	 * Register widgetized areas
-	 *
-	 * @return  void
-	 */
-	function documentation_widgets_init() {
-
-		// Area 1
-		register_sidebar(
-			array(
-				'name'          => esc_html__( 'Primary Widget Area', 'documentation' ),
-				'id'            => 'primary-widget-area',
-				'description'   => esc_html__(
-					'The primary widget area is visible on all pages and posts.', 'documentation'
-				),
-				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</aside>',
-				'before_title'  => '<h1 class="widget-title">',
-				'after_title'   => '</h1>',
-			)
-		);
-
-		// Area 2
-		register_sidebar(
-			array(
-				'name'          => esc_html__( 'Secondary Widget Area', 'documentation' ),
-				'id'            => 'secondary-widget-area',
-				'description'   => esc_html__(
-					'The secondary widget area down below Primary Widget Area only on pages and posts.', 'documentation'
-				),
-				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</aside>',
-				'before_title'  => '<h1 class="widget-title">',
-				'after_title'   => '</h1>',
-			)
-		);
-	} // end theme_widgets_init
-
-} // end if func exists
-
-if ( ! function_exists( 'documentation_comment' ) ) {
-
-	/**
-	 * Template for comments and pingbacks.
-	 *
-	 * To override this walker in a child theme without modifying the comments template
-	 * simply create your own documentation_comment(), and that function will be used instead.
-	 *
-	 * Used as a callback by wp_list_comments() for displaying the comments.
-	 *
-	 * @since   2.0.0
-	 *
-	 * @param   $comment
-	 * @param   $args
-	 * @param   $depth
-	 *
-	 * @return  void
-	 */
-	function documentation_comment( $comment, $args, $depth ) {
-
-		$GLOBALS[ 'comment' ] = $comment;
-		switch ( $comment->comment_type ) :
-			case 'pingback' :
-			case 'trackback' :
-				?>
-				<li class="post pingback">
-				<p><?php esc_attr_e( 'Pingback:', 'documentation' ); ?> <?php comment_author_link(
-					); ?><?php edit_comment_link(
-						esc_attr__( 'Edit', 'documentation' ), '<span class="edit-link">', '</span>'
-					); ?></p>
-				<?php
-				break;
-			default :
-				?>
-				<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-				<article id="comment-<?php comment_ID(); ?>" class="comment">
-					<footer class="comment-meta">
-						<div class="comment-author vcard">
-							<?php
-							$avatar_size = 68;
-							if ( '0' != $comment->comment_parent ) {
-								$avatar_size = 39;
-							}
-
-							echo get_avatar( $comment, $avatar_size );
-
-							/* translators: 1: comment author, 2: date and time */
-							printf(
-								esc_attr__( '%1$s on %2$s <span class="says">said:</span>', 'documentation' ),
-								sprintf( '<span class="fn">%s</span>', get_comment_author_link() ),
-								sprintf(
-									'<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
-									esc_url( get_comment_link( $comment->comment_ID ) ),
-									get_comment_time( 'c' ),
-									/* translators: 1: date, 2: time */
-									sprintf(
-										esc_attr__( '%1$s at %2$s', 'documentation' ), get_comment_date(),
-										get_comment_time()
-									)
-								)
-							);
-							?>
-
-							<?php edit_comment_link(
-								esc_attr__( 'Edit', 'documentation' ), '<span class="edit-link">', '</span>'
-							); ?>
-						</div>
-						<!-- .comment-author .vcard -->
-
-						<?php if ( $comment->comment_approved == '0' ) : ?>
-							<em class="comment-awaiting-moderation"><?php esc_attr_e(
-									'Your comment is awaiting moderation.', 'documentation'
-								); ?></em>
-							<br>
-						<?php endif; ?>
-					</footer>
-
-					<div class="comment-content"><?php comment_text(); ?></div>
-
-					<div class="reply">
-						<?php comment_reply_link(
-							array_merge(
-								$args, array(
-									     'reply_text' => esc_attr__( 'Reply <span>&darr;</span>', 'documentation' ),
-									     'depth'      => $depth,
-									     'max_depth'  => $args[ 'max_depth' ]
-								     )
-							)
-						); ?>
-					</div>
-					<!-- .reply -->
-				</article><!-- #comment-## -->
-
-				<?php
-				break;
-		endswitch;
-	}
-
-} // end if function exists
-
-if ( ! function_exists( 'documentation_get_paginate_bar' ) ) {
-
-	/**
-	 * Create a pagination bar
-	 *
-	 * @since   08/09/2012
-	 *
-	 * @param Array|bool $args Array  see default array inside fct.
-	 *
-	 * @return array|mixed|string|void $pagination String
-	 */
-	function documentation_get_paginate_bar( $args = FALSE ) {
-
-		global $wp_rewrite, $wp_query;
-
-		$wp_query->query_vars[ 'paged' ] > 1 ? $current = $wp_query->query_vars[ 'paged' ] : $current = 1;
-
-		if ( empty( $rules ) ) {
-			$rulestouse = @add_query_arg( 'paged', '%#%' );
-		} else {
-			$rulestouse = @add_query_arg( 'page', '%#%' );
-		}
-
-		if ( ! $args ) {
-			// default arguments
-			$args = array(
-				'base'         => $rulestouse,
-				'format'       => '',
-				'total'        => $wp_query->max_num_pages,
-				'current'      => $current,
-				'show_all'     => FALSE,
-				'prev_next'    => TRUE,
-				'prev_text'    => esc_attr__( '&laquo; Previous', 'documentation' ),
-				'next_text'    => esc_attr__( 'Next &raquo;', 'documentation' ),
-				'end_size'     => 3,
-				'mid_size'     => 5,
-				'type'         => 'plain',
-				'add_args'     => FALSE, // array of query args to add
-				'add_fragment' => '',
-				'show_total'   => FALSE,
-				'display'      => TRUE,
-				'markup'       => 'div'
-			);
-		}
-
-		if ( $wp_rewrite->using_permalinks() ) {
-			$args[ 'base' ] = user_trailingslashit(
-				trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged'
-			);
-		}
-
-		if ( ! empty( $wp_query->query_vars[ 's' ] ) ) {
-			$args[ 'add_args' ] = array( 's' => get_query_var( 's' ) );
-		}
-
-		$pagination = paginate_links( $args );
-
-		if ( $args[ 'show_total' ] ) {
-			$pagination .= sprintf( esc_attr__( '&emsp;(%d)', 'documentation' ), $wp_query->max_num_pages );
-		}
-
-		if ( ! empty( $args[ 'markup' ] ) ) {
-			$pagination = apply_filters(
-				'documentation_paginate_bar',
-				'<' . $args[ 'markup' ] . ' class="paginate_bar">' . $pagination . '</' . $args[ 'markup' ] . '>'
-			);
-		}
-
-		if ( $args[ 'display' ] && 1 < $wp_query->max_num_pages ) {
-			echo $pagination;
-		}
-
-		return $pagination;
-	}
-
-} // end if function exists
-
-if ( ! function_exists( 'documentation_wp_title' ) ) {
-
-	add_filter( 'wp_title', 'documentation_wp_title', 10, 2 );
-	/**
-	 * Creates a nicely formatted and more specific title element text
-	 * for output in head of document, based on current view.
-	 *
-	 * @since 10/02/2012
-	 *
-	 * @param   string $title Default title text for current view.
-	 * @param   string $sep   Optional separator.
-	 *
-	 * @return  string Filtered title.
-	 */
-	function documentation_wp_title( $title, $sep ) {
-
-		global $paged, $page;
-
-		if ( is_feed() ) {
-			return $title;
-		}
-
-		// Add the site name.
-		$title .= get_bloginfo( 'name' );
-
-		// Add the site description for the home/front page.
-		$site_description = get_bloginfo( 'description', 'display' );
-		if ( $site_description && ( is_home() || is_front_page() ) ) {
-			$title = "$title $sep $site_description";
-		}
-
-		// Add a page number if necessary.
-		if ( $paged >= 2 || $page >= 2 ) {
-			$title = "$title $sep " . sprintf( esc_attr__( 'Page %s', 'documentation' ), max( $paged, $page ) );
-		}
-
-		return $title;
-	}
-
-} // end if function exists
-
-if ( ! function_exists( 'documentation_post_info' ) ) {
-
-	/**
-	 * Prints HTML with meta information for the current post
-	 *
-	 * @return  void
-	 * @since   2015-06-10
-	 */
-	function documentation_post_info() {
-
-		?>
-		<p class="info">
-			<?php
-			if ( get_the_category_list() ) {
-				printf(
-					esc_attr__( 'Category: %s%s', 'documentation' ),
-					get_the_category_list( ', ' ),
-					'<br>'
-				);
-			}
-
-			printf(
-				esc_attr__( '%s updated at %s by %s, write at %s by %s', 'documentation' ),
-				get_the_tag_list( esc_attr__( 'Tags:', 'documentation' ) . ' ', ', ', '<br>' ),
-				esc_html( get_the_modified_date() ),
-				esc_html( get_the_modified_author() ),
-				esc_html( get_the_date() ),
-				esc_html( get_the_author() )
-			);
-
-			edit_post_link( esc_attr__( 'Edit', 'documentation' ), ' | ', '' );
-			?>
-		</p>
-	<?php
-	}
-
-} // end if function exists
