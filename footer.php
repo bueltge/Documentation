@@ -1,7 +1,10 @@
 <?php
 /**
+ * The template for displaying the footer.
+ *
  * @package    WordPress
  * @subpackage Documentation
+ * @version    2015-06-10
  */
 
 tha_content_after();
@@ -10,7 +13,7 @@ if ( ! is_singular() ) {
 	documentation_get_paginate_bar();
 }
 ?>
-</div>
+</div><!-- #content @see header.php -->
 
 <?php
 get_sidebar();
@@ -45,6 +48,6 @@ wp_footer();
 
 tha_footer_after();
 ?>
-</div>
+</div><!-- #wrap @see header.php -->
 </body>
 </html>
