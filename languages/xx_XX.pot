@@ -1,271 +1,212 @@
+# Loco Gettext template
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Documentation v2.3.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-14 13:32+0100\n"
-"PO-Revision-Date: 2015-03-16 15:43:46+0000\n"
+"POT-Revision-Date: Wed Jun 10 2015 14:49:53 GMT+0200 (Central Europe "
+"Daylight Time)\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Frank Bueltge <frank@bueltge.de>\n"
 "Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: CSL v1.x\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Loco - https://localise.biz/\n"
 "X-Poedit-Language: \n"
 "X-Poedit-Country: \n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
 "X-Poedit-Basepath: d:/xampp/htdocs/wpbeta/wp-content/themes/dokumentation/\n"
 "X-Poedit-Bookmarks: \n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Textdomain-Support: yes"
 
-#: parts/content-single.php:18
-#@ documentation
-msgid "... more &raquo;"
-msgstr "... weiterlesen &raquo;"
-
-#: functions.php:262
-#: functions.php:291
-#: functions.php:469
-#@ documentation
-msgid "Edit"
-msgstr "Bearbeiten"
-
-#: parts/no-results.php:8
-#@ documentation
-msgid "Nothing found, corresponding to the search criteria."
-msgstr "Nichts gefunden, was den Suchkriterien entspricht."
-
-#: functions.php:296
-#@ documentation
-msgid "Your comment is awaiting moderation."
-msgstr "Ihr Kommentar wartet auf die Moderation."
-
-#: footer.php:29
-#: header.php:38
-#@ documentation
-msgid "Login"
-msgstr "Anmelden"
-
-#: footer.php:31
-#@ documentation
-msgid "Logout"
-msgstr "Abmelden"
-
-#: header.php:40
-#@ documentation
-msgid "Administration"
-msgstr "Verwaltung"
-
-#: sidebar.php:31
-#@ documentation
-msgid "Search"
-msgstr "Suche"
-
-#: sidebar.php:37
-#@ documentation
-msgid "Pages"
-msgstr "Seiten"
-
-#: sidebar.php:45
-#@ documentation
-msgid "Categories"
-msgstr "Kategorien"
-
-#: sidebar.php:48
-#@ documentation
-msgid "Last entries"
-msgstr "Letzte Einträge"
-
-#: comments.php:19
-#@ documentation
+#: ../comments.php:19
 msgid "This post is password protected. Enter the password to view any comments."
-msgstr "Dieser Beitrag ist passwortgeschützt. Gebe das Passwort ein und lese die Kommentare."
+msgstr ""
 
-#: comments.php:64
-#@ documentation
-msgid "Comments are closed."
-msgstr "Kommentare sind geschlossen."
-
-#. translators: 1: date, 2: time 
-#: functions.php:286
+#: ../comments.php:36
 #, php-format
-#@ documentation
-msgid "%1$s at %2$s"
-msgstr "%1$s bei %2$s"
-
-#: functions.php:262
-#@ documentation
-msgid "Pingback:"
-msgstr "Pingback:"
-
-#: functions.php:212
-#@ documentation
-msgid "Primary Widget Area"
-msgstr "Primärer Widget Bereich"
-
-#: functions.php:223
-#@ documentation
-msgid "Secondary Widget Area"
-msgstr "Sekundärer Widget Bereich"
-
-#: comments.php:36
-#, php-format
-#@ documentation
 msgid "One thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] "Kommentare zu &ldquo;%2$s&rdquo;"
-msgstr[1] "%1$s kommentieren zu &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
 
-#: comments.php:43
-#: comments.php:55
-#@ documentation
+#: ../comments.php:43 ../comments.php:55
 msgid "Comment navigation"
-msgstr "Kommentarnavigation"
+msgstr ""
 
-#: comments.php:44
-#: comments.php:56
-#@ documentation
+#: ../comments.php:44 ../comments.php:56
 msgid "&larr; Older Comments"
-msgstr "&larr; Ältere Kommentare"
+msgstr ""
 
-#: comments.php:45
-#: comments.php:57
-#@ documentation
+#: ../comments.php:45 ../comments.php:57
 msgid "Newer Comments &rarr;"
-msgstr "neuere Kommentare &rarr;"
+msgstr ""
 
-#: functions.php:86
-#@ documentation
+#: ../comments.php:64
+msgid "Comments are closed."
+msgstr ""
+
+#: ../footer.php:34 ../header.php:45
+msgid "Login"
+msgstr ""
+
+#: ../footer.php:38
+msgid "Logout"
+msgstr ""
+
+#: ../functions.php:86
 msgid "Primary Menu"
-msgstr "Primäres Menu"
+msgstr ""
 
-#: functions.php:214
-#@ documentation
+#: ../functions.php:211
+msgid "Primary Widget Area"
+msgstr ""
+
+#: ../functions.php:213
 msgid "The primary widget area is visible on all pages and posts."
-msgstr "Der primäre Widget Bereich ist in allen Seiten und Artikeln sichtbar."
+msgstr ""
 
-#: functions.php:225
-#@ documentation
-msgid "The secondary widget area down below Primary Widget Area only on pages and posts."
-msgstr "Der sekundäre Widget Bereich unterhalb des primären Widget Bereiches ist nur bei Seiten und Artikeln sichbar."
+#: ../functions.php:226
+msgid "Secondary Widget Area"
+msgstr ""
 
-#. translators: 1: comment author, 2: date and time 
-#: functions.php:280
+#: ../functions.php:228
+msgid ""
+"The secondary widget area down below Primary Widget Area only on pages and "
+"posts."
+msgstr ""
+
+#: ../functions.php:267
+msgid "Pingback:"
+msgstr ""
+
+#: ../functions.php:269 ../functions.php:305 ../functions.php:489
+msgid "Edit"
+msgstr ""
+
+#. translators: 1: comment author, 2: date and time
+#: ../functions.php:289
 #, php-format
-#@ documentation
 msgid "%1$s on %2$s <span class=\"says\">said:</span>"
-msgstr "%1$s zu %2$s <span class=\"says\">sagt:</span>"
+msgstr ""
 
-#: functions.php:305
-#@ documentation
+#. translators: 1: date, 2: time
+#: ../functions.php:297
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: ../functions.php:311
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../functions.php:324
 msgid "Reply <span>&darr;</span>"
-msgstr "Antwort <span>&darr;</span>"
+msgstr ""
 
-#: functions.php:353
-#@ documentation
+#: ../functions.php:373
 msgid "&laquo; Previous"
-msgstr "&laquo; vorherige"
+msgstr ""
 
-#: functions.php:354
-#@ documentation
+#: ../functions.php:374
 msgid "Next &raquo;"
-msgstr "nächste &raquo;"
+msgstr ""
 
-#: functions.php:462
-#@ documentation
-msgid "Tags:"
-msgstr "Schlagworte:"
-
-#: functions.php:379
+#: ../functions.php:399
 #, php-format
-#@ documentation
 msgid "&emsp;(%d)"
-msgstr "&emsp;(%d)"
+msgstr ""
 
-#: inc/theme-customize.php:192
-#@ documentation
-msgid "Rewrite URL"
-msgstr "Weiterleitung URL"
-
-#: inc/theme-customize.php:166
-#@ documentation
-msgid "Rewrite"
-msgstr "Weiterleitung"
-
-#: functions.php:431
+#: ../functions.php:451
 #, php-format
-#@ documentation
 msgid "Page %s"
-msgstr "Seite %s"
+msgstr ""
 
-#: inc/theme-customize.php:128
-#@ documentation
-msgid "Display Description"
-msgstr "Beschreibung anzeigen"
-
-#: inc/theme-customize.php:139
-#@ documentation
-msgid "Layout"
-msgstr "Layout"
-
-#: inc/theme-customize.php:140
-#@ documentation
-msgid "Define main Layout"
-msgstr "Definiere Haupt-Layout"
-
-#: inc/theme-customize.php:153
-#: inc/theme-customize.php:208
-#@ documentation
-msgid "Color Scheme"
-msgstr "Farbschema"
-
-#: inc/theme-customize.php:158
-#@ documentation
-msgid "Sidebar on left"
-msgstr "Sidebar links"
-
-#: inc/theme-customize.php:159
-#@ documentation
-msgid "Sidebar on right"
-msgstr "Sidebar rechts"
-
-#: inc/theme-customize.php:213
-#@ documentation
-msgid "Dark"
-msgstr "Dunkel"
-
-#: inc/theme-customize.php:214
-#@ documentation
-msgid "Light"
-msgstr "Hell"
-
-#: inc/theme-customize.php:228
-#@ documentation
-msgid "Text Color"
-msgstr "Textfarbe"
-
-#: inc/theme-customize.php:242
-#@ documentation
-msgid "Link Color"
-msgstr "Linkfarbe"
-
-#: functions.php:454
+#: ../functions.php:474
 #, php-format
-#@ documentation
-msgid "Category: %s<br>"
-msgstr "Kategorie: %s<br>"
+msgid "Category: %s%s"
+msgstr ""
 
-#: functions.php:460
+#: ../functions.php:481
 #, php-format
-#@ documentation
 msgid "%s updated at %s by %s, write at %s by %s"
-msgstr "%s aktualisiert am %s von %s, erstellt am %s von %s"
+msgstr ""
 
-#: search.php:14
+#: ../functions.php:482
+msgid "Tags:"
+msgstr ""
+
+#: ../header.php:47
+msgid "Administration"
+msgstr ""
+
+#: ../search.php:14
 #, php-format
-#@ documentation
 msgid "Search Results for: %s"
-msgstr "Suchresultat für: %s"
+msgstr ""
 
+#: ../inc/theme-customize.php:128
+msgid "Display Description"
+msgstr ""
+
+#: ../inc/theme-customize.php:139
+msgid "Layout"
+msgstr ""
+
+#: ../inc/theme-customize.php:140
+msgid "Define main Layout"
+msgstr ""
+
+#: ../inc/theme-customize.php:153 ../inc/theme-customize.php:208
+msgid "Color Scheme"
+msgstr ""
+
+#: ../inc/theme-customize.php:158
+msgid "Sidebar on left"
+msgstr ""
+
+#: ../inc/theme-customize.php:159
+msgid "Sidebar on right"
+msgstr ""
+
+#: ../inc/theme-customize.php:166
+msgid "Rewrite"
+msgstr ""
+
+#: ../inc/theme-customize.php:192
+msgid "Rewrite URL"
+msgstr ""
+
+#: ../inc/theme-customize.php:213
+msgid "Dark"
+msgstr ""
+
+#: ../inc/theme-customize.php:214
+msgid "Light"
+msgstr ""
+
+#: ../inc/theme-customize.php:228
+msgid "Text Color"
+msgstr ""
+
+#: ../inc/theme-customize.php:242
+msgid "Link Color"
+msgstr ""
+
+#: ../parts/content-single.php:18
+msgid "... more &raquo;"
+msgstr ""
+
+#: ../parts/no-results.php:8
+msgid "Nothing found, corresponding to the search criteria."
+msgstr ""
