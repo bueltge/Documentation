@@ -141,7 +141,7 @@ blockquote p:after {
 	padding: 5px;
 }
 
-.story .info, .post ul.link, .post ul.inline {
+#content .info, .post ul.link, .post ul.inline {
 	font-size: .8em;
 }
 
@@ -216,15 +216,10 @@ ol#commentlist {
 	float: left;
 }
 
-#sidebar ul {
-	list-style-type: none;
-	margin: 2px;
-	padding: 0;
-}
-
-#sidebar ul li ul li {
+#sidebar ul li {
 	list-style: disc inside;
 	padding: 2px 0;
+	margin: 0 0 0 -20px;
 }
 
 #sidebar h2 {
