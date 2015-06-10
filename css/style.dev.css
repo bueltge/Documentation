@@ -13,7 +13,7 @@
 }
 
 body {
-	font-family: 'Lucida Sans Unicode', 'Lucida Sans', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Sans Vera', Verdana, Arial, Tahoma, Helvetica, Sans-Serif;
+	font-family: 'Lucida Sans Unicode', 'Lucida Sans', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Sans Vera', Verdana, Arial, Tahoma, Helvetica, sans-serif;
 	font-style: normal;
 	line-height: 1.5em;
 	font-size: 80%;
@@ -22,7 +22,7 @@ body {
 }
 
 code, pre {
-	font-family: Courier, 'Lucida Console', 'Courier New', Sans-Serif;
+	font-family: Courier, 'Lucida Console', 'Courier New', sans-serif;
 }
 
 pre {
@@ -57,7 +57,7 @@ h4 {
 }
 
 h1, h2, h3, h4 {
-	font-family: Georgia, 'Trebuchet MS', 'Lucida Sans', 'Lucida Grande', 'Bitstream Sans Vera', Verdana, Arial, Tahoma, Helvetica, Sans-Serif;
+	font-family: Georgia, 'Trebuchet MS', 'Lucida Sans', 'Lucida Grande', 'Bitstream Sans Vera', Verdana, Arial, Tahoma, Helvetica, sans-serif;
 	color: #333;
 	clear: both;
 	margin: 2em 0 0;
@@ -231,7 +231,7 @@ ol#commentlist {
 .h2sidebar {
 	font-size: 100%;
 	font-weight: 900;
-	font-family: Georgia, 'Trebuchet MS', 'Lucida Sans', 'Lucida Grande', 'Bitstream Sans Vera', Verdana, Arial, Tahoma, Helvetica, Sans-Serif;
+	font-family: Georgia, 'Trebuchet MS', 'Lucida Sans', 'Lucida Grande', 'Bitstream Sans Vera', Verdana, Arial, Tahoma, Helvetica, sans-serif;
 	color: #333;
 }
 
@@ -363,7 +363,7 @@ a:hover, a:active {
 }
 
 input, textarea, select, option {
-	font-family: 'Lucida Sans', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Sans Vera', Verdana, Arial, Tahoma, Helvetica, Sans-Serif;
+	font-family: 'Lucida Sans', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Sans Vera', Verdana, Arial, Tahoma, Helvetica, sans-serif;
 	font-size: 100%;
 	background: #eee;
 	color: #111;
