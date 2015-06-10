@@ -91,7 +91,7 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 			'default-color'          => 'fff',
 			'wp-head-callback'       => '_custom_background_cb',
 			'admin-head-callback'    => '',
-			'admin-preview-callback' => ''
+			'admin-preview-callback' => '',
 		);
 		add_theme_support( 'custom-background', $args );
 
@@ -175,8 +175,9 @@ if ( ! function_exists( 'documentation_scripts_styles' ) ) {
 			'screen'
 		);
 
-		// Register main and print CSS file
+		// Register main style
 		wp_register_style( 'documentation-style', get_stylesheet_directory_uri() . '/css/style' . $suffix . '.css' );
+		// Register print CSS file
 		wp_register_style(
 			'documentation-print-style',
 			get_stylesheet_directory_uri() . '/css/print' . $suffix . '.css',
@@ -320,10 +321,10 @@ if ( ! function_exists( 'documentation_comment' ) ) {
 						<?php comment_reply_link(
 							array_merge(
 								$args, array(
-								'reply_text' => esc_attr__( 'Reply <span>&darr;</span>', 'documentation' ),
-								'depth'      => $depth,
-								'max_depth'  => $args[ 'max_depth' ]
-							)
+									     'reply_text' => esc_attr__( 'Reply <span>&darr;</span>', 'documentation' ),
+									     'depth'      => $depth,
+									     'max_depth'  => $args[ 'max_depth' ]
+								     )
 							)
 						); ?>
 					</div>
