@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Documentation v2.3.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-14 13:32+0100\n"
-"POT-Revision-Date: Wed Jun 10 2015 14:49:53 GMT+0200 (Central Europe "
+"POT-Revision-Date: Wed Jun 10 2015 15:24:25 GMT+0200 (Central Europe "
 "Daylight Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Frank Bueltge <frank@bueltge.de>\n"
@@ -64,86 +64,8 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-#: ../functions.php:86
+#: ../functions.php:114
 msgid "Primary Menu"
-msgstr ""
-
-#: ../functions.php:211
-msgid "Primary Widget Area"
-msgstr ""
-
-#: ../functions.php:213
-msgid "The primary widget area is visible on all pages and posts."
-msgstr ""
-
-#: ../functions.php:226
-msgid "Secondary Widget Area"
-msgstr ""
-
-#: ../functions.php:228
-msgid ""
-"The secondary widget area down below Primary Widget Area only on pages and "
-"posts."
-msgstr ""
-
-#: ../functions.php:267
-msgid "Pingback:"
-msgstr ""
-
-#: ../functions.php:269 ../functions.php:305 ../functions.php:489
-msgid "Edit"
-msgstr ""
-
-#. translators: 1: comment author, 2: date and time
-#: ../functions.php:289
-#, php-format
-msgid "%1$s on %2$s <span class=\"says\">said:</span>"
-msgstr ""
-
-#. translators: 1: date, 2: time
-#: ../functions.php:297
-#, php-format
-msgid "%1$s at %2$s"
-msgstr ""
-
-#: ../functions.php:311
-msgid "Your comment is awaiting moderation."
-msgstr ""
-
-#: ../functions.php:324
-msgid "Reply <span>&darr;</span>"
-msgstr ""
-
-#: ../functions.php:373
-msgid "&laquo; Previous"
-msgstr ""
-
-#: ../functions.php:374
-msgid "Next &raquo;"
-msgstr ""
-
-#: ../functions.php:399
-#, php-format
-msgid "&emsp;(%d)"
-msgstr ""
-
-#: ../functions.php:451
-#, php-format
-msgid "Page %s"
-msgstr ""
-
-#: ../functions.php:474
-#, php-format
-msgid "Category: %s%s"
-msgstr ""
-
-#: ../functions.php:481
-#, php-format
-msgid "%s updated at %s by %s, write at %s by %s"
-msgstr ""
-
-#: ../functions.php:482
-msgid "Tags:"
 msgstr ""
 
 #: ../header.php:47
@@ -153,6 +75,66 @@ msgstr ""
 #: ../search.php:14
 #, php-format
 msgid "Search Results for: %s"
+msgstr ""
+
+#: ../inc/comments.php:36
+msgid "Pingback:"
+msgstr ""
+
+#: ../inc/comments.php:38 ../inc/comments.php:74 ../inc/template-tags.php:117
+msgid "Edit"
+msgstr ""
+
+#. translators: 1: comment author, 2: date and time
+#: ../inc/comments.php:58
+#, php-format
+msgid "%1$s on %2$s <span class=\"says\">said:</span>"
+msgstr ""
+
+#. translators: 1: date, 2: time
+#: ../inc/comments.php:66
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: ../inc/comments.php:80
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../inc/comments.php:93
+msgid "Reply <span>&darr;</span>"
+msgstr ""
+
+#: ../inc/extras.php:43
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: ../inc/template-tags.php:42
+msgid "&laquo; Previous"
+msgstr ""
+
+#: ../inc/template-tags.php:43
+msgid "Next &raquo;"
+msgstr ""
+
+#: ../inc/template-tags.php:68
+#, php-format
+msgid "&emsp;(%d)"
+msgstr ""
+
+#: ../inc/template-tags.php:102
+#, php-format
+msgid "Category: %s%s"
+msgstr ""
+
+#: ../inc/template-tags.php:109
+#, php-format
+msgid "%s updated at %s by %s, write at %s by %s"
+msgstr ""
+
+#: ../inc/template-tags.php:110
+msgid "Tags:"
 msgstr ""
 
 #: ../inc/theme-customize.php:128
@@ -201,6 +183,24 @@ msgstr ""
 
 #: ../inc/theme-customize.php:242
 msgid "Link Color"
+msgstr ""
+
+#: ../inc/widgets.php:23
+msgid "Primary Widget Area"
+msgstr ""
+
+#: ../inc/widgets.php:25
+msgid "The primary widget area is visible on all pages and posts."
+msgstr ""
+
+#: ../inc/widgets.php:38
+msgid "Secondary Widget Area"
+msgstr ""
+
+#: ../inc/widgets.php:40
+msgid ""
+"The secondary widget area down below Primary Widget Area only on pages and "
+"posts."
 msgstr ""
 
 #: ../parts/content-single.php:18
