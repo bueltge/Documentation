@@ -254,8 +254,8 @@ msgstr "Linkfarbe"
 #: functions.php:454
 #, php-format
 #@ documentation
-msgid "Category: %s<br />"
-msgstr "Kategorie: %s<br />"
+msgid "Category: %s<br>"
+msgstr "Kategorie: %s<br>"
 
 #: functions.php:460
 #, php-format

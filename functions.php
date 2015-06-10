@@ -461,7 +461,7 @@ if ( ! function_exists( 'documentation_post_info' ) ) {
 	 * Prints HTML with meta information for the current post
 	 *
 	 * @return  void
-	 * @since   02/11/2013
+	 * @since   2015-06-10
 	 */
 	function documentation_post_info() {
 
@@ -478,7 +478,7 @@ if ( ! function_exists( 'documentation_post_info' ) ) {
 
 			printf(
 				esc_attr__( '%s updated at %s by %s, write at %s by %s', 'documentation' ),
-				get_the_tag_list( esc_attr__( 'Tags:', 'documentation' ) . ' ', ', ', '<br />' ),
+				get_the_tag_list( esc_attr__( 'Tags:', 'documentation' ) . ' ', ', ', '<br>' ),
 				esc_html( get_the_modified_date() ),
 				esc_html( get_the_modified_author() ),
 				esc_html( get_the_date() ),
