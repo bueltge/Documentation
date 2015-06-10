@@ -139,8 +139,7 @@ border: 1px solid #eee;
 padding: 5px;
 }
 
-.page .info,
-.post .info,.post ul.link,.post ul.inline {
+.story .info,.post ul.link,.post ul.inline {
 font-size: .8em;
 }
 

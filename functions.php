@@ -103,7 +103,6 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 
 } // end if func exists
 
-
 if ( ! function_exists( 'documentation_get_options' ) ) {
 
 	/**
@@ -135,7 +134,6 @@ if ( ! function_exists( 'documentation_get_options' ) ) {
 	}
 
 } // end if func exists
-
 
 if ( ! function_exists( 'documentation_scripts_styles' ) ) {
 
@@ -196,7 +194,6 @@ if ( ! function_exists( 'documentation_scripts_styles' ) ) {
 
 } // end if func exists
 
-
 if ( ! function_exists( 'documentation_widgets_init' ) ) {
 
 	add_action( 'widgets_init', 'documentation_widgets_init' );
@@ -208,30 +205,37 @@ if ( ! function_exists( 'documentation_widgets_init' ) ) {
 	function documentation_widgets_init() {
 
 		// Area 1
-		register_sidebar( array(
-			'name'          => esc_attr__( 'Primary Widget Area', 'documentation' ),
-			'id'            => 'primary-widget-area',
-			'description'   => esc_attr__( 'The primary widget area is visible on all pages and posts.', 'documentation' ),
-			'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-			'after_widget'  => "</li>",
-			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
-		) );
+		register_sidebar(
+			array(
+				'name'          => esc_attr__( 'Primary Widget Area', 'documentation' ),
+				'id'            => 'primary-widget-area',
+				'description'   => esc_attr__(
+					'The primary widget area is visible on all pages and posts.', 'documentation'
+				),
+				'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+				'after_widget'  => "</li>",
+				'before_title'  => '<h3 class="widget-title">',
+				'after_title'   => '</h3>',
+			)
+		);
 
 		// Area 2
-		register_sidebar( array(
-			'name'          => esc_attr__( 'Secondary Widget Area', 'documentation' ),
-			'id'            => 'secondary-widget-area',
-			'description'   => esc_attr__( 'The secondary widget area down below Primary Widget Area only on pages and posts.', 'documentation' ),
-			'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-			'after_widget'  => "</li>",
-			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
-		) );
+		register_sidebar(
+			array(
+				'name'          => esc_attr__( 'Secondary Widget Area', 'documentation' ),
+				'id'            => 'secondary-widget-area',
+				'description'   => esc_attr__(
+					'The secondary widget area down below Primary Widget Area only on pages and posts.', 'documentation'
+				),
+				'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+				'after_widget'  => "</li>",
+				'before_title'  => '<h3 class="widget-title">',
+				'after_title'   => '</h3>',
+			)
+		);
 	} // end theme_widgets_init
 
 } // end if func exists
-
 
 if ( ! function_exists( 'documentation_comment' ) ) {
 
@@ -259,7 +263,10 @@ if ( ! function_exists( 'documentation_comment' ) ) {
 			case 'trackback' :
 				?>
 				<li class="post pingback">
-				<p><?php esc_attr_e( 'Pingback:', 'documentation' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( esc_attr__( 'Edit', 'documentation' ), '<span class="edit-link">', '</span>' ); ?></p>
+				<p><?php esc_attr_e( 'Pingback:', 'documentation' ); ?> <?php comment_author_link(
+					); ?><?php edit_comment_link(
+						esc_attr__( 'Edit', 'documentation' ), '<span class="edit-link">', '</span>'
+					); ?></p>
 				<?php
 				break;
 			default :
@@ -277,23 +284,32 @@ if ( ! function_exists( 'documentation_comment' ) ) {
 							echo get_avatar( $comment, $avatar_size );
 
 							/* translators: 1: comment author, 2: date and time */
-							printf( esc_attr__( '%1$s on %2$s <span class="says">said:</span>', 'documentation' ),
+							printf(
+								esc_attr__( '%1$s on %2$s <span class="says">said:</span>', 'documentation' ),
 								sprintf( '<span class="fn">%s</span>', get_comment_author_link() ),
-								sprintf( '<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
+								sprintf(
+									'<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
 									esc_url( get_comment_link( $comment->comment_ID ) ),
 									get_comment_time( 'c' ),
 									/* translators: 1: date, 2: time */
-									sprintf( esc_attr__( '%1$s at %2$s', 'documentation' ), get_comment_date(), get_comment_time() )
+									sprintf(
+										esc_attr__( '%1$s at %2$s', 'documentation' ), get_comment_date(),
+										get_comment_time()
+									)
 								)
 							);
 							?>
 
-							<?php edit_comment_link( esc_attr__( 'Edit', 'documentation' ), '<span class="edit-link">', '</span>' ); ?>
+							<?php edit_comment_link(
+								esc_attr__( 'Edit', 'documentation' ), '<span class="edit-link">', '</span>'
+							); ?>
 						</div>
 						<!-- .comment-author .vcard -->
 
 						<?php if ( $comment->comment_approved == '0' ) : ?>
-							<em class="comment-awaiting-moderation"><?php esc_attr_e( 'Your comment is awaiting moderation.', 'documentation' ); ?></em>
+							<em class="comment-awaiting-moderation"><?php esc_attr_e(
+									'Your comment is awaiting moderation.', 'documentation'
+								); ?></em>
 							<br>
 						<?php endif; ?>
 					</footer>
@@ -301,11 +317,15 @@ if ( ! function_exists( 'documentation_comment' ) ) {
 					<div class="comment-content"><?php comment_text(); ?></div>
 
 					<div class="reply">
-						<?php comment_reply_link( array_merge( $args, array(
-							'reply_text' => esc_attr__( 'Reply <span>&darr;</span>', 'documentation' ),
-							'depth'      => $depth,
-							'max_depth'  => $args[ 'max_depth' ]
-						) ) ); ?>
+						<?php comment_reply_link(
+							array_merge(
+								$args, array(
+								'reply_text' => esc_attr__( 'Reply <span>&darr;</span>', 'documentation' ),
+								'depth'      => $depth,
+								'max_depth'  => $args[ 'max_depth' ]
+							)
+							)
+						); ?>
 					</div>
 					<!-- .reply -->
 				</article><!-- #comment-## -->
@@ -316,7 +336,6 @@ if ( ! function_exists( 'documentation_comment' ) ) {
 	}
 
 } // end if function exists
-
 
 if ( ! function_exists( 'documentation_get_paginate_bar' ) ) {
 
@@ -436,7 +455,6 @@ if ( ! function_exists( 'documentation_wp_title' ) ) {
 
 } // end if function exists
 
-
 if ( ! function_exists( 'documentation_post_info' ) ) {
 
 	/**
@@ -451,19 +469,20 @@ if ( ! function_exists( 'documentation_post_info' ) ) {
 		<p class="info">
 			<?php
 			if ( get_the_category_list() ) {
-				$cat = esc_attr__( 'Category: %s', 'documentation' ) . '<br>';
-			} else {
-				$cat = '';
+				printf(
+					esc_attr__( 'Category: %s%s', 'documentation' ),
+					get_the_category_list( ', ' ),
+					'<br>'
+				);
 			}
 
 			printf(
-				$cat . esc_attr__( '%s updated at %s by %s, write at %s by %s', 'documentation' ),
-				get_the_category_list( ', ' ),
+				esc_attr__( '%s updated at %s by %s, write at %s by %s', 'documentation' ),
 				get_the_tag_list( esc_attr__( 'Tags:', 'documentation' ) . ' ', ', ', '<br />' ),
-				get_the_modified_date(),
-				get_the_modified_author(),
-				get_the_date(),
-				get_the_author()
+				esc_html( get_the_modified_date() ),
+				esc_html( get_the_modified_author() ),
+				esc_html( get_the_date() ),
+				esc_html( get_the_author() )
 			);
 
 			edit_post_link( esc_attr__( 'Edit', 'documentation' ), ' | ', '' );
