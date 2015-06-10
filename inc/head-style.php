@@ -118,6 +118,7 @@ class Documentation_Head_Style extends Documentation_Customize {
 			array(),
 			NULL
 		);
+
 		// check options and enqueue style
 		if ( 'dark' === $option )
 			wp_enqueue_style( $this->theme_key . '_dark' );

@@ -203,18 +203,6 @@ class Documentation_Customize {
 			'capability' => 'edit_theme_options',
 		) );
 
-		// Add control and output for select field
-		$wp_customize->add_control( $this->option_key . '_color_scheme', array(
-			'label'    => esc_attr__( 'Color Scheme', 'documentation' ),
-			'section'  => 'colors',
-			'settings' => $this->option_key . '[color_scheme]',
-			'type'     => 'radio',
-			'choices'  => array(
-				'dark'  => esc_attr__( 'Dark', 'documentation' ),
-				'light' => esc_attr__( 'Light', 'documentation' )
-			),
-		) );
-
 		// ===== Color picker Fields =====
 		// add field for text color in default section for 'colors'
 		$wp_customize->add_setting( $this->option_key . '[text_color]', array(
@@ -244,6 +232,17 @@ class Documentation_Customize {
 			'settings' => $this->option_key . '[link_color]',
 		) ) );
 
+		// Add control and output for select field
+		$wp_customize->add_control( $this->option_key . '_color_scheme', array(
+			'label'    => esc_attr__( 'Color Scheme', 'documentation' ),
+			'section'  => 'colors',
+			'settings' => $this->option_key . '[color_scheme]',
+			'type'     => 'radio',
+			'choices'  => array(
+				'dark'  => esc_attr__( 'Dark', 'documentation' ),
+				'light' => esc_attr__( 'Light', 'documentation' )
+			),
+		) );
 	}
 
 	/**

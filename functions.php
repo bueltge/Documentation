@@ -117,11 +117,8 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 		$args = array(
 			'default-image'          => '',
 			'default-color'          => 'fff',
-			'wp-head-callback'       => '_custom_background_cb',
-			'admin-head-callback'    => '',
-			'admin-preview-callback' => '',
 		);
-		add_theme_support( 'custom-background', $args );
+		add_theme_support( 'custom-background', apply_filters( 'documentation_custom_background_args', $args ) );
 
 		// define suffix for development on scripts and styles
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
