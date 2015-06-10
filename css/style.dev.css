@@ -129,7 +129,7 @@ blockquote p:after {
 }
 
 #content h2 a:hover, #content h2 a:active, #header h1 a:hover, #header h1 a:active {
-	color: #999;
+	text-decoration: underline;
 }
 
 .post p {
@@ -358,7 +358,7 @@ a:link, a:visited {
 
 a:hover, a:active {
 	color: #666;
-	text-decoration: none;
+	text-decoration: underline;
 	border: none;
 }
 
