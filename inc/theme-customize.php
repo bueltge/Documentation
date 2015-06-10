@@ -212,6 +212,7 @@ class Documentation_Customize {
 		) );
 
 		// add color field include color picker for text color
+		/** @noinspection PhpParamsInspection */
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $this->option_key . '_text_color', array(
 			'label'    => esc_attr__( 'Text Color', 'documentation' ),
 			'section'  => 'colors',

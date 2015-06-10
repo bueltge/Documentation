@@ -15,7 +15,7 @@ display: none;
 display: none;
 }
 
-select, input, textarea, ckeckbox, dd {
+select, input, textarea, checkbox, dd {
 display: none;
 }
 
