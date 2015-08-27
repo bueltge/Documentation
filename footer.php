@@ -16,7 +16,8 @@ if ( ! is_singular() ) {
 </div><!-- #content @see header.php -->
 
 <?php
-get_sidebar();
+if ( ! is_page() )
+	get_sidebar();
 
 tha_footer_before();
 ?>

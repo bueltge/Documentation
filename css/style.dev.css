@@ -2,7 +2,7 @@
 /**
  * Documentation layout
  * 
- * @version     2015-06-10
+ * @version     2015-08-25
  * @author      Frank Bültge
  */
 
@@ -115,6 +115,10 @@ blockquote p:after {
 	margin: 2px .1em 5px;
 	padding: 5px 1em;
 	line-height: 1.7em;
+}
+
+.page #content {
+	width: auto;
 }
 
 /* Sidebar on left */
@@ -298,6 +302,7 @@ ol#commentlist {
 img {
 	margin: 0 2px;
 	max-width: 600px;
+	height: auto;
 }
 
 /**
@@ -419,7 +424,7 @@ table {
 	border: 1px solid #eee;
 }
 
-table .second, table th, table tr:nth-child(odd) {
+table th, table tr:nth-child(odd) {
 	background: #eee;
 }
 

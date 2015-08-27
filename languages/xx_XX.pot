@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Documentation v2.3.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-14 13:32+0100\n"
-"POT-Revision-Date: Wed Jun 10 2015 15:24:25 GMT+0200 (Central Europe "
+"POT-Revision-Date: Fri Aug 21 2015 16:15:51 GMT+0200 (Central Europe "
 "Daylight Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Frank Bueltge <frank@bueltge.de>\n"
@@ -56,11 +56,11 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: ../footer.php:34 ../header.php:45
+#: ../footer.php:35 ../header.php:45
 msgid "Login"
 msgstr ""
 
-#: ../footer.php:38
+#: ../footer.php:39
 msgid "Logout"
 msgstr ""
 
@@ -149,7 +149,7 @@ msgstr ""
 msgid "Define main Layout"
 msgstr ""
 
-#: ../inc/theme-customize.php:153 ../inc/theme-customize.php:208
+#: ../inc/theme-customize.php:153 ../inc/theme-customize.php:238
 msgid "Color Scheme"
 msgstr ""
 
@@ -169,20 +169,20 @@ msgstr ""
 msgid "Rewrite URL"
 msgstr ""
 
-#: ../inc/theme-customize.php:213
-msgid "Dark"
-msgstr ""
-
-#: ../inc/theme-customize.php:214
-msgid "Light"
-msgstr ""
-
-#: ../inc/theme-customize.php:228
+#: ../inc/theme-customize.php:217
 msgid "Text Color"
 msgstr ""
 
-#: ../inc/theme-customize.php:242
+#: ../inc/theme-customize.php:231
 msgid "Link Color"
+msgstr ""
+
+#: ../inc/theme-customize.php:243
+msgid "Dark"
+msgstr ""
+
+#: ../inc/theme-customize.php:244
+msgid "Light"
 msgstr ""
 
 #: ../inc/widgets.php:23

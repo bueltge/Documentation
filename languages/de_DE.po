@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Documentation v2.3.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-14 13:32+0100\n"
-"PO-Revision-Date: Wed Jun 10 2015 14:50:46 GMT+0200 (Central Europe Daylight "
+"PO-Revision-Date: Fri Aug 21 2015 16:08:31 GMT+0200 (Central Europe Daylight "
 "Time)\n"
 "Last-Translator: admin <frank@bueltge.de>\n"
 "Language-Team: \n"
@@ -64,89 +64,9 @@ msgstr "Anmelden"
 msgid "Logout"
 msgstr "Abmelden"
 
-#: ../functions.php:86
+#: ../functions.php:114
 msgid "Primary Menu"
 msgstr "Primäres Menu"
-
-#: ../functions.php:211
-msgid "Primary Widget Area"
-msgstr "Primärer Widget Bereich"
-
-#: ../functions.php:213
-msgid "The primary widget area is visible on all pages and posts."
-msgstr "Der primäre Widget Bereich ist in allen Seiten und Artikeln sichtbar."
-
-#: ../functions.php:226
-msgid "Secondary Widget Area"
-msgstr "Sekundärer Widget Bereich"
-
-#: ../functions.php:228
-msgid ""
-"The secondary widget area down below Primary Widget Area only on pages and "
-"posts."
-msgstr ""
-"Der sekundäre Widget Bereich unterhalb des primären Widget Bereiches ist nur "
-"bei Seiten und Artikeln sichbar."
-
-#: ../functions.php:267
-msgid "Pingback:"
-msgstr "Pingback:"
-
-#: ../functions.php:269 ../functions.php:305 ../functions.php:489
-msgid "Edit"
-msgstr "Bearbeiten"
-
-#. translators: 1: comment author, 2: date and time
-#: ../functions.php:289
-#, php-format
-msgid "%1$s on %2$s <span class=\"says\">said:</span>"
-msgstr "%1$s zu %2$s <span class=\"says\">sagt:</span>"
-
-#. translators: 1: date, 2: time
-#: ../functions.php:297
-#, php-format
-msgid "%1$s at %2$s"
-msgstr "%1$s bei %2$s"
-
-#: ../functions.php:311
-msgid "Your comment is awaiting moderation."
-msgstr "Ihr Kommentar wartet auf die Moderation."
-
-#: ../functions.php:324
-msgid "Reply <span>&darr;</span>"
-msgstr "Antwort <span>&darr;</span>"
-
-#: ../functions.php:373
-msgid "&laquo; Previous"
-msgstr "&laquo; vorherige"
-
-#: ../functions.php:374
-msgid "Next &raquo;"
-msgstr "nächste &raquo;"
-
-#: ../functions.php:399
-#, php-format
-msgid "&emsp;(%d)"
-msgstr "&emsp;(%d)"
-
-#: ../functions.php:451
-#, php-format
-msgid "Page %s"
-msgstr "Seite %s"
-
-#: ../functions.php:474
-#, php-format
-msgid "Category: %s%s"
-msgstr "Kategorie: %s%s"
-
-#: ../functions.php:481
-#, php-format
-msgid "%s updated at %s by %s, write at %s by %s"
-msgstr "%s aktualisiert am %s von %s, erstellt am %s von %s"
-
-#: ../functions.php:482
-msgid "Tags:"
-msgstr "Schlagworte:"
 
 #: ../header.php:47
 msgid "Administration"
@@ -156,6 +76,66 @@ msgstr "Verwaltung"
 #, php-format
 msgid "Search Results for: %s"
 msgstr "Suchresultat für: %s"
+
+#: ../inc/comments.php:36
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: ../inc/comments.php:38 ../inc/comments.php:74 ../inc/template-tags.php:117
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#. translators: 1: comment author, 2: date and time
+#: ../inc/comments.php:58
+#, php-format
+msgid "%1$s on %2$s <span class=\"says\">said:</span>"
+msgstr "%1$s zu %2$s <span class=\"says\">sagt:</span>"
+
+#. translators: 1: date, 2: time
+#: ../inc/comments.php:66
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s bei %2$s"
+
+#: ../inc/comments.php:80
+msgid "Your comment is awaiting moderation."
+msgstr "Ihr Kommentar wartet auf die Moderation."
+
+#: ../inc/comments.php:93
+msgid "Reply <span>&darr;</span>"
+msgstr "Antwort <span>&darr;</span>"
+
+#: ../inc/extras.php:43
+#, php-format
+msgid "Page %s"
+msgstr "Seite %s"
+
+#: ../inc/template-tags.php:42
+msgid "&laquo; Previous"
+msgstr "&laquo; vorherige"
+
+#: ../inc/template-tags.php:43
+msgid "Next &raquo;"
+msgstr "nächste &raquo;"
+
+#: ../inc/template-tags.php:68
+#, php-format
+msgid "&emsp;(%d)"
+msgstr "&emsp;(%d)"
+
+#: ../inc/template-tags.php:102
+#, php-format
+msgid "Category: %s%s"
+msgstr "Kategorie: %s%s"
+
+#: ../inc/template-tags.php:109
+#, php-format
+msgid "%s updated at %s by %s, write at %s by %s"
+msgstr "%s aktualisiert am %s von %s, erstellt am %s von %s"
+
+#: ../inc/template-tags.php:110
+msgid "Tags:"
+msgstr "Schlagworte:"
 
 #: ../inc/theme-customize.php:128
 msgid "Display Description"
@@ -204,6 +184,26 @@ msgstr "Textfarbe"
 #: ../inc/theme-customize.php:242
 msgid "Link Color"
 msgstr "Linkfarbe"
+
+#: ../inc/widgets.php:23
+msgid "Primary Widget Area"
+msgstr "Primärer Widget Bereich"
+
+#: ../inc/widgets.php:25
+msgid "The primary widget area is visible on all pages and posts."
+msgstr "Der primäre Widget Bereich ist in allen Seiten und Artikeln sichtbar."
+
+#: ../inc/widgets.php:38
+msgid "Secondary Widget Area"
+msgstr "Sekundärer Widget Bereich"
+
+#: ../inc/widgets.php:40
+msgid ""
+"The secondary widget area down below Primary Widget Area only on pages and "
+"posts."
+msgstr ""
+"Der sekundäre Widget Bereich unterhalb des primären Widget Bereiches ist nur "
+"bei Seiten und Artikeln sichbar."
 
 #: ../parts/content-single.php:18
 msgid "... more &raquo;"
