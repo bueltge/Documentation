@@ -4,7 +4,7 @@
  *
  * @package    WordPress
  * @subpackage Documentation
- * @version    2015-06-10
+ * @version    2015-12-07
  */
 
 if ( ! function_exists( 'documentation_get_paginate_bar' ) ) {
@@ -24,17 +24,24 @@ if ( ! function_exists( 'documentation_get_paginate_bar' ) ) {
 
 		$wp_query->query_vars[ 'paged' ] > 1 ? $current = $wp_query->query_vars[ 'paged' ] : $current = 1;
 
-		if ( empty( $rules ) ) {
-			$rulestouse = @add_query_arg( 'paged', '%#%' );
-		} else {
-			$rulestouse = @add_query_arg( 'page', '%#%' );
-		}
+		// Setting up default values based on the current URL.
+		$pagenum_link = html_entity_decode( get_pagenum_link() );
+		$url_parts    = explode( '?', $pagenum_link );
+
+		// Append the format placeholder to the base URL.
+		$pagenum_link = trailingslashit( $url_parts[0] ) . '%_%';
+		
+		// URL base depends on permalink settings.
+		$format  = $wp_rewrite->using_index_permalinks() && ! strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
+		$format .= $wp_rewrite->using_permalinks() ? user_trailingslashit(
+			$wp_rewrite->pagination_base . '/%#%', 'paged'
+		) : '?paged=%#%';
 
 		if ( ! $args ) {
 			// default arguments
 			$args = array(
-				'base'         => $rulestouse,
-				'format'       => '',
+				'base'         => $pagenum_link,
+				'format'       => $format,
 				'total'        => $wp_query->max_num_pages,
 				'current'      => $current,
 				'show_all'     => FALSE,
