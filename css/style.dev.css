@@ -2,7 +2,7 @@
 /**
  * Documentation layout
  * 
- * @version     2015-08-25
+ * @version     2016-05-25
  * @author      Frank Bültge
  */
 
@@ -45,18 +45,22 @@ em {
 }
 
 h2 {
-	font-size: 140%;
+	font-size: 160%;
 }
 
 h3 {
-	font-size: 120%;
+	font-size: 140%;
 }
 
 h4 {
+	font-size: 120%;
+}
+
+h5, h6 {
 	font-size: 100%;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
 	font-family: Georgia, 'Trebuchet MS', 'Lucida Sans', 'Lucida Grande', 'Bitstream Sans Vera', Verdana, Arial, Tahoma, Helvetica, sans-serif;
 	color: #333;
 	clear: both;
