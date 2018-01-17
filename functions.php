@@ -214,8 +214,8 @@ if ( ! function_exists( 'documentation_scripts_styles' ) ) {
 		wp_enqueue_style( 'documentation-style' );
 		wp_enqueue_style( 'documentation-print-style' );
 
-		wp_enqueue_script( 'documentation-responsive-tables' );
-		wp_enqueue_style( 'documentation-responsive-tables' );
+		//wp_enqueue_script( 'documentation-responsive-tables' );
+		//wp_enqueue_style( 'documentation-responsive-tables' );
 	}
 
 } // end if func exists

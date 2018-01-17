@@ -46,6 +46,7 @@ em {
 
 h2 {
 	font-size: 160%;
+	border-bottom: 1px solid #eee;
 }
 
 h3 {
@@ -155,13 +156,13 @@ blockquote p:after {
 
 .single h2 {
 	border-bottom: 1px solid #eee;
+	margin-bottom: 1em;
 }
 
 .story .info, #content .info {
 	clear: both;
-	margin: 1em 0;
+	margin: 0 .5em 1em 0;
 	padding: 0;
-	border-top: 1px solid #eee;
 	text-align: right;
 }
 
@@ -429,7 +430,11 @@ table {
 }
 
 table th, table tr:nth-child(odd) {
-	background: #eee;
+	background-color: #eee;
+}
+
+table col:nth-child(2n+3) {
+	background-color: #ccc;
 }
 
 .alt, .even {
