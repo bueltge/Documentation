@@ -1,16 +1,19 @@
 @charset "utf-8";
 /**
- * Theme Name:       Documentation
- * Theme URI:        https://github.com/bueltge/Documentation
- * Github Theme URI: https://github.com/bueltge/Documentation
- * Description:      A small Theme for WordPress as a documentation-tool.
- * Version:          2.4.0
- * Author:           Frank Bültge
- * Author URI:       http://bueltge.de/
- * Tags:             white, blue, two-columns, left-sidebar, right-sidebar, fixed-layout, threaded-comments, translation-ready, custom-background, custom-header, custom-menu, theme-options
- * License:          GPLv2+
- * License URI:      assets/license.txt
- * Text Domain:      documentation
+ * Theme Name:        Documentation
+ * Theme URI:         https://github.com/bueltge/Documentation
+ * Github Theme URI:  https://github.com/bueltge/Documentation
+ * Description:       A small Theme for WordPress as a documentation-tool.
+ * Version:           2.4.1
+ * Requires at least: 3.4
+ * Tested up to:      4.9
+ * Requires PHP:      5.2
+ * Author:            Frank Bültge
+ * Author URI:        https://bueltge.de/
+ * Tags:              white, blue, two-columns, left-sidebar, right-sidebar, fixed-layout, threaded-comments, translation-ready, custom-background, custom-header, custom-menu, theme-options
+ * License:           GPLv2+
+ * License URI:       ./assets/license.txt
+ * Text Domain:       documentation
  * 
  * 
  * This theme, like WordPress, is licensed under the GPL.
