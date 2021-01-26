@@ -4,7 +4,7 @@
  *
  * @package    WordPress
  * @subpackage Documentation
- * @version    2015-06-10
+ * @version    2021-01-26
  */
 
 tha_content_after();
@@ -16,8 +16,7 @@ if ( ! is_singular() ) {
 </div><!-- #content @see header.php -->
 
 <?php
-if ( ! is_page() )
-	get_sidebar();
+get_sidebar();
 
 tha_footer_before();
 ?>
