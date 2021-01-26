@@ -8,24 +8,25 @@ The focus was on text, customization and responsive tables for view data in diff
 A theme with simple structure, different settings and possibilities with the focus to documentize a topic with WordPress.
 The supports custom settings for background, header, text- and link color and different more. It is possible to set the settings on frontend with the possibilities of the theme *Customizer* in WordPress.
 
-![Screenshot from the customizer](https://raw.github.com/bueltge/Documentation/master/assets/screenshot-1.png)
+![Screenshot from the customizer](./assets/screenshot-1.png)
 
 or the see the [small video](https://vimeo.com/51533540) about the customizer on this theme.
 
 ## Installation
 ### Requirements
-* WordPress (also Multisite) version 3.4 and later (tested at 3.5, 3.6-alpha)
+* WordPress (also Multisite) version 3.4 and later (tested at 4.9)
 * PHP 5.2*
 
 ## Other Notes
 ### Supports the Theme Hook Alliance
 **What? Why?**
 Please see the description to this project on [github.com/zamoose/themehookalliance](https://github.com/zamoose/themehookalliance)
+
 ### License
 Good news, this theme is free for everyone! Since it's released under the GPL, you can use it free of charge on your personal or commercial blog.
 
 ### Contact & Feedback
-The theme is developed current by me ([Frank Bültge](http://bueltge.de))
+The theme is developed current by me ([Frank Bültge](https://bueltge.de))
 
 Please let me know if you like the theme or you hate it or whatever ... Please fork it, add an issue for ideas and bugs.
 
