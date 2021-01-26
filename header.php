@@ -5,16 +5,16 @@
  * @package    WordPress
  * @subpackage Documentation
  * @since      2.0.0
- * @version    2015-06-10
+ * @version    2021-01-26
  */
 ?>
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
 	<head>
 		<?php tha_head_top(); ?>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 		<title><?php wp_title( '|', TRUE, 'right' ); ?> <?php bloginfo( 'name' ); ?></title>
 
