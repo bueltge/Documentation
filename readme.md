@@ -8,7 +8,7 @@ The focus was on text, customization and responsive tables for view data in diff
 A theme with simple structure, different settings and possibilities with the focus to documentize a topic with WordPress.
 The supports custom settings for background, header, text- and link color and different more. It is possible to set the settings on frontend with the possibilities of the theme *Customizer* in WordPress.
 
-![Screenshot from the customizer](./assets/screenshot-1.png)
+![Screenshot from the customizer](assets/screenshot-1.png)
 
 or the see the [small video](https://vimeo.com/51533540) about the customizer on this theme.
 
