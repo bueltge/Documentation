@@ -1,0 +1,41 @@
+{
+	"name": "bueltge/documentation",
+	"description": "A small Theme for WordPress as a documentation-tool.",
+	"type": "wordpress-theme",
+	"keywords": [
+		"WordPress",
+		"Themes"
+	],
+	"homepage": "https://github.com/bueltge/documentation",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Frank Bültge",
+			"homepage": "https://bueltge.de",
+			"email": "frank@bueltge.de",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.2"
+	},
+	"require-dev": {
+		"wptrt/wpthemereview": "^0.2.0",
+		"phpcompatibility/phpcompatibility-wp": "^2.1.0",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+		"roave/security-advisories": "dev-master"
+	},
+	"config": {
+		"optimize-autoloader": true
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"scripts": {
+		"cs": [
+			"@php ./vendor/squizlabs/php_codesniffer/bin/phpcs"
+		],
+		"fixcs": [
+			"@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
+		]
+	}
+}
