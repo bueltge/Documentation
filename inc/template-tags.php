@@ -116,7 +116,7 @@ if ( ! function_exists( 'documentation_post_info' ) ) {
 			// Because get_the_modified_author don't work.
 			$lock = get_post_meta( get_post()->ID, '_edit_lock', true );
 			$lock = explode( ':', $lock );
-			$user = isset( $lock[1] ) ? get_userdata( $lock[1] ) : get_post_meta( $post->ID, '_edit_last', true );
+			$user = isset( $lock[1] ) ? get_userdata( $lock[1] ) : get_userdata( get_post_meta( get_post()->ID, '_edit_last', true ) );
 			$user = isset( $user->display_name ) ? $user->display_name : '';
 
 			printf(
