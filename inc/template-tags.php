@@ -111,12 +111,19 @@ if ( ! function_exists( 'documentation_post_info' ) ) {
 					'<br>'
 				);
 			}
+			
+			// Get User name of last modification.
+			// Because get_the_modified_author don't work.
+			$lock = get_post_meta( get_post()->ID, '_edit_lock', true );
+			$lock = explode( ':', $lock );
+			$user = isset( $lock[1] ) ? get_userdata( $lock[1] ) : get_post_meta( $post->ID, '_edit_last', true );
+			$user = isset( $user->display_name ) ? $user->display_name : '';
 
 			printf(
 				esc_attr__( '%s updated at %s by %s, write at %s by %s', 'documentation' ),
 				get_the_tag_list( esc_attr__( 'Tags:', 'documentation' ) . ' ', ', ', '<br>' ),
 				esc_html( get_the_modified_date() ),
-				esc_html( get_the_modified_author() ),
+				esc_html( $user ), //get_the_modified_author() ),
 				esc_html( get_the_date() ),
 				esc_html( get_the_author() )
 			);
