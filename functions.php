@@ -107,6 +107,11 @@ if ( ! function_exists( 'documentation_setup' ) ) {
 			require_if_theme_supports( 'tha_hooks', get_template_directory() . '/inc/tha-1.0/tha-theme-hooks.php' );
 		}
 
+		add_theme_support( 'responsive-embeds' );
+		// Add support for block styles.
+		add_theme_support( 'wp-block-styles' );
+		// Add suppport for html5 markup.
+		add_theme_support( 'html5', array('style','script', ) );
 		// Add default posts and comments RSS feed links to <head>.
 		add_theme_support( 'automatic-feed-links' );
 
