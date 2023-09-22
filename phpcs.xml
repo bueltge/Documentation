@@ -19,7 +19,7 @@
 	<arg name="extensions" value="php"/> <!-- Limit to PHP files -->
 
 	<!-- For help in understanding this testVersion:
-		https://github.com/PHPCompatibility/PHPCompatibility#sniffing-your-code-for-compatibility-with-specific-php-version--->
+		https://github.com/PHPCompatibility/PHPCompatibility#sniffing-your-code-for-compatibility-with-specific-php-version -->
 	<config name="testVersion" value="5.2-"/>
 	<!-- Rules: Check PHP version compatibility - see
 		https://github.com/PHPCompatibility/PHPCompatibilityWP -->
