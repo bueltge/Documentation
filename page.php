@@ -20,11 +20,11 @@ if ( have_posts() ) :
 		// If comments are open or we have at least one comment, load up the comment template.
 		if ( comments_open() || '0' != get_comments_number() )
 			comments_template();
-		
 	endwhile;
 	
 	tha_content_bottom();
 else:
+
 	/**
 	 * Include the template for the loop dosn't find and result
 	 * If you will overwrite this in in a child theme the include a file
