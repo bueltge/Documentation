@@ -23,6 +23,7 @@ if ( have_posts() ) :
 	endwhile;
 	
 	tha_content_bottom();
+	
 else:
 
 	/**
