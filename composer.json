@@ -3,8 +3,8 @@
 	"description": "A small Theme for WordPress as a documentation-tool.",
 	"type": "wordpress-theme",
 	"keywords": [
-		"WordPress",
-		"Themes"
+		"wordpress",
+		"themes"
 	],
 	"homepage": "https://github.com/bueltge/documentation",
 	"license": "GPL-2.0-or-later",
@@ -17,25 +17,36 @@
 		}
 	],
 	"require": {
-		"php": ">=5.2"
+		"php": ">=7.4"
 	},
 	"require-dev": {
 		"wptrt/wpthemereview": "^0.2.0",
-		"phpcompatibility/phpcompatibility-wp": "^2.1.0",
-		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-		"roave/security-advisories": "dev-master"
+		"dealerdirect/phpcodesniffer-composer-installer": "*",
+		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"squizlabs/php_codesniffer": "^3",
+		"wp-coding-standards/wpcs": "^3.0.0"
 	},
 	"config": {
-		"optimize-autoloader": true
+		"optimize-autoloader": true,
+		"sort-packages": true,
+		"allow-plugins": {
+			"composer/*": true,
+			"roots/wordpress-core-installer": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
 	},
 	"minimum-stability": "dev",
 	"prefer-stable": true,
 	"scripts": {
-		"cs": [
-			"@php ./vendor/squizlabs/php_codesniffer/bin/phpcs"
-		],
-		"fixcs": [
-			"@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
+		"cs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+		"csf": "@php ./vendor/bin/phpcbf",
+		"pu": "@php ./vendor/bin/phpunit",
+		"qa": [
+			"@cs",
+			"@pu"
 		]
+	},
+	"extra": {
+		"wordpress-install-dir": "vendor/roots/wordpress"
 	}
 }
