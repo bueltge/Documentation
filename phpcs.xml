@@ -20,16 +20,13 @@
 
 	<!-- For help in understanding this testVersion:
 		https://github.com/PHPCompatibility/PHPCompatibility#sniffing-your-code-for-compatibility-with-specific-php-version -->
-	<config name="testVersion" value="5.2-"/>
+	<config name="testVersion" value="7.4-"/>
 	<!-- Rules: Check PHP version compatibility - see
 		https://github.com/PHPCompatibility/PHPCompatibilityWP -->
 	<rule ref="PHPCompatibilityWP"/>
 
 	<!-- Ensure the compatiblity with previous 3 versions.  -->
 	<config name="minimum_supported_wp_version" value="4.0"/>
-
-	<!-- Include the WordPress Themes Team Review coding standards. -->
-	<rule ref="WPThemeReview" />
 
 	<!-- Let's also check that everything is properly documented. -->
 	<rule ref="WordPress-Docs"/>
