@@ -157,7 +157,7 @@ class Documentation_Admin_Branding {
 	 */
 	public function admin_footer_text( $text ) {
 
-		$text_arr = explode( ' &bull; ', $text );
+		$text_arr = explode( ' &bull; ', $text ?? '' );
 
 		if ( $designer = $this->designer_link() ) {
 			array_unshift( $text_arr, $designer );
